@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-error-container":"#93000a","on-primary-fixed-variant":"#45474b","on-secondary":"#ffffff","primary-fixed-dim":"#c6c6cc","background":"#fcf8ff","primary":"#000000","tertiary-container":"#40000f","inverse-surface":"#2f2e46","surface-bright":"#fcf8ff","surface":"#fcf8ff","surface-variant":"#e3dfff","on-secondary-fixed":"#1b0063","on-surface-variant":"#45474b","inverse-on-surface":"#f2eeff","secondary-fixed":"#e5deff","surface-container-low":"#f6f2ff","secondary-container":"#6a45fe","on-tertiary-container":"#ef4162","on-surface":"#1a1930","primary-container":"#1a1c20","outline":"#76777b","on-secondary-container":"#efe9ff","on-tertiary-fixed-variant":"#91002d","tertiary-fixed-dim":"#ffb2b8","error-container":"#ffdad6","surface-tint":"#5d5e63","surface-container-high":"#e9e5ff","on-error":"#ffffff","on-background":"#1a1930","secondary":"#5120e6","surface-container-highest":"#e3dfff","surface-container-lowest":"#ffffff","on-primary":"#ffffff","on-tertiary-fixed":"#40000f","error":"#ba1a1a","surface-container":"#efebff","on-primary-container":"#828489","outline-variant":"#c6c6cb","primary-fixed":"#e2e2e8","tertiary-fixed":"#ffdadb","on-primary-fixed":"#1a1c20","inverse-primary":"#c6c6cc","tertiary":"#000000","secondary-fixed-dim":"#c9beff","on-secondary-fixed-variant":"#4500d8","on-tertiary":"#ffffff","surface-dim":"#dad7f7"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xl":"3rem","gutter":"1.25rem","space-lg":"1.75rem","margin-desktop":"2.5rem","space-md":"1rem","margin":"1rem","space-xs":"0.25rem","gutter-desktop":"2rem","space-sm":"0.5rem"},"fontFamily":{"display-hero":["Space Grotesk"],"display-hero-mobile":["Space Grotesk"],"body-md":["Space Grotesk"],"micro-badge":["Space Mono"],"label-mono-lg":["Space Mono"],"headline-lg-mobile":["Space Grotesk"],"body-lg":["Space Grotesk"],"label-mono-sm":["Space Mono"],"headline-md":["Space Grotesk"],"headline-lg":["Space Grotesk"]},"fontSize":{"display-hero":["80px",{"lineHeight":"84px","letterSpacing":"0.08em","fontWeight":"400"}],"display-hero-mobile":["44px",{"lineHeight":"48px","letterSpacing":"0.05em","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"22px","letterSpacing":"0.01em","fontWeight":"400"}],"micro-badge":["9px",{"lineHeight":"11px","letterSpacing":"0.22em","fontWeight":"700"}],"label-mono-lg":["13px",{"lineHeight":"18px","letterSpacing":"0.14em","fontWeight":"400"}],"headline-lg-mobile":["32px",{"lineHeight":"36px","letterSpacing":"0.02em","fontWeight":"400"}],"body-lg":["16px",{"lineHeight":"26px","letterSpacing":"0.01em","fontWeight":"400"}],"label-mono-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.18em","fontWeight":"400"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-lg":["48px",{"lineHeight":"54px","letterSpacing":"0.04em","fontWeight":"400"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/75 backdrop-blur-2xl shadow-[0_1px_8px_rgba(107,70,255,0.06)]"><div class="h-20 w-full px-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md shrink-0"><a class="flex items-center gap-space-sm group" data-path="explorar-prompts" href="#"><div class="w-9 h-9 rounded bg-primary text-on-primary flex items-center justify-center font-display-hero font-bold text-headline-md tracking-tighter">PB</div><div class="flex flex-col"><span class="font-headline-md text-headline-md leading-none tracking-tight text-on-surface">PROMPTBASE</span><span class="font-micro-badge text-micro-badge text-on-surface-variant uppercase tracking-widest">ETHEREAL LAB</span></div></a><div class="flex items-center gap-space-xs"><span class="px-space-xs py-0.5 rounded-full bg-surface-container-high text-on-surface font-micro-badge text-micro-badge uppercase">FD.EXP</span><span class="px-space-xs py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-micro-badge text-micro-badge uppercase">KŌBŌ v2.6</span></div></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-surface-container-high text-on-surface font-headline-md"><a class="px-space-sm py-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-body-md text-body-md" data-path="explorar-prompts" href="#">Explorar Prompts</a><a class="px-space-sm py-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-body-md text-body-md" data-path="generador-ia" href="#">Generador IA</a><a class="px-space-sm py-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-body-md text-body-md" data-path="encargos" href="#">Encargos</a><a class="px-space-sm py-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-body-md text-body-md" data-path="vender-prompts" href="#">Vender Prompts</a><a class="px-space-sm py-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-body-md text-body-md" data-path="mis-compras-libreria" href="#">Mis Compras/Librería</a><a class="px-space-sm py-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-body-md text-body-md" data-path="panel-creador" href="#">Panel Creador</a><a aria-current="page" class="px-space-sm py-1.5 rounded transition-all bg-surface-container-high text-on-surface font-headline-md" data-path="panel-empresa" href="#">Panel Empresa</a></nav><div class="flex items-center gap-space-sm shrink-0"><div class="hidden sm:flex items-center gap-space-xs px-space-sm py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container transition-colors cursor-pointer"><span class="material-symbols-outlined text-[16px]">search</span><span class="font-label-mono-sm text-label-mono-sm">SEARCH PROMPTS</span><span class="px-1.5 py-0.5 rounded bg-surface-container-high font-micro-badge text-micro-badge text-on-surface">⌘K</span></div><div class="flex items-center gap-1.5 px-space-sm py-1.5 rounded-full bg-surface-container text-on-surface"><span class="w-1.5 h-1.5 rounded-full bg-secondary-container animate-pulse"></span><span class="font-label-mono-sm text-label-mono-sm tracking-wider font-bold">148 CRÉDITOS</span></div><a class="hidden md:flex items-center justify-center px-space-md py-2 rounded-full bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container transition-all font-label-mono-lg text-label-mono-lg font-bold tracking-wider uppercase" data-path="vender-prompts" href="#">Vender Prompts</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-200px)]"><div class="flex flex-col w-full">
+<div class="w-full px-margin-desktop py-space-md flex flex-col gap-space-lg">
+<!-- Top Tactical Peripheral Bar & Workspace Title -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pb-space-xs">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-micro-badge text-micro-badge uppercase tracking-widest">
+            TERMINAL EMPRESARIAL // KŌBŌ CLOUD
+          </span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">NODE ID: CORP-NODE-09X</span>
+</div>
+<div class="flex items-baseline gap-space-sm flex-wrap">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Panel Empresa &amp; Equipos Pro</h1>
+<div class="flex items-center gap-space-xs bg-surface-container-high px-space-sm py-1 rounded-full">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-micro-badge text-micro-badge text-on-surface uppercase">PLAN PRO ENTERPRISE // TIER-1</span>
+</div>
+</div>
+</div>
+<!-- Role Selector and Team Quick Switch -->
+<div class="flex items-center gap-space-sm flex-wrap">
+<div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-1.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">corporate_fare</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface font-bold uppercase tracking-wider">ROL: EMPRESA &amp; EQUIPO CREATIVO</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">expand_more</span>
+</div>
+<button class="flex items-center gap-space-xs bg-primary text-on-primary px-space-md py-2 rounded-full shadow-md hover:bg-primary-container transition-all">
+<span class="material-symbols-outlined text-[16px]">group_add</span>
+<span class="font-label-mono-sm text-label-mono-sm uppercase font-bold tracking-widest">Invitar Asiento</span>
+</button>
+<button class="flex items-center justify-center w-9 h-9 rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+</div>
+</div>
+<!-- Corporate KPIs Bento Grid with Speculative Glass Surfaces -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Metric 1: Pooled Team Credits -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-md shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
+<div class="flex items-center justify-between">
+<span class="font-micro-badge text-micro-badge text-on-surface-variant uppercase tracking-widest">POOL DE CRÉDITOS EQUIPO</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">toll</span>
+</div>
+<div class="my-space-md flex flex-col">
+<span class="font-headline-lg text-headline-lg text-on-surface font-display-hero tracking-tight">4,500</span>
+<div class="flex items-center gap-space-xs mt-1">
+<span class="font-label-mono-sm text-label-mono-sm text-secondary font-bold">+650 adquiridos hoy</span>
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">// AUTO-REFILL ON</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-secondary-container h-full rounded-full" style="width: 76%;"></div>
+</div>
+</div>
+<!-- Metric 2: Master IA Vault Prompts -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-md shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
+<div class="flex items-center justify-between">
+<span class="font-micro-badge text-micro-badge text-on-surface-variant uppercase tracking-widest">BÓVEDA DE FÓRMULAS IA</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">lock_open</span>
+</div>
+<div class="my-space-md flex flex-col">
+<span class="font-headline-lg text-headline-lg text-on-surface font-display-hero tracking-tight">64</span>
+<div class="flex items-center gap-space-xs mt-1">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface">100% IP Verificada</span>
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">// SEEDS AUDITADOS</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-0.5 rounded bg-surface-container font-micro-badge text-micro-badge text-on-surface">SDXL</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container font-micro-badge text-micro-badge text-on-surface">MJ v6</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container font-micro-badge text-micro-badge text-on-surface">FLUX.1</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container font-micro-badge text-micro-badge text-on-surface">GPT-4o</span>
+</div>
+</div>
+<!-- Metric 3: Active Team Seats -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-md shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
+<div class="flex items-center justify-between">
+<span class="font-micro-badge text-micro-badge text-on-surface-variant uppercase tracking-widest">MIEMBROS &amp; LICENCIAS</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">badge</span>
+</div>
+<div class="my-space-md flex flex-col">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface font-display-hero tracking-tight">12</span>
+<span class="font-body-md text-body-md text-on-surface-variant">/ 15 ASIENTOS</span>
+</div>
+<div class="flex items-center gap-space-xs mt-1">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface">3 asientos disponibles</span>
+<span class="font-micro-badge text-micro-badge text-secondary font-bold">// EXPANDIR</span>
+</div>
+</div>
+<div class="flex -space-x-1.5 overflow-hidden py-1">
+<div class="inline-block h-6 w-6 rounded-full ring-2 ring-surface bg-primary text-on-primary text-[10px] flex items-center justify-center font-bold">AK</div>
+<div class="inline-block h-6 w-6 rounded-full ring-2 ring-surface bg-secondary text-on-secondary text-[10px] flex items-center justify-center font-bold">MV</div>
+<div class="inline-block h-6 w-6 rounded-full ring-2 ring-surface bg-surface-container-highest text-on-surface text-[10px] flex items-center justify-center font-bold">LR</div>
+<div class="inline-block h-6 w-6 rounded-full ring-2 ring-surface bg-inverse-surface text-inverse-on-surface text-[10px] flex items-center justify-center font-bold">+9</div>
+</div>
+</div>
+<!-- Metric 4: Monthly Budget Consumption with Ring SVG -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-md shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
+<div class="flex items-center justify-between">
+<span class="font-micro-badge text-micro-badge text-on-surface-variant uppercase tracking-widest">PRESUPUESTO MENSUAL</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">account_balance_wallet</span>
+</div>
+<div class="flex items-center justify-between my-space-xs">
+<div>
+<div class="font-headline-md text-headline-md text-on-surface font-display-hero tracking-tight">$504.00</div>
+<div class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">de $1,200.00 / mes (42%)</div>
+</div>
+<!-- Gauge SVG -->
+<svg class="w-12 h-12 transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-highest" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-secondary-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="42, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">CICLO RENUEVA EN 18 DÍAS</span>
+<span class="font-label-mono-sm text-label-mono-sm text-secondary font-bold">AJUSTAR LÍMITE</span>
+</div>
+</div>
+</div>
+<!-- Main Workspace Split: Members and API Telemetry -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter-desktop items-start">
+<!-- Left Column (8 cols): Members Manager & Formula Vault -->
+<div class="xl:col-span-8 flex flex-col gap-space-lg min-w-0">
+<!-- SECTION 1: Gestor de Miembros y Permisos Corporativos -->
+<div class="rounded-xl bg-surface-container-low p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">Gestor de Miembros y Permisos</span>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container font-micro-badge text-micro-badge text-on-surface">12 ACTIVOS</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Asigna roles granulares y cupos de créditos individuales para evitar sobreconsumos no autorizados.</p>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<div class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-full bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">filter_list</span>
+<span class="font-label-mono-sm text-label-mono-sm uppercase">Filtrar Rol</span>
+</div>
+<button class="px-space-sm py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-mono-sm text-label-mono-sm font-bold uppercase hover:bg-secondary-fixed-dim transition-colors">
+                + Añadir Miembro
+              </button>
+</div>
+</div>
+<!-- Members Table -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left min-w-[640px]">
+<thead>
+<tr class="bg-surface-container text-on-surface-variant font-micro-badge text-micro-badge uppercase tracking-wider">
+<th class="py-2.5 px-space-sm rounded-l">COLABORADOR / CORREO</th>
+<th class="py-2.5 px-space-sm">ROL ASIGNADO</th>
+<th class="py-2.5 px-space-sm">LÍMITE MENSUAL CRÉDITOS</th>
+<th class="py-2.5 px-space-sm">CONSUMO ACTUAL</th>
+<th class="py-2.5 px-space-sm">ESTADO IP</th>
+<th class="py-2.5 px-space-sm rounded-r text-right">ACCIÓN</th>
+</tr>
+</thead>
+<tbody class="divide-none font-body-md text-body-md">
+<!-- Member Row 1 -->
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-3 px-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-label-mono-sm">AK</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-md text-body-md font-bold text-on-surface truncate">Aiko Takahashi</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant truncate">aiko@studio-kobo.art</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-sm">
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-micro-badge text-micro-badge uppercase">ORG ADMIN</span>
+</td>
+<td class="py-3 px-space-sm font-label-mono-sm text-label-mono-sm text-on-surface font-bold">ILIMITADO</td>
+<td class="py-3 px-space-sm">
+<div class="flex items-center gap-2">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface">1,420 pts</span>
+<div class="w-16 bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full rounded-full" style="width: 45%;"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-sm">
+<span class="flex items-center gap-1 font-micro-badge text-micro-badge text-secondary font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> ACCESO COMPLETO
+                    </span>
+</td>
+<td class="py-3 px-space-sm text-right">
+<button class="text-on-surface-variant hover:text-on-surface transition-colors p-1">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Member Row 2 -->
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-3 px-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold text-label-mono-sm">MV</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-md text-body-md font-bold text-on-surface truncate">Marcus Vance</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant truncate">m.vance@studio-kobo.art</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-sm">
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-micro-badge text-micro-badge uppercase">PROMPT ENGINEER</span>
+</td>
+<td class="py-3 px-space-sm font-label-mono-sm text-label-mono-sm text-on-surface font-bold">1,000 CR / MES</td>
+<td class="py-3 px-space-sm">
+<div class="flex items-center gap-2">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface">840 pts (84%)</span>
+<div class="w-16 bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-on-tertiary-container h-full rounded-full" style="width: 84%;"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-sm">
+<span class="flex items-center gap-1 font-micro-badge text-micro-badge text-on-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> VERIFICADO
+                    </span>
+</td>
+<td class="py-3 px-space-sm text-right">
+<button class="text-on-surface-variant hover:text-on-surface transition-colors p-1">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Member Row 3 -->
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-3 px-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-label-mono-sm">LR</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-md text-body-md font-bold text-on-surface truncate">Lucia Rossi</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant truncate">lucia@studio-kobo.art</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-sm">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-micro-badge text-micro-badge uppercase">DISEÑADOR SR</span>
+</td>
+<td class="py-3 px-space-sm font-label-mono-sm text-label-mono-sm text-on-surface font-bold">500 CR / MES</td>
+<td class="py-3 px-space-sm">
+<div class="flex items-center gap-2">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface">190 pts (38%)</span>
+<div class="w-16 bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full rounded-full" style="width: 38%;"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-sm">
+<span class="flex items-center gap-1 font-micro-badge text-micro-badge text-on-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> VERIFICADO
+                    </span>
+</td>
+<td class="py-3 px-space-sm text-right">
+<button class="text-on-surface-variant hover:text-on-surface transition-colors p-1">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Member Row 4 -->
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-3 px-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-label-mono-sm">DH</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-md text-body-md font-bold text-on-surface truncate">David Holm</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant truncate">holm.audit@studio-kobo.art</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-sm">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-micro-badge text-micro-badge uppercase">REVISOR IP &amp; LEGAL</span>
+</td>
+<td class="py-3 px-space-sm font-label-mono-sm text-label-mono-sm text-on-surface font-bold">100 CR / MES</td>
+<td class="py-3 px-space-sm">
+<div class="flex items-center gap-2">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface">12 pts (12%)</span>
+<div class="w-16 bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full rounded-full" style="width: 12%;"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-sm">
+<span class="flex items-center gap-1 font-micro-badge text-micro-badge text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span> AUDIT-ONLY
+                    </span>
+</td>
+<td class="py-3 px-space-sm text-right">
+<button class="text-on-surface-variant hover:text-on-surface transition-colors p-1">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- SECTION 2: Bóveda de Fórmulas y Licencias Comerciales IP -->
+<div class="rounded-xl bg-surface-container-low p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">Bóveda de Fórmulas y Licencias Comerciales IP</span>
+<span class="px-space-xs py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-micro-badge text-micro-badge">AUDIT-CERT CERTIFIED</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Registro auditable de prompts corporativos con certificados de propiedad intelectual libre de regalías y seeds reproducibles.</p>
+</div>
+<!-- Corporate Export Actions -->
+<div class="flex items-center gap-space-xs shrink-0 flex-wrap">
+<button class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[16px]">terminal</span>
+<span class="font-label-mono-sm text-label-mono-sm font-bold uppercase">Exportar LangChain</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-full bg-primary text-on-primary hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-[16px]">sync_alt</span>
+<span class="font-label-mono-sm text-label-mono-sm font-bold uppercase">Sync CI/CD Vault</span>
+</button>
+</div>
+</div>
+<!-- Vault Cards Gallery (Visual Items with data-alt & Monospace coordinates) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Vault Item 1 -->
+<div class="rounded-lg bg-surface-container p-space-sm flex flex-col gap-space-sm group hover:bg-surface-container-high transition-all">
+<div class="relative w-full h-44 rounded overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Futuristic architectural concrete pavilion in ethereal misty lavender dawn, sharp geometric shadows, high fashion editorial aesthetic, speculative spatial render, ultra precision 8k digital art" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNG5A0Fr6lzhwEqX0JiyL01XYgfDu7Ja968EioAbTgs2V3XP6_G5ByR3_JOE82aI9A1qY4uSnct43_vTbcoRt6rNUsbTXkmz3W8Vxn9sgyBCVXiT4vgzmP1sNn1dsXXnt5t_FrxG8BtKZlf5CfM7FtFObOkB63erOoXAf1W7hVd_EM5Gctoz9cDCaqItFEhuYBB_49EuDJ-KVMbEbQE3Bih5CanTVwBb2y7OqgqXsd"/>
+<div class="absolute top-2 left-2 px-space-xs py-0.5 rounded bg-surface/85 backdrop-blur-md font-micro-badge text-micro-badge text-on-surface">
+                  SEED #982410982 // FLUX.1 SCHNELL
+                </div>
+<div class="absolute top-2 right-2 px-space-xs py-0.5 rounded bg-primary text-on-primary font-micro-badge text-micro-badge">
+                  LICENCIA COMERCIAL ROYALTY-FREE
+                </div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-lg text-label-mono-lg font-bold text-on-surface">ARCH.HYPER.BRUTALISM // 04</span>
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">HASH: c8f01...99a</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">
+                  Parametric prompt syntax optimized for exterior conceptual styling with controlled directional shadows and soft chromatic diffusion.
+                </p>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[16px]">verified_user</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface font-bold">Certificado IP: #PB-CORP-4882</span>
+</div>
+<button class="font-label-mono-sm text-label-mono-sm text-secondary font-bold hover:underline">
+                  Descargar JSON / SDK →
+                </button>
+</div>
+</div>
+<!-- Vault Item 2 -->
+<div class="rounded-lg bg-surface-container p-space-sm flex flex-col gap-space-sm group hover:bg-surface-container-high transition-all">
+<div class="relative w-full h-44 rounded overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Holographic translucent glass fluid sculpture floating in serene void, iridescent pastel violet and cryogenic azure gradient refractions, speculative tech laboratory exhibition lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgvkK6mOx_opPkU8bxEox4tXypgNmhFzDj7r2GYeKa8qooUb8eq0xtXt_j5gNIJQYpTaiq9dB_Nqwn57OKnUomRuHJ5AIZlDt8jhpszx-QiEizIi50spc8NRhVAksvcnXY8TBEL8WbAfcHdbDpYsi6FA3ErFVyTeFcE50L4BuGLkxnDOocaVJ0PLsFlHX-oWmmQYYUAEfyOChnUQMCnk6GS1PkyDwCryVRl1_X85uZ"/>
+<div class="absolute top-2 left-2 px-space-xs py-0.5 rounded bg-surface/85 backdrop-blur-md font-micro-badge text-micro-badge text-on-surface">
+                  SEED #441029831 // MIDJOURNEY v6.1
+                </div>
+<div class="absolute top-2 right-2 px-space-xs py-0.5 rounded bg-primary text-on-primary font-micro-badge text-micro-badge">
+                  LICENCIA COMERCIAL ROYALTY-FREE
+                </div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-lg text-label-mono-lg font-bold text-on-surface">CHROMATIC.GLASS.MORPH // v2</span>
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">HASH: 7e2d9...41c</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">
+                  Speculative brand system generator with internal refraction variables and multi-surface caustic simulation tokens.
+                </p>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[16px]">verified_user</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface font-bold">Certificado IP: #PB-CORP-5120</span>
+</div>
+<button class="font-label-mono-sm text-label-mono-sm text-secondary font-bold hover:underline">
+                  Descargar JSON / SDK →
+                </button>
+</div>
+</div>
+</div>
+<!-- Bottom Vault Banner: Batch LangChain / LlamaIndex Integration -->
+<div class="rounded bg-surface-container-high/60 p-space-sm flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[24px]">integration_instructions</span>
+<div class="flex flex-col">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface font-bold uppercase">EXPORTADOR AUTOMATIZADO CI/CD</span>
+<span class="font-body-md text-body-md text-on-surface-variant">64 fórmulas listas para sincronización de vector store empresarial.</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">VCS PROTOCOL: GIT-SUBTREE</span>
+<button class="px-space-sm py-1 rounded bg-surface text-on-surface hover:bg-surface-container font-label-mono-sm text-label-mono-sm uppercase font-bold shadow-sm">
+                Generar Token Sync
+              </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (4 cols): API Keys & Telemetry + Tax Invoicing -->
+<div class="xl:col-span-4 flex flex-col gap-space-lg min-w-0">
+<!-- SECTION 3: Claves de API Empresariales & Webhooks -->
+<div class="rounded-xl bg-surface-container-low p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">API &amp; Webhooks</span>
+<span class="font-micro-badge text-micro-badge text-on-surface-variant uppercase">INFERENCIA REMOTA EMPRESARIAL</span>
+</div>
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container animate-ping"></span>
+</div>
+<!-- Token Card -->
+<div class="p-space-sm rounded bg-surface-container flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">KEY: PROD-KOBO-LIVE-904</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface font-micro-badge text-micro-badge">ACTIVA</span>
+</div>
+<div class="flex items-center justify-between bg-surface px-space-sm py-2 rounded">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface truncate">pb_live_9a7f••••••••••••••x14</span>
+<button class="text-on-surface-variant hover:text-on-surface p-1">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-mono-sm text-label-mono-sm">
+<span>Cuota: 250 req/min</span>
+<span>Uso 24h: 18,940 req</span>
+</div>
+</div>
+<!-- Telemetry Live Monitor Graphic (Inline SVG Latency Chart) -->
+<div class="flex flex-col gap-space-xs bg-surface-container p-space-sm rounded">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-sm text-label-mono-sm font-bold text-on-surface uppercase">Latencia &amp; Peticiones (24h)</span>
+<span class="font-micro-badge text-micro-badge text-secondary font-bold">AVG 14.2 MS</span>
+</div>
+<!-- Real-time Sparkline SVG -->
+<div class="w-full h-24 pt-2">
+<svg class="w-full h-full text-secondary" fill="none" viewbox="0 0 300 80">
+<defs>
+<lineargradient id="corpGrad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="currentColor" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="currentColor" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,60 Q25,40 50,55 T100,30 T150,45 T200,20 T250,35 T300,15 L300,80 L0,80 Z" fill="url(#corpGrad)"></path>
+<path d="M0,60 Q25,40 50,55 T100,30 T150,45 T200,20 T250,35 T300,15" fill="none" stroke="currentColor" stroke-width="2"></path>
+<circle class="fill-current" cx="300" cy="15" r="3"></circle>
+</svg>
+</div>
+<div class="flex items-center justify-between font-label-mono-sm text-label-mono-sm text-on-surface-variant pt-1">
+<span>00:00 UTC</span>
+<span>12:00 UTC</span>
+<span class="text-on-surface font-bold">AHORA // OK 200</span>
+</div>
+</div>
+<!-- Webhooks Endpoint Status -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface font-bold uppercase">Endpoint Webhook Activo</span>
+<span class="font-micro-badge text-micro-badge text-secondary">SSL ENCRYPTED</span>
+</div>
+<div class="p-space-xs rounded bg-surface flex items-center justify-between text-on-surface font-label-mono-sm text-label-mono-sm truncate">
+<span class="truncate">https://api.studio-kobo.art/webhooks/pb-inbound</span>
+<span class="material-symbols-outlined text-secondary text-[16px] shrink-0">check_circle</span>
+</div>
+</div>
+<button class="w-full py-2 rounded-full bg-surface-container-high text-on-surface font-label-mono-sm text-label-mono-sm font-bold uppercase hover:bg-surface-container-highest transition-colors">
+            Administrar Claves &amp; Tokens →
+          </button>
+</div>
+<!-- SECTION 4: Facturación y Comprobantes Fiscales (PDF/XML e IVA) -->
+<div class="rounded-xl bg-surface-container-low p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">Facturación &amp; Fiscal</span>
+<span class="font-micro-badge text-micro-badge text-on-surface-variant uppercase">COMPROBANTES CFDI / IVA DEDUCIBLE</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">receipt_long</span>
+</div>
+<!-- Corporate Tax Data Pill -->
+<div class="rounded bg-surface-container p-space-sm flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface font-bold">STUDIO KOBO ART LAB INC.</span>
+<span class="font-micro-badge text-micro-badge text-secondary font-bold">DEDUCCIÓN B2B 100%</span>
+</div>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">NIF / RFC: SKA-240109-8QX</span>
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">RÉGIMEN FISCAL: PERSONAS MORALES CON FINES DE LUCRO</span>
+</div>
+<!-- Invoices Download List -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase font-bold">HISTORIAL DE FACTURAS RECIENTES</span>
+<!-- Invoice Item 1 -->
+<div class="flex items-center justify-between p-space-xs rounded bg-surface hover:bg-surface-container transition-colors">
+<div class="flex flex-col">
+<span class="font-label-mono-sm text-label-mono-sm font-bold text-on-surface">INV-2026-0391 // MARZO</span>
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">$1,200.00 USD (IVA Desglosado $192.00)</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="px-2 py-1 rounded bg-surface-container text-on-surface font-micro-badge text-micro-badge uppercase hover:bg-surface-container-high transition-colors" title="Descargar PDF">
+                  PDF
+                </button>
+<button class="px-2 py-1 rounded bg-secondary-fixed text-on-secondary-fixed font-micro-badge text-micro-badge uppercase hover:bg-secondary-fixed-dim transition-colors" title="Descargar XML Fiscal">
+                  XML
+                </button>
+</div>
+</div>
+<!-- Invoice Item 2 -->
+<div class="flex items-center justify-between p-space-xs rounded bg-surface hover:bg-surface-container transition-colors">
+<div class="flex flex-col">
+<span class="font-label-mono-sm text-label-mono-sm font-bold text-on-surface">INV-2026-0244 // FEBRERO</span>
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">$1,200.00 USD (IVA Desglosado $192.00)</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="px-2 py-1 rounded bg-surface-container text-on-surface font-micro-badge text-micro-badge uppercase hover:bg-surface-container-high transition-colors" title="Descargar PDF">
+                  PDF
+                </button>
+<button class="px-2 py-1 rounded bg-secondary-fixed text-on-secondary-fixed font-micro-badge text-micro-badge uppercase hover:bg-secondary-fixed-dim transition-colors" title="Descargar XML Fiscal">
+                  XML
+                </button>
+</div>
+</div>
+<!-- Invoice Item 3 -->
+<div class="flex items-center justify-between p-space-xs rounded bg-surface hover:bg-surface-container transition-colors">
+<div class="flex flex-col">
+<span class="font-label-mono-sm text-label-mono-sm font-bold text-on-surface">INV-2026-0108 // ENERO</span>
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">$850.00 USD (IVA Desglosado $136.00)</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="px-2 py-1 rounded bg-surface-container text-on-surface font-micro-badge text-micro-badge uppercase hover:bg-surface-container-high transition-colors" title="Descargar PDF">
+                  PDF
+                </button>
+<button class="px-2 py-1 rounded bg-secondary-fixed text-on-secondary-fixed font-micro-badge text-micro-badge uppercase hover:bg-secondary-fixed-dim transition-colors" title="Descargar XML Fiscal">
+                  XML
+                </button>
+</div>
+</div>
+</div>
+<div class="pt-space-xs flex items-center justify-between">
+<a class="font-label-mono-sm text-label-mono-sm text-secondary font-bold hover:underline" href="#">
+              Actualizar Datos de Razón Social
+            </a>
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">AUTO-BILLING ACTIVO</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Corporate Audit & Protocol Bar -->
+<div class="w-full rounded-xl bg-surface-container p-space-md flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">security</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-body-lg font-bold text-on-surface">Bóveda Corporativa Protegida bajo SLA 99.98%</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Todas las licencias comerciales incluyen indemnización por copyright de algoritmos generativos.</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="px-space-md py-2 rounded-full bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors font-label-mono-sm text-label-mono-sm font-bold uppercase">
+          Descargar Auditoría SOC-2
+        </button>
+<button class="px-space-md py-2 rounded-full bg-primary text-on-primary hover:bg-primary-container transition-colors font-label-mono-sm text-label-mono-sm font-bold uppercase shadow-sm">
+          Contactar Account Director
+        </button>
+</div>
+</div>
+</div>
+</div></main><footer class="w-full bg-surface-container-low mt-space-xl shadow-[0_-1px_12px_rgba(107,70,255,0.03)]"><div class="w-full px-margin-desktop py-space-lg"><div class="grid grid-cols-1 md:grid-cols-4 gap-gutter-desktop items-start pb-space-lg"><div class="flex flex-col gap-space-xs"><div class="flex items-center gap-space-xs"><span class="font-headline-md text-headline-md tracking-tight text-on-surface font-bold">PROMPTBASE</span><span class="px-1.5 py-0.5 rounded bg-surface-container-high font-micro-badge text-micro-badge text-on-surface">KŌBŌ EDITION</span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Hypergallery and curated algorithmic prompt laboratory. Speculative visual architecture, prompt engineering systems, and autonomous creative artifacts.</p></div><div class="flex flex-col gap-space-xs"><span class="font-label-mono-sm text-label-mono-sm text-on-surface uppercase tracking-wider font-bold">ÍNDICE DE SISTEMA</span><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="explorar-prompts" href="#">Explorar Prompts</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="generador-ia" href="#">Generador IA</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="encargos" href="#">Encargos de Diseño</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="vender-prompts" href="#">Vender en Hypergallery</a></div><div class="flex flex-col gap-space-xs"><span class="font-label-mono-sm text-label-mono-sm text-on-surface uppercase tracking-wider font-bold">TERMINALES &amp; ACCESOS</span><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="mis-compras-libreria" href="#">Mis Compras &amp; Librería</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="panel-creador" href="#">Panel de Creador</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="panel-empresa" href="#">Panel Enterprise</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="documentacion-api" href="#">Documentación API // KŌBŌ</a></div><div class="flex flex-col gap-space-xs"><span class="font-label-mono-sm text-label-mono-sm text-on-surface uppercase tracking-wider font-bold">INFRAESTRUCTURA</span><div class="flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container w-fit"><span class="w-2 h-2 rounded-full bg-secondary-container animate-ping"></span><span class="font-label-mono-sm text-label-mono-sm text-on-surface">SYSTEM OPERATIONAL 99.98%</span></div><div class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">LATENCY: 14MS // CLOUD REGION: EU-WEST-KŌBŌ</div><div class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">NODE IDENT: ORL 6QX // PROTOCOL: FD.EXP</div></div></div><div class="pt-space-md flex flex-col sm:flex-row items-center justify-between gap-space-sm bg-surface-container-high/40 rounded px-space-md py-space-sm"><div class="flex items-center gap-space-md"><span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">© 2026 PROMPTBASE LABS INC. ALL RIGHTS RESERVED.</span><span class="font-micro-badge text-micro-badge text-on-surface-variant">SPECULATIVE DESIGN SYSTEM</span></div><div class="flex items-center gap-space-md"><a class="font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="terminos-servicio" href="#">TÉRMINOS</a><a class="font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="privacidad" href="#">PRIVACIDAD</a><a class="font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="seguridad" href="#">SEGURIDAD</a></div></div></div></footer></body></html>

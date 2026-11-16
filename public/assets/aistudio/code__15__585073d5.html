@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PromptBase - AI Generation Studio</title>
+<!-- Google Fonts: Space Grotesk & Space Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-surface": "#111317",
+            "on-surface-variant": "rgba(17, 19, 23, 0.7)",
+            "primary": "#111317",
+            "secondary": "#5120e6",
+            "secondary-container": "#6a45fe",
+            "surface": "#fcf8ff",
+            "surface-container": "rgba(255,255,255,0.65)",
+            "outline": "#76777b",
+            "outline-variant": "rgba(17,19,23,0.12)",
+            "tertiary": "#ef4162"
+          },
+          fontFamily: {
+            sans: ["Space Grotesk", "sans-serif"],
+            mono: ["Space Mono", "monospace"]
+          }
+        }
+      }
+    };
+  </script>
+<style data-purpose="custom-styling">
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #fcf8ff;
+      }
+      body {
+        color: #111317;
+        font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+        overflow-x: hidden;
+      }
+    }
+
+    /* Frosted glass utilities */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 16px 40px rgba(17, 19, 23, 0.06), 0 1px 3px rgba(17, 19, 23, 0.02);
+    }
+
+    .glass-pill {
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+    }
+
+    /* Custom scrollbar styling */
+    textarea::-webkit-scrollbar {
+      width: 5px;
+    }
+    textarea::-webkit-scrollbar-thumb {
+      background: rgba(17, 19, 23, 0.15);
+      border-radius: 4px;
+    }
+    textarea::-webkit-scrollbar-thumb:hover {
+      background: rgba(17, 19, 23, 0.3);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between select-none relative font-sans text-[#111317]">
+<!-- 1. PROCEDURAL SHADER BACKGROUND ASSET -->
+<div class="fixed inset-0 w-full h-full -z-10 pointer-events-none" style="display:block;">
+<canvas id="shader-canvas-BACKGROUND" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-BACKGROUND');
+
+  function syncSize() {
+    const w = canvas.clientWidth  || window.innerWidth || 1280;
+    const h = canvas.clientHeight || window.innerHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+varying vec2 v_texCoord;
+
+vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec2 mod289(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec3 permute(vec3 x) { return mod289(((x*34.0)+1.0)*x); }
+
+float snoise(vec2 v) {
+  const vec4 C = vec4(0.211324865405187, 0.366025403784439, -0.577350269189626, 0.024390243902439);
+  vec2 i  = floor(v + dot(v, C.yy) );
+  vec2 x0 = v -   i + dot(i, C.xx);
+  vec2 i1  = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+  vec4 x12 = x0.xyxy + C.xxzz;
+  x12.xy -= i1;
+  i = mod289(i);
+  vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0 )) + i.x + vec3(0.0, i1.x, 1.0 ));
+  vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
+  m = m*m ;
+  m = m*m ;
+  vec3 x = 2.0 * fract(p * C.www) - 1.0;
+  vec3 h = abs(x) - 0.5;
+  vec3 ox = floor(x + 0.5);
+  vec3 a0 = x - ox;
+  m *= 1.79284291400159 - 0.85373472095314 * ( a0*a0 + h*h );
+  vec3 g;
+  g.x  = a0.x  * x0.x  + h.x  * x0.y;
+  g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+  return 130.0 * dot(m, g);
+}
+
+void main() {
+    vec2 st = gl_FragCoord.xy / u_resolution.xy;
+    vec2 mouseNorm = u_mouse / u_resolution;
+    float aspect = u_resolution.x / u_resolution.y;
+    vec2 p = st;
+    p.x *= aspect;
+
+    float t = u_time * 0.16;
+    
+    float n1 = snoise(vec2(p.x * 1.1 + t * 0.4, p.y * 1.1 - t * 0.25));
+    float n2 = snoise(vec2(p.x * 1.8 - t * 0.35 + n1 * 0.5, p.y * 1.8 + t * 0.18));
+    
+    vec2 mPos = mouseNorm;
+    mPos.x *= aspect;
+    float mDist = length(p - mPos);
+    float mInfluence = smoothstep(0.8, 0.0, mDist) * 0.3;
+
+    // Palette: soft lilac / lavender, ethereal ice cyan, gentle rose/peach mist
+    vec3 cLavender = vec3(0.80, 0.81, 0.96);
+    vec3 cIceBlue  = vec3(0.82, 0.92, 0.95);
+    vec3 cPeach    = vec3(0.98, 0.85, 0.90);
+    vec3 cMist     = vec3(0.94, 0.93, 0.98);
+
+    float blend1 = smoothstep(0.1, 0.9, st.x + n1 * 0.25 + mInfluence * 0.15);
+    float blend2 = smoothstep(0.0, 1.0, st.y + n2 * 0.2);
+
+    vec3 col = mix(cLavender, cIceBlue, blend1);
+    col = mix(col, cPeach, blend2 * 0.55 + n1 * 0.12);
+    col = mix(col, cMist, (1.0 - st.y) * 0.35);
+
+    // Subtle film grain
+    float grain = fract(sin(dot(gl_FragCoord.xy + u_time * 12.0, vec2(12.9898,78.233))) * 43758.5453) * 0.02;
+    col += grain;
+
+    gl_FragColor = vec4(col, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- Interactive SFX pill (reference style) -->
+<div class="fixed bottom-5 left-6 z-40 hidden sm:flex items-center gap-2 glass-pill px-3 py-1.5 rounded-full text-[11px] font-mono tracking-widest uppercase cursor-pointer hover:bg-white transition-all shadow-sm group">
+<span class="inline-block w-2.5 h-2.5 rounded-full border border-black/80 flex items-center justify-center text-[8px] leading-none group-hover:bg-black group-hover:text-white transition-colors">◖</span>
+<span>SFX</span>
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse ml-0.5"></span>
+</div>
+<!-- Micro Reference Label Right -->
+<div class="fixed bottom-5 right-6 z-40 hidden lg:flex flex-col items-end text-[9px] font-mono tracking-widest text-[#111317]/50 pointer-events-none select-none uppercase leading-tight">
+<span>→ BLACK</span>
+<span>RED</span>
+<span>GREEN</span>
+<span>YELLOW</span>
+<span>BLUE</span>
+</div>
+<!-- BEGIN: MainHeader -->
+<header class="w-full h-18 py-3.5 border-b border-white/60 px-6 sm:px-10 flex items-center justify-between z-30 bg-white/40 backdrop-blur-xl" data-purpose="top-navigation">
+<!-- Left Navigation & Brand Logo -->
+<div class="flex items-center gap-6">
+<a class="flex items-center gap-2.5 group" href="#">
+<div class="w-8 h-8 rounded-lg bg-black text-white flex items-center justify-center font-mono font-bold text-xs tracking-tighter shadow-sm group-hover:scale-105 transition-transform">
+        PB
+      </div>
+<span class="font-bold text-lg sm:text-xl tracking-tight text-[#111317]">PromptBase</span>
+<span class="hidden md:inline-block px-2 py-0.5 rounded-full border border-black/15 text-[10px] font-mono tracking-widest text-black/60 uppercase">FD.EXP</span>
+</a>
+</div>
+<!-- Right Navigation Menus & Account Actions -->
+<div class="flex items-center gap-2 sm:gap-3 font-mono text-[12px]">
+<!-- Create Pill Navigation (Active) -->
+<a class="px-4 py-1.5 rounded-full font-medium bg-black text-white shadow-sm hover:bg-black/85 transition-all" href="#">
+      Create
+    </a>
+<!-- Navigation Links -->
+<a class="hidden sm:inline-block px-3 py-1.5 rounded-full font-medium text-black/70 hover:text-black hover:bg-white/60 transition-colors uppercase tracking-wider" href="#">
+      Hire
+    </a>
+<a class="hidden sm:inline-block px-3 py-1.5 rounded-full font-medium text-black/70 hover:text-black hover:bg-white/60 transition-colors uppercase tracking-wider" href="#">
+      Sell
+    </a>
+<!-- Chat Messages Icon -->
+<button aria-label="Messages" class="p-2 text-black/60 hover:text-black hover:bg-white/60 rounded-full transition-colors ml-1" title="Messages" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Notification Bell -->
+<button aria-label="Notifications" class="p-2 text-black/60 hover:text-black hover:bg-white/60 rounded-full transition-colors" title="Notifications" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Shopping Cart with Badge -->
+<button aria-label="Cart" class="p-2 text-black/60 hover:text-black hover:bg-white/60 rounded-full transition-colors relative" title="Shopping Cart" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="absolute top-1 right-0.5 bg-[#ef4162] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center font-mono">2</span>
+</button>
+<!-- User Avatar Dropdown Button -->
+<button aria-label="Profile" class="flex items-center gap-1.5 p-0.5 rounded-full hover:opacity-90 ml-1 group" title="Account profile" type="button">
+<img alt="Profile" class="w-7 h-7 rounded-full object-cover ring-2 ring-white/90 shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_7wV0chCwsf6EVnD2jmHrIVaCiowq1nV-GWjfodUkfzesS2Y9Q2lOalD19OWZHMmHr541xwtqqf4KSf_obvIfgi_Kwyli-hDM5WEEIG6VQjNxTMZx4jtZsIcAWm0WZOYWT1Txe-AAa7LzgGXfb_6P5gJJ_lQ1y1OiBmBXdLhtud__7A3cCFktm4vs_2gDSM50Bs9KEjmgVQroH0HGtqBpBYw8jpWveiFnpchvSCxH"/>
+<svg class="w-3.5 h-3.5 text-black/50 group-hover:text-black transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Get Select Premium Pill Button -->
+<button class="ml-1 sm:ml-2 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#ffdadb] text-[#40000f] hover:bg-[#ffb2b8] transition-colors shadow-sm font-mono" type="button">
+<svg class="w-3.5 h-3.5 stroke-[2.2]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Get Select</span>
+</button>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MainContentArea -->
+<main class="flex-1 flex flex-col items-center justify-center px-4 relative py-12" data-purpose="ai-generation-hub">
+<!-- Secondary Top Left Floating Action (History Log Clock) -->
+<div class="absolute left-6 top-6">
+<button aria-label="History" class="p-2.5 text-black/50 hover:text-black glass-pill rounded-full shadow-sm hover:bg-white transition-all" title="Recent History" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Centered Hero Container -->
+<div class="w-full max-w-3xl flex flex-col items-center">
+<!-- Headline Title -->
+<h1 class="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-[#111317] mb-6 text-center">
+      What do you want to create?
+    </h1>
+<!-- Suggested Prompts Stack -->
+<!-- BEGIN: SuggestedPrompts -->
+<div class="flex flex-col items-center gap-2.5 w-full mb-3" data-purpose="quick-prompts" id="suggestions-container">
+<button class="px-5 py-2.5 rounded-full text-xs sm:text-[13px] text-[#111317]/85 glass-pill hover:bg-white hover:text-black hover:shadow-md transition-all max-w-[90%] truncate shadow-sm font-sans" onclick="setPrompt(this.innerText)" type="button">
+        Draft a polite complaint letter to a noisy neighbor
+      </button>
+<button class="px-5 py-2.5 rounded-full text-xs sm:text-[13px] text-[#111317]/85 glass-pill hover:bg-white hover:text-black hover:shadow-md transition-all max-w-[90%] truncate shadow-sm font-sans" onclick="setPrompt(this.innerText)" type="button">
+        Write a product description for wireless headphones
+      </button>
+<button class="px-5 py-2.5 rounded-full text-xs sm:text-[13px] text-[#111317]/85 glass-pill hover:bg-white hover:text-black hover:shadow-md transition-all max-w-[90%] truncate shadow-sm font-sans" onclick="setPrompt(this.innerText)" type="button">
+        Write a motivational speech for a graduation
+      </button>
+</div>
+<!-- Suggestions Shuffle / Reload Button -->
+<button aria-label="Shuffle prompts" class="p-2 text-black/40 hover:text-black rounded-full transition-transform active:rotate-180 duration-300 mb-8" id="btn-shuffle" title="Shuffle prompt ideas" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- END: SuggestedPrompts -->
+<!-- Main Input Box Panel -->
+<!-- BEGIN: InputBoxPanel -->
+<div class="w-full glass-card rounded-3xl p-5 sm:p-6 transition-all" data-purpose="prompt-editor-card">
+<!-- Text Area Input for Prompt Formulation -->
+<textarea class="w-full bg-transparent border-0 resize-none text-sm sm:text-base text-[#111317] placeholder-[#111317]/40 focus:ring-0 focus:outline-none p-2 leading-relaxed font-sans" id="prompt-input" placeholder="Describe what you want to create..." rows="4"></textarea>
+<!-- Bottom Controls Bar (Media Selector, Engine Dropdowns, Tokens & Submit) -->
+<div class="mt-4 pt-3 border-t border-black/5 flex flex-wrap items-center justify-between gap-3">
+<!-- Left Controls: Media Type Tabs + AI Engine Menus -->
+<div class="flex flex-wrap items-center gap-2">
+<!-- Type Tabs Pill Container -->
+<div class="flex items-center bg-white/70 backdrop-blur-md rounded-full p-1 border border-white/90 shadow-inner" data-purpose="media-type-selector">
+<!-- Image Pill -->
+<button class="tab-btn flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-medium text-black/60 hover:text-black transition-colors" onclick="switchTab(this, 'image')" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Image</span>
+</button>
+<!-- Video Pill -->
+<button class="tab-btn flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-medium text-black/60 hover:text-black transition-colors" onclick="switchTab(this, 'video')" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Video</span>
+</button>
+<!-- Text Pill (Active State by Default) -->
+<button class="tab-btn flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-black text-white shadow-sm transition-all" onclick="switchTab(this, 'text')" type="button">
+<svg class="w-3.5 h-3.5" fill="currentColor" viewbox="0 0 24 24">
+<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"></path>
+</svg>
+<span>Text</span>
+</button>
+</div>
+<!-- Model Dropdown 1: Provider (DeepSeek) -->
+<div class="relative inline-block">
+<select class="appearance-none bg-white/70 hover:bg-white text-xs font-mono font-medium text-[#111317] border border-black/10 hover:border-black/25 rounded-full pl-3 pr-7 py-1.5 focus:ring-0 focus:outline-none cursor-pointer transition-colors shadow-sm">
+<option value="deepseek">DeepSeek</option>
+<option value="openai">OpenAI</option>
+<option value="anthropic">Anthropic</option>
+<option value="google">Google Gemini</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-black/50">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+<!-- Model Dropdown 2: Model Version (DeepSeek V4 Pro) -->
+<div class="relative inline-block">
+<select class="appearance-none bg-white/70 hover:bg-white text-xs font-mono font-medium text-[#111317] border border-black/10 hover:border-black/25 rounded-full pl-3 pr-7 py-1.5 focus:ring-0 focus:outline-none cursor-pointer transition-colors shadow-sm">
+<option value="v4-pro">DeepSeek V4 Pro</option>
+<option value="r1">DeepSeek R1</option>
+<option value="chat">DeepSeek Chat</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2.5 text-black/50">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Right Controls: Token Cost + Submit Button -->
+<div class="flex items-center gap-3 ml-auto">
+<!-- Token Badge Indicator -->
+<div class="flex items-center gap-1.5 text-xs text-[#111317] select-none font-mono">
+<!-- Multicolor badge icon -->
+<svg class="w-4 h-4" fill="none" viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+<path d="M16 4C13.2 4 11 6.2 11 9C11 9.8 11.2 10.5 11.5 11.2C9.5 11.7 8 13.5 8 15.7C8 16.5 8.2 17.2 8.6 17.9C6.5 18.5 5 20.4 5 22.7C5 25.6 7.4 28 10.3 28H14.5V4H16Z" fill="#58C694"></path>
+<path d="M16 4C18.8 4 21 6.2 21 9C21 9.8 20.8 10.5 20.5 11.2C22.5 11.7 24 13.5 24 15.7C24 16.5 23.8 17.2 23.4 17.9C25.5 18.5 27 20.4 27 22.7C27 25.6 24.6 28 21.7 28H17.5V4H16Z" fill="#F87171"></path>
+<path d="M9.5 10C8.5 12 8.5 14.5 9.8 16.5L14.5 16.5V10H9.5Z" fill="#FBBF24"></path>
+<path d="M22.5 10C23.5 12 23.5 14.5 22.2 16.5L17.5 16.5V10H22.5Z" fill="#818CF8"></path>
+</svg>
+<span class="font-bold">4</span>
+</div>
+<!-- Create Button -->
+<button class="px-6 py-2 rounded-full text-xs font-mono font-semibold bg-black text-white hover:bg-black/85 transition-all shadow-md active:scale-95" id="btn-create" type="button">
+            Create
+          </button>
+</div>
+</div>
+</div>
+<!-- END: InputBoxPanel -->
+</div>
+</main>
+<!-- END: MainContentArea -->
+<!-- BEGIN: MainFooter -->
+<footer class="w-full py-6 text-center z-10" data-purpose="sub-actions">
+<a class="text-xs font-mono uppercase tracking-wider text-[#111317]/60 hover:text-black transition-colors inline-flex items-center gap-1.5" href="#">
+<span>Switch to Advanced Builder</span>
+<span class="text-xs">→</span>
+</a>
+</footer>
+<!-- END: MainFooter -->
+<!-- BEGIN: InteractiveHandlers -->
+<script data-purpose="client-interactions">
+    // Fill textarea with clicked prompt suggestion
+    function setPrompt(text) {
+      const textarea = document.getElementById('prompt-input');
+      textarea.value = text.trim();
+      textarea.focus();
+    }
+
+    // Toggle active state for Image / Video / Text media modes
+    function switchTab(clickedBtn, type) {
+      const allButtons = document.querySelectorAll('.tab-btn');
+      allButtons.forEach(btn => {
+        btn.className = "tab-btn flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-medium text-black/60 hover:text-black transition-colors";
+      });
+
+      // Highlight active button with high-contrast jet black aesthetic
+      clickedBtn.className = "tab-btn flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold bg-black text-white shadow-sm transition-all";
+      
+      const textarea = document.getElementById('prompt-input');
+      if (type === 'image') {
+        textarea.placeholder = "Describe the image you want to generate...";
+      } else if (type === 'video') {
+        textarea.placeholder = "Describe the video scene you want to produce...";
+      } else {
+        textarea.placeholder = "Describe what you want to create...";
+      }
+    }
+
+    // Interactive Shuffle action for suggestion pills
+    const samplePrompts = [
+      [
+        "Draft a polite complaint letter to a noisy neighbor",
+        "Write a product description for wireless headphones",
+        "Write a motivational speech for a graduation"
+      ],
+      [
+        "Create a cold outreach email template for B2B sales",
+        "Summarize the key differences between SQL and NoSQL",
+        "Generate a 7-day high protein vegetarian meal plan"
+      ],
+      [
+        "Draft an elevator pitch for an AI productivity startup",
+        "Write a sci-fi micro story set on a desert planet",
+        "Compose a thoughtful thank you note to a mentor"
+      ]
+    ];
+
+    let currentPromptSet = 0;
+    const shuffleBtn = document.getElementById('btn-shuffle');
+    if (shuffleBtn) {
+      shuffleBtn.addEventListener('click', () => {
+        currentPromptSet = (currentPromptSet + 1) % samplePrompts.length;
+        const container = document.getElementById('suggestions-container');
+        container.innerHTML = samplePrompts[currentPromptSet].map(p => `
+          <button type="button" onclick="setPrompt(this.innerText)" class="px-5 py-2.5 rounded-full text-xs sm:text-[13px] text-[#111317]/85 glass-pill hover:bg-white hover:text-black hover:shadow-md transition-all max-w-[90%] truncate shadow-sm font-sans">
+            ${p}
+          </button>
+        `).join('');
+      });
+    }
+
+    // Dynamic submit button feedback
+    const createBtn = document.getElementById('btn-create');
+    const promptInput = document.getElementById('prompt-input');
+
+    promptInput.addEventListener('input', () => {
+      if (promptInput.value.trim().length > 0) {
+        createBtn.classList.remove('bg-black');
+        createBtn.classList.add('bg-[#5120e6]', 'hover:bg-[#4510d0]');
+      } else {
+        createBtn.classList.remove('bg-[#5120e6]', 'hover:bg-[#4510d0]');
+        createBtn.classList.add('bg-black');
+      }
+    });
+  </script>
+<!-- END: InteractiveHandlers -->
+</body></html>

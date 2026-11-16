@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trader's Room Log In - Genesis FX Markets</title>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Custom Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fdf4ff',
+              100: '#fae8ff',
+              500: '#d946ef',
+              600: '#c026d3',
+              dark: '#111317',
+              muted: '#64748b'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          },
+          boxShadow: {
+            'luminous-cyan': '0 0 20px -3px rgba(6, 182, 212, 0.45), 0 0 8px -1px rgba(236, 72, 153, 0.35)',
+            'luminous-pink': '0 0 24px 0px rgba(236, 72, 153, 0.38), 0 0 10px 0px rgba(6, 182, 212, 0.3)',
+            'floating-card': '0 20px 45px -10px rgba(148, 163, 184, 0.18), 0 8px 16px -6px rgba(148, 163, 184, 0.1)',
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles: Luminous Borders and Glow Accents -->
+<style data-purpose="luminous-gradients">
+    /* Subtle iridescent gradient borders and glows */
+    .glow-border-pill {
+      position: relative;
+      background: linear-gradient(#ffffff, #ffffff) padding-box,
+                  linear-gradient(90deg, #06b6d4, #ec4899, #38bdf8) border-box;
+      border: 1.5px solid transparent;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .glow-border-pill:hover {
+      box-shadow: 0 0 22px rgba(6, 182, 212, 0.35), 0 0 14px rgba(236, 72, 153, 0.35);
+      transform: translateY(-1px);
+    }
+
+    /* Primary glowing action button */
+    .btn-radiant-glow {
+      background: linear-gradient(95deg, rgba(6, 182, 212, 0.12) 0%, rgba(236, 72, 153, 0.16) 50%, rgba(56, 189, 248, 0.14) 100%);
+      position: relative;
+      border: 1.5px solid transparent;
+      background-clip: padding-box, border-box;
+      background-origin: padding-box, border-box;
+      background-image: 
+        linear-gradient(to right, #ffffff, #ffffff),
+        linear-gradient(90deg, #00d2ff, #f43f5e, #38bdf8);
+      box-shadow: 0 4px 20px -2px rgba(6, 182, 212, 0.3), 0 0 16px rgba(244, 63, 94, 0.25);
+    }
+
+    .btn-radiant-glow:hover {
+      box-shadow: 0 6px 26px 0px rgba(6, 182, 212, 0.45), 0 0 22px rgba(244, 63, 94, 0.4);
+      transform: translateY(-1px);
+    }
+
+    /* Ambient background gradient meshes */
+    .bg-ethereal-mesh {
+      background-color: #fbf9fd;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(238, 242, 255, 0.9) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(253, 242, 248, 0.85) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(240, 249, 255, 0.85) 0px, transparent 50%);
+    }
+  </style>
+</head>
+<body class="bg-ethereal-mesh text-brand-dark min-h-screen flex flex-col justify-between selection:bg-fuchsia-100 selection:text-fuchsia-800 antialiased font-sans">
+<!-- BEGIN: MainContent -->
+<main class="flex-grow flex items-center justify-center px-4 sm:px-6 lg:px-10 py-8 lg:py-12" data-purpose="authentication-screen-container">
+<div class="w-full max-w-6xl mx-auto flex flex-col items-center">
+<!-- Top Title aligned with card aesthetics -->
+<div class="w-full flex justify-end mb-4 lg:mb-6 pr-2 lg:pr-12">
+<h1 class="text-3xl md:text-4xl font-bold tracking-tight text-neutral-900" data-purpose="page-headline">
+          Trader’s Room Log In
+        </h1>
+</div>
+<!-- Dual Column Layout: Left Poster Art + Right Auth Card -->
+<div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+<!-- BEGIN: LeftArtworkSection -->
+<!-- Robot Visual Presentation with Sparkhub Badge -->
+<section class="lg:col-span-6 flex justify-center items-center" data-purpose="brand-artwork">
+<div class="relative w-full max-w-[510px] aspect-square rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 bg-slate-900 group">
+<img alt="Sparkhub AI friendly robot holding holographic glowing cube" class="w-full h-full object-cover object-left-top transform group-hover:scale-102 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDLddaNwAgXtACMC4DZE4kp3vEJBazcyFr2GkVj1qy6LttbasWCrcdom_JaNK9DcHwfQYQubSUV7BqNqszUHiNwbfBCq1aeXe7bzossfIjnExJJNWjTw4EKSfYi_tlC6rEF8K-qkksUVaPslzZWM0IFGqKcR9qKfvMY2VHEz5knqeEzORdNL1r1rkbpePtMOJikgXg-4HzAdS64uIKBN5s3LY36jiqNxZFfHZgCqbgcNayBWEpTlzZ8A"/>
+<!-- Soft ambient overlay ring -->
+<div class="absolute inset-0 rounded-3xl ring-1 ring-inset ring-black/10 pointer-events-none"></div>
+</div>
+</section>
+<!-- END: LeftArtworkSection -->
+<!-- BEGIN: RightAuthCard -->
+<!-- Refined White Luminous Login Card -->
+<section class="lg:col-span-6 flex justify-center lg:justify-start" data-purpose="login-form-wrapper">
+<div class="w-full max-w-[490px] bg-white/95 backdrop-blur-xl border border-slate-200/90 rounded-3xl p-7 sm:p-9 shadow-floating-card relative">
+<!-- Card Subheader & Multi-step indicator -->
+<div class="flex items-center justify-between mb-7">
+<span class="text-lg font-semibold tracking-tight text-neutral-800">
+                Welcome back!
+              </span>
+<span class="text-xs font-medium text-slate-500 bg-slate-100/90 border border-slate-200 px-3 py-1 rounded-full shadow-sm">
+                Step 1 of 5
+              </span>
+</div>
+<!-- Social Authentication Option -->
+<div class="mb-5">
+<button class="w-full h-12 rounded-full flex items-center justify-center gap-3 text-sm font-medium text-neutral-800 glow-border-pill shadow-sm" data-purpose="google-oauth-button" type="button">
+<!-- Official Google "G" Icon -->
+<svg class="w-4 h-4 shrink-0" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"></path>
+</svg>
+<span>Sign In with Google</span>
+</button>
+</div>
+<!-- Login Credentials Form -->
+<form action="#" class="space-y-4" method="POST" onsubmit="event.preventDefault();">
+<!-- Input: Email -->
+<div class="relative">
+<input class="w-full h-12 px-5 text-sm text-neutral-900 placeholder:text-slate-400 bg-white border border-slate-300 rounded-full focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-200" data-purpose="email-input-field" id="email" name="email" placeholder="Email" required="" type="email"/>
+</div>
+<!-- Input: Password with Eye Toggle -->
+<div class="relative flex items-center">
+<input class="w-full h-12 pl-5 pr-12 text-sm text-neutral-900 placeholder:text-slate-400 bg-white border border-slate-300 rounded-full focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-200" data-purpose="password-input-field" id="password" name="password" placeholder="Password" required="" type="password"/>
+<!-- Visibility toggle icon button -->
+<button aria-label="Toggle password visibility" class="absolute right-4 text-slate-400 hover:text-cyan-600 focus:outline-none transition-colors" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l18 18" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+</button>
+</div>
+<!-- Input: CODE (Optional) -->
+<div class="relative">
+<input class="w-full h-12 px-5 text-sm text-neutral-900 placeholder:text-slate-400 bg-white border border-slate-300 rounded-full focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-200" data-purpose="optional-code-field" id="code" name="code" placeholder="CODE (Optional)" type="text"/>
+</div>
+<!-- Primary Submit Button -->
+<div class="pt-2">
+<button class="w-full h-12 rounded-full font-medium text-sm text-neutral-900 flex items-center justify-center gap-2 btn-radiant-glow transition-all" data-purpose="sign-in-submit-button" type="submit">
+<span>Sign In</span>
+<span class="text-base font-normal">→</span>
+</button>
+</div>
+<!-- Forgot Password Link -->
+<div class="text-center pt-1">
+<a class="text-sm font-medium text-cyan-600 hover:text-cyan-700 transition-colors" data-purpose="forgot-password-link" href="#forgot-password">
+                  Forgot Password?
+                </a>
+</div>
+<!-- Registration Prompt Link -->
+<div class="text-center pt-3 border-t border-slate-100">
+<span class="text-sm text-slate-500">New to Genesis? </span>
+<a class="text-sm font-semibold text-rose-500 hover:text-rose-600 transition-colors" data-purpose="register-account-link" href="#register">
+                  Register Now
+                </a>
+</div>
+</form>
+</div>
+</section>
+<!-- END: RightAuthCard -->
+</div>
+</div>
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: BottomFooterBar -->
+<footer class="w-full border-t border-slate-200/80 bg-white/80 backdrop-blur-md py-4 px-6 lg:px-12 relative z-10" data-purpose="site-footer">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 gap-3 md:gap-6">
+<!-- Copyright text -->
+<div class="tracking-normal" data-purpose="copyright-notice">
+        © 2026 Genesis FX Markets. All rights reserved.
+      </div>
+<!-- Footer Policy Links -->
+<nav aria-label="Legal and Policy links" class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+<a class="hover:text-neutral-900 transition-colors" href="#terms">Terms &amp; Conditions</a>
+<a class="hover:text-neutral-900 transition-colors" href="#privacy">Privacy Policy</a>
+<a class="hover:text-neutral-900 transition-colors" href="#risk">Risk Disclosure</a>
+<a class="hover:text-neutral-900 transition-colors" href="#aml">Anti-Money Laundering</a>
+<a class="hover:text-neutral-900 transition-colors" href="#cookie">Cookie Policy</a>
+</nav>
+</div>
+</footer>
+<!-- END: BottomFooterBar -->
+<!-- BEGIN: FloatingChatWidget -->
+<!-- Support Chat Floating Pill Button in Bottom Right -->
+<aside aria-label="Live customer support" class="fixed bottom-6 right-6 z-50">
+<button aria-label="Open support chat" class="w-14 h-14 rounded-full bg-white shadow-xl border border-slate-200/80 p-1 flex items-center justify-center transition-transform hover:scale-105 active:scale-95 group focus:outline-none" data-purpose="floating-chat-trigger" type="button">
+<!-- Gradient Aura behind chat icon -->
+<div class="w-full h-full rounded-full bg-gradient-to-tr from-cyan-400 via-purple-400 to-pink-400 flex items-center justify-center p-[2px] shadow-sm">
+<div class="w-full h-full bg-neutral-900 rounded-full flex items-center justify-center text-white">
+<!-- Chat / Support Bubble Icon -->
+<svg class="w-6 h-6 text-white" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2C6.477 2 2 6.141 2 11.25c0 2.628 1.196 5.003 3.14 6.67-.18 1.48-.755 2.92-1.745 4.08 2.228 0 4.195-.91 5.565-2.235.975.312 2.02.485 3.04.485 5.523 0 10-4.141 10-9.25S17.523 2 12 2zm-3.5 10a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm3.5 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm3.5 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5z"></path>
+</svg>
+</div>
+</div>
+</button>
+</aside>
+<!-- END: FloatingChatWidget -->
+<!-- JavaScript: Password Visibility Toggle Handler -->
+<script data-purpose="password-visibility-toggle">
+    document.addEventListener('DOMContentLoaded', () => {
+      const passwordInput = document.getElementById('password');
+      const toggleBtn = passwordInput?.nextElementSibling;
+
+      if (toggleBtn && passwordInput) {
+        toggleBtn.addEventListener('click', () => {
+          const isPassword = passwordInput.getAttribute('type') === 'password';
+          passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+          toggleBtn.classList.toggle('text-cyan-600', isPassword);
+        });
+      }
+    });
+  </script>
+</body></html>

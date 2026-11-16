@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-tint": "#5d5e63", "surface": "#fcf8ff", "secondary": "#5120e6", "on-tertiary": "#ffffff", "secondary-fixed-dim": "#c9beff", "on-primary": "#ffffff", "on-tertiary-fixed": "#40000f", "inverse-on-surface": "#f2eeff", "secondary-fixed": "#e5deff", "on-secondary-fixed": "#1b0063", "on-tertiary-fixed-variant": "#91002d", "on-secondary-fixed-variant": "#4500d8", "outline": "#76777b", "primary-container": "#1a1c20", "surface-container-lowest": "#ffffff", "primary-fixed-dim": "#c6c6cc", "on-secondary": "#ffffff", "error-container": "#ffdad6", "inverse-primary": "#c6c6cc", "on-primary-fixed": "#1a1c20", "error": "#ba1a1a", "on-secondary-container": "#efe9ff", "on-surface": "#1a1930", "outline-variant": "#c6c6cb", "on-error": "#ffffff", "tertiary": "#000000", "on-surface-variant": "#45474b", "on-primary-container": "#828489", "primary": "#000000", "on-background": "#1a1930", "on-primary-fixed-variant": "#45474b", "background": "#fcf8ff", "surface-container": "#efebff", "secondary-container": "#6a45fe", "on-tertiary-container": "#ef4162", "surface-dim": "#dad7f7", "surface-bright": "#fcf8ff", "tertiary-fixed": "#ffdadb", "tertiary-container": "#40000f", "surface-container-low": "#f6f2ff", "surface-container-highest": "#e3dfff", "inverse-surface": "#2f2e46", "surface-variant": "#e3dfff", "primary-fixed": "#e2e2e8", "tertiary-fixed-dim": "#ffb2b8", "surface-container-high": "#e9e5ff", "on-error-container": "#93000a" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "margin": "1rem", "space-lg": "1.75rem", "gutter-desktop": "2rem", "space-sm": "0.5rem", "space-xl": "3rem", "gutter": "1.25rem", "margin-desktop": "2.5rem", "space-md": "1rem" }, "fontFamily": { "micro-badge": [ "Space Mono" ], "label-mono-lg": [ "Space Mono" ], "headline-md": [ "Space Grotesk" ], "headline-lg-mobile": [ "Space Grotesk" ], "body-md": [ "Space Grotesk" ], "label-mono-sm": [ "Space Mono" ], "display-hero-mobile": [ "Space Grotesk" ], "display-hero": [ "Space Grotesk" ], "headline-lg": [ "Space Grotesk" ], "body-lg": [ "Space Grotesk" ] }, "fontSize": { "micro-badge": [ "9px", { "lineHeight": "11px", "letterSpacing": "0.22em", "fontWeight": "700" } ], "label-mono-lg": [ "13px", { "lineHeight": "18px", "letterSpacing": "0.14em", "fontWeight": "400" } ], "headline-md": [ "24px", { "lineHeight": "32px", "letterSpacing": "0.02em", "fontWeight": "500" } ], "headline-lg-mobile": [ "32px", { "lineHeight": "36px", "letterSpacing": "0.02em", "fontWeight": "400" } ], "body-md": [ "14px", { "lineHeight": "22px", "letterSpacing": "0.01em", "fontWeight": "400" } ], "label-mono-sm": [ "10px", { "lineHeight": "14px", "letterSpacing": "0.18em", "fontWeight": "400" } ], "display-hero-mobile": [ "44px", { "lineHeight": "48px", "letterSpacing": "0.05em", "fontWeight": "400" } ], "display-hero": [ "80px", { "lineHeight": "84px", "letterSpacing": "0.08em", "fontWeight": "400" } ], "headline-lg": [ "48px", { "lineHeight": "54px", "letterSpacing": "0.04em", "fontWeight": "400" } ], "body-lg": [ "16px", { "lineHeight": "26px", "letterSpacing": "0.01em", "fontWeight": "400" } ] } } } }</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed"><header class="fixed top-0 w-full z-50 bg-surface/75 backdrop-blur-2xl shadow-[0_1px_8px_rgba(81,32,230,0.04)]"><div class="h-20 w-full px-margin md:px-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-sm group" data-path="explorar-prompts" href="#"><div class="w-9 h-9 rounded-lg bg-primary flex items-center justify-center shadow-[0_4px_16px_rgba(0,0,0,0.12)]"><span class="font-micro-badge text-micro-badge text-on-primary">PB</span></div><div class="flex flex-col"><span class="font-headline-md text-headline-md tracking-tighter text-on-surface leading-none">PromptBase</span><span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">EXP // 2026</span></div></a><div class="hidden xl:flex items-center bg-surface-container-low px-space-md py-space-xs rounded-full gap-space-sm"><span class="material-symbols-outlined text-outline text-[16px]">search</span><span class="font-label-mono-sm text-label-mono-sm text-outline">INPUT QUERY //</span><kbd class="font-micro-badge text-micro-badge bg-surface-container px-1.5 py-0.5 rounded text-on-surface-variant">⌘K</kbd></div></div><nav class="hidden lg:flex items-center gap-space-xs p-space-xs rounded-full bg-surface-container-lowest/60" data-active-classes="bg-surface-container text-on-surface font-bold"><a aria-current="page" class="px-space-md py-space-xs rounded-full transition-colors bg-surface-container text-on-surface font-bold" data-path="explorar-prompts" href="#">Explorar Prompts</a><a class="font-body-md text-body-md px-space-md py-space-xs rounded-full text-on-surface-variant hover:text-on-surface transition-colors" data-path="generador-ia" href="#">Generador IA</a><a class="font-body-md text-body-md px-space-md py-space-xs rounded-full text-on-surface-variant hover:text-on-surface transition-colors" data-path="vender-prompts" href="#">Vender Prompts</a><a class="font-body-md text-body-md px-space-md py-space-xs rounded-full text-on-surface-variant hover:text-on-surface transition-colors" data-path="top-creadores" href="#">Top Creadores</a><a class="font-body-md text-body-md px-space-md py-space-xs rounded-full text-on-surface-variant hover:text-on-surface transition-colors" data-path="mis-compras-biblioteca" href="#">Mis Compras / Biblioteca</a></nav><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center font-label-mono-lg text-label-mono-lg bg-secondary text-on-secondary px-space-lg py-space-sm rounded-full hover:bg-secondary-container hover:text-on-secondary-container transition-all shadow-[0_0_24px_rgba(81,32,230,0.25)]" data-path="vender-prompts" href="#">Vender Prompt</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-140px)]"><div class="flex flex-col w-full">
+<!-- Subtle Ambient Glow Orbs -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-secondary-fixed opacity-40 blur-3xl pointer-events-none"></div>
+<div class="absolute top-96 right-0 w-[500px] h-[500px] rounded-full bg-surface-container-high opacity-60 blur-3xl pointer-events-none"></div>
+<div class="w-full px-margin md:px-margin-desktop py-space-md">
+<!-- Breadcrumb Meta Tracker Strip -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-lg">
+<div class="flex items-center gap-space-xs font-label-mono-sm text-label-mono-sm text-on-surface-variant">
+<a class="hover:text-secondary transition-colors uppercase" data-path="explorar-prompts" href="#">PROMPTS</a>
+<span class="text-outline">/</span>
+<span class="text-outline uppercase">3D &amp; SCULPTURAL</span>
+<span class="text-outline">/</span>
+<span class="text-on-surface font-micro-badge text-micro-badge bg-surface-container-high px-space-xs py-0.5 rounded text-secondary">SYS_ID: 884-FLUX</span>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs bg-surface-container-lowest shadow-sm px-space-sm py-1 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface uppercase">TESTED SEED: V3.9 VERIFIED</span>
+</div>
+<span class="font-label-mono-sm text-label-mono-sm text-outline hidden sm:inline">KŌBŌ RUNTIME // 2026</span>
+</div>
+</div>
+<!-- Main Layout Matrix: 12-Column Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-start">
+<!-- Left Column: Large Visual Stage & Output Breakdown (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-xl">
+<!-- Master Viewport & Thumbnails -->
+<div class="flex flex-col gap-space-md">
+<!-- Active Image Viewport -->
+<div class="relative w-full aspect-[16/10] rounded-xl overflow-hidden shadow-xl bg-surface-container group">
+<img class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]" data-alt="Cyber anamorphic 3D character in hyper-futuristic glass exoskeleton, iridescent optical reflections, translucent bioluminescent wires, neon lilac and chrome titanium textures, cinematic atmospheric light, pristine octane render 8k resolution, ethereal white gallery background" id="main-preview" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlVzj-310ahY4foIjXRquNaQXQwhWNC4u9Ri97KddNngBggesmDSCgJwVzBAPwyrTBjxk7xVZu8CWo2hPv69epr0LTG5NIAzG_7AIMVXd7ys5VcDwasPb0E0KVFWgy4C37M6OIrkVSApL5DgeZZgxTLe3rpcpKRtHvY1MvXw5xWsLVje7dPAWU7oKR2B2dJo6ECHLThQuYX8_fsDcR3CDDBINEV28Kr5hX3NLhoF3S"/>
+<!-- Floating Corner Micro Badges -->
+<div class="absolute top-space-md left-space-md flex items-center gap-space-xs pointer-events-none">
+<span class="bg-primary/80 backdrop-blur-md text-on-primary font-micro-badge text-micro-badge px-space-sm py-1 rounded-full uppercase tracking-wider">PREVIEW 01 // SEED #49204</span>
+<span class="bg-surface-container-lowest/80 backdrop-blur-md text-on-surface font-label-mono-sm text-label-mono-sm px-space-sm py-1 rounded-full">FLUX.1 SCHNELL</span>
+</div>
+<div class="absolute top-space-md right-space-md flex items-center gap-space-xs">
+<button aria-label="Expand view" class="w-9 h-9 rounded-full bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-center text-on-surface shadow-sm hover:bg-secondary hover:text-on-secondary transition-all" id="zoom-toggle">
+<span class="material-symbols-outlined text-[18px]">zoom_in</span>
+</button>
+</div>
+<!-- Viewport Bottom HUD Overlay -->
+<div class="absolute bottom-space-md inset-x-space-md p-space-sm rounded-lg bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-space-sm">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface uppercase">PROMPT OUTPUT: CYBER BIO-MECHANIC TITAN</span>
+</div>
+<div class="flex items-center gap-space-md font-label-mono-sm text-label-mono-sm text-on-surface-variant">
+<span>RES: 3840×2160</span>
+<span class="hidden sm:inline">CFG: 3.5</span>
+<span>STEPS: 28</span>
+</div>
+</div>
+</div>
+<!-- Thumbnail Reel (Seed Variations) -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between px-space-xs">
+<span class="font-micro-badge text-micro-badge uppercase text-outline">SELECT SEED OUTPUT VARIATION</span>
+<span class="font-label-mono-sm text-label-mono-sm text-secondary">5 / 5 TEST RUNS LOADED</span>
+</div>
+<div class="grid grid-cols-5 gap-space-sm">
+<!-- Thumb 1 (Active) -->
+<button class="thumb-btn group relative aspect-square rounded-lg overflow-hidden ring-2 ring-secondary transition-all" onclick="switchPreview(this, 'Cyber anamorphic 3D character in hyper-futuristic glass exoskeleton, iridescent optical reflections, translucent bioluminescent wires, neon lilac and chrome titanium textures, cinematic atmospheric light, pristine octane render 8k resolution, ethereal white gallery background', 'PREVIEW 01 // SEED #49204')">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Cyber anamorphic 3D character in hyper-futuristic glass exoskeleton, iridescent optical reflections, translucent bioluminescent wires, neon lilac and chrome titanium textures, cinematic atmospheric light, pristine octane render 8k resolution, ethereal white gallery background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB8ZzBNmkSv3YTBqk0AEkpe_DzMVpgWEqXCSkekJvrAiJnk_I3Uz5naGvBo-4WtuegKdPZ-9LjAt24COYQXXvx8AMtMYUhG6WoE2cvKg7wjLUTHoFEegp_28zGKx8hpt3EJ8GJ-mjt7ugDAF5RJCeeyqKXrleqmtmTUc_-6nmEatlftC8FYSPGNngyaXf-UkGWfAuEh6Wh43VdWTe3MHUptLEFpVUdNFJoVCPItsZs"/>
+<span class="absolute bottom-1 right-1 font-micro-badge text-[8px] bg-primary/70 text-on-primary px-1 rounded">#01</span>
+</button>
+<!-- Thumb 2 -->
+<button class="thumb-btn group relative aspect-square rounded-lg overflow-hidden bg-surface-container opacity-75 hover:opacity-100 transition-all" onclick="switchPreview(this, 'Cybernetic android female bust sculpture crafted from prismatic quartz glass, floating optical laser rings around neck, neon rose gold and cold lavender light, anamorphic studio distortion, hyper-clean hypergallery atmosphere', 'PREVIEW 02 // SEED #81139')">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Cybernetic android female bust sculpture crafted from prismatic quartz glass, floating optical laser rings around neck, neon rose gold and cold lavender light, anamorphic studio distortion, hyper-clean hypergallery atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8sejoxkOEH-JA16Up_Vc3mljcyXEsrZHAeq7f-Jv6nUMA8q8TGFDad8fQPiy3opxW7PO8T0zctS7OLU754_3ZzW0VS5Of99ZQjjeP-1YFsDEeM5xZt5ODCPGqCHfAkYIQUfjv6LRZtz2E1nWBYfD-UaD-E7dWg75aSlFY5QpnH003KBVAagkOsF-VVmyPeEeDAQHRpSs5V_WKzQtPlIv8W-FslrGN8ZE7Y783Q6m2"/>
+<span class="absolute bottom-1 right-1 font-micro-badge text-[8px] bg-primary/70 text-on-primary px-1 rounded">#02</span>
+</button>
+<!-- Thumb 3 -->
+<button class="thumb-btn group relative aspect-square rounded-lg overflow-hidden bg-surface-container opacity-75 hover:opacity-100 transition-all" onclick="switchPreview(this, 'Mecha warrior helmet with anamorphic hyper-wide visor reflections, chrome liquid mercury surface tension, subtle cyan edge backlight, futuristic fine-art rendering, volumetric fog, studio pristine spotlight', 'PREVIEW 03 // SEED #20412')">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Mecha warrior helmet with anamorphic hyper-wide visor reflections, chrome liquid mercury surface tension, subtle cyan edge backlight, futuristic fine-art rendering, volumetric fog, studio pristine spotlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGnxkZbqSuycq0mbf1c4FWQ2ggJBuphjUK1rr2pumVHB8r25WPxXKuP3uSoQcLBvkUnTptGndXK2ZY9jOxunagKK7NtbpjAnftZQXdNLiXSp8U5LGpqzcA85yiBlfaTj2uNxP1rnykF1Am2cjZxAYeu1PGfoQAU3QsgqF1mgCBBT_eHpxsfpCBuO8GOiuUGcNV-Xz2nc1zFYhiEoanoSq3eHRFAGsGLtMsuEOkakof"/>
+<span class="absolute bottom-1 right-1 font-micro-badge text-[8px] bg-primary/70 text-on-primary px-1 rounded">#03</span>
+</button>
+<!-- Thumb 4 -->
+<button class="thumb-btn group relative aspect-square rounded-lg overflow-hidden bg-surface-container opacity-75 hover:opacity-100 transition-all" onclick="switchPreview(this, 'Anamorphic cyberpunk deity floating in void space, delicate obsidian and gold filaments, translucent crystal skull internal gear mechanisms, volumetric soft violet ambient illumination, cinematic octane hyper-render', 'PREVIEW 04 // SEED #99231')">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Anamorphic cyberpunk deity floating in void space, delicate obsidian and gold filaments, translucent crystal skull internal gear mechanisms, volumetric soft violet ambient illumination, cinematic octane hyper-render" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwQxRda4G8b5hG_XU-3N8rMsPfHs1ilEqWFDOIdjN28qRGNc663UvmyA4mEdHh1SiW8yW6AgATALLoQAAKSPMNjYTcqH_Mn9EnZuwzPHia228GHWp4aCLM7ntn00gTBIs3OMi5FsybkAMDdW07gP6niZiQ0em2FpLtDG2LoZBH2oCLgELsk-SnisrC7ChMY3kz1UZ_3nTSII-NDOEntHXt6Cnb_qUapm60vN2lnBTK"/>
+<span class="absolute bottom-1 right-1 font-micro-badge text-[8px] bg-primary/70 text-on-primary px-1 rounded">#04</span>
+</button>
+<!-- Thumb 5 -->
+<button class="thumb-btn group relative aspect-square rounded-lg overflow-hidden bg-surface-container opacity-75 hover:opacity-100 transition-all" onclick="switchPreview(this, 'Deconstructed robotic portrait with exposed iridescent optical wiring and floating crystal polygons, specular reflections, pure ethereal daylight gallery background, sharp macro details, 3D sculptured mastery', 'PREVIEW 05 // SEED #71092')">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Deconstructed robotic portrait with exposed iridescent optical wiring and floating crystal polygons, specular reflections, pure ethereal daylight gallery background, sharp macro details, 3D sculptured mastery" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT3mNFtR9aPgdWH2ICBq_yA2ZJHQJcWFqCeh9yujHH7R1uwekNY5HuWO9qSzp7sBAtMJZ-QRFBc2_dxPaHzn_7v8jPYb8BrBK3FvgNkrwdMFuBD6UAXfO-jaN3veJLN58XPGOug2ofkhQCixiFthfsfxsuNfj3fCsJ2iHDbJ2z_fcYdKTV_osqSyr6V9EZI3oYQEzXYXQauWWgRgy7QmcS_9Tv9WnHX9jLknaxwcPD"/>
+<span class="absolute bottom-1 right-1 font-micro-badge text-[8px] bg-primary/70 text-on-primary px-1 rounded">#05</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Prompt Formula Architecture (Locked Matrix) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-md flex flex-col gap-space-md relative overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">terminal</span>
+<span class="font-headline-md text-headline-md tracking-tight text-on-surface">Arquitectura del Prompt</span>
+</div>
+<span class="font-micro-badge text-micro-badge bg-secondary-fixed text-on-secondary-fixed px-space-sm py-1 rounded-full uppercase">MODULAR FLUX TEMPLATE</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Esta fórmula está configurada para entregar anamorfismo espacial y refracción hiper-realista. Personaliza las variables dinámicas entre corchetes para ajustar el personaje, aumentos ópticos y paleta de iluminación.
+            </p>
+<!-- Prompt Card with Selective Blur -->
+<div class="relative bg-surface-container-low rounded-lg p-space-lg flex flex-col gap-space-sm font-label-mono-lg text-label-mono-lg leading-relaxed text-on-surface">
+<div class="flex flex-wrap items-center gap-2">
+<span class="text-on-surface-variant">/imagine prompt:</span>
+<span class="bg-secondary/10 text-secondary px-2 py-0.5 rounded font-micro-badge text-micro-badge font-bold">[character_type: Android Titan]</span>
+<span>sculptural anamorphic 3D rendering,</span>
+<span class="bg-secondary/10 text-secondary px-2 py-0.5 rounded font-micro-badge text-micro-badge font-bold">[cyber_augment: Prismatic Visor]</span>
+<span>intricate internal fluid channels,</span>
+<span class="bg-secondary/10 text-secondary px-2 py-0.5 rounded font-micro-badge text-micro-badge font-bold">[lighting_hue: Lavender &amp; Chrome]</span>
+<span class="text-outline">cinematic optical dispersion, pristine gallery stage backdrop, octane depth...</span>
+</div>
+<!-- Blurred locked segment -->
+<div class="relative mt-space-xs select-none">
+<div class="blur-md text-on-surface-variant/70 font-mono tracking-tight pointer-events-none">
+                  --ar 16:9 --style raw --v 6.1 --s 750 --c 15 --w titanium-specular-refraction-index:1.45 --dynamic-ambient-softness:0.92 --film-iso-clarity:400 --post-grade:ethereal-minimalism --flux-schnell-native-pass-matrix-v4
+                </div>
+<div class="absolute inset-0 flex items-center justify-center bg-surface-container-low/70 backdrop-blur-[2px]">
+<div class="flex items-center gap-space-xs bg-surface-container-lowest px-space-md py-space-xs rounded-full shadow-md">
+<span class="material-symbols-outlined text-secondary text-[16px]">lock</span>
+<span class="font-label-mono-sm text-label-mono-sm uppercase text-on-surface">Parámetros avanzados y modificadores desbloqueables con la compra</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Variable Slots Guide -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm pt-space-xs">
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col gap-1">
+<span class="font-micro-badge text-micro-badge text-secondary uppercase">[character_type]</span>
+<span class="font-body-md text-body-md text-on-surface">32 presets incluidos</span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">Cyborg, Deidad, Mecha, Bio-Sculpt</span>
+</div>
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col gap-1">
+<span class="font-micro-badge text-micro-badge text-secondary uppercase">[cyber_augment]</span>
+<span class="font-body-md text-body-md text-on-surface">24 aumentos probados</span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">Prisma, Exocore, Filamentos</span>
+</div>
+<div class="bg-surface-container p-space-sm rounded-lg flex flex-col gap-1">
+<span class="font-micro-badge text-micro-badge text-secondary uppercase">[lighting_hue]</span>
+<span class="font-body-md text-body-md text-on-surface">18 matrices cromáticas</span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">Ethereal Rose, Cryo-Ice, Titanium</span>
+</div>
+</div>
+</div>
+<!-- Technical Specs Matrix -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-outline text-[20px]">tune</span>
+<span class="font-headline-md text-headline-md tracking-tight text-on-surface">Especificaciones Técnicas</span>
+</div>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">SYSTEM VERIFICATION REPORT</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-sm">
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-1">
+<span class="font-micro-badge text-micro-badge text-outline uppercase">MOTOR DE IA</span>
+<span class="font-body-lg text-body-lg font-bold text-on-surface">Flux.1 Schnell</span>
+<span class="font-label-mono-sm text-label-mono-sm text-secondary">Black Forest Labs</span>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-1">
+<span class="font-micro-badge text-micro-badge text-outline uppercase">SEED TEST RATE</span>
+<span class="font-body-lg text-body-lg font-bold text-on-surface">100% Passed</span>
+<span class="font-label-mono-sm text-label-mono-sm text-secondary">150/150 Corridas</span>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-1">
+<span class="font-micro-badge text-micro-badge text-outline uppercase">ASPECT RATIO</span>
+<span class="font-body-lg text-body-lg font-bold text-on-surface">16:9 &amp; 9:16</span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">Optimizado Multi-frame</span>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-1">
+<span class="font-micro-badge text-micro-badge text-outline uppercase">TOKEN COUNT</span>
+<span class="font-body-lg text-body-lg font-bold text-on-surface">88 Tokens</span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">Cero redundancias</span>
+</div>
+</div>
+<!-- Compatibility Tag Cloud -->
+<div class="flex flex-wrap items-center gap-space-xs pt-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-outline uppercase mr-2">COMPATIBILIDAD:</span>
+<span class="font-label-mono-sm text-label-mono-sm bg-surface-container px-space-sm py-1 rounded text-on-surface">Midjourney v6.1 (Adaptable)</span>
+<span class="font-label-mono-sm text-label-mono-sm bg-surface-container px-space-sm py-1 rounded text-on-surface">ComfyUI Workflow Incluido</span>
+<span class="font-label-mono-sm text-label-mono-sm bg-surface-container px-space-sm py-1 rounded text-on-surface">Replicate API Ready</span>
+<span class="font-label-mono-sm text-label-mono-sm bg-surface-container px-space-sm py-1 rounded text-on-surface">Guía PDF 14 Págs</span>
+</div>
+</div>
+<!-- Author Info Spotlight Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="relative">
+<div class="w-16 h-16 rounded-xl bg-surface-container overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Avatar portrait of a verified AI prompt engineer wearing minimalist futuristic optics, clean studio lighting, pastel lilac ambient background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8O3QkeBEU3_y_vCDV1oaxPF8NvLaeuW7lzt4w3ak3AuGJa6ACmqRP7YRqsVxHEqpTU4xaiOPxjyaE596E6EpLStnljdKq0xPpunKS7gEPDr88xcizjmAtSUPFBQUIiwpYmJSBN5uonHWH4T5QzN_1S-GBo6Aal2rJ9_RHL6wyBqX3JCrgOp3nwR6Ivaz5vTdGYFl-sZZr0s6_AtT5Kp9hpwhvkvRpYJallRSfiwRI"/>
+</div>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-secondary flex items-center justify-center text-on-secondary shadow-sm">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+</div>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">NeoVisions</span>
+<span class="font-micro-badge text-micro-badge bg-secondary-fixed text-on-secondary-fixed px-space-xs py-0.5 rounded">PRO LEVEL 4</span>
+</div>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">Verified Prompt Engineer // Tokyo, JP</span>
+<div class="flex items-center gap-space-sm font-label-mono-sm text-label-mono-sm pt-1">
+<span class="flex items-center text-secondary font-bold">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                    4.9
+                  </span>
+<span class="text-outline">/ 310 reseñas</span>
+<span class="text-outline">• 1,840 ventas</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm w-full sm:w-auto">
+<button class="flex-1 sm:flex-initial px-space-md py-space-xs rounded-full bg-surface-container text-on-surface font-label-mono-lg text-label-mono-lg hover:bg-surface-container-high transition-colors">
+                Seguir
+              </button>
+<button class="flex-1 sm:flex-initial px-space-md py-space-xs rounded-full bg-primary text-on-primary font-label-mono-lg text-label-mono-lg hover:bg-surface-variant hover:text-on-surface transition-colors">
+                Contratar
+              </button>
+</div>
+</div>
+<!-- User Feedback & Verified Reviews (Ethereal Tone) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-md flex flex-col gap-space-lg">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">Reseñas y Verificación</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">REVIEWS DE COMPRADORES CERTIFICADOS</span>
+</div>
+<div class="flex items-center gap-space-sm bg-surface-container px-space-md py-space-xs rounded-full">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">4.9</span>
+<div class="flex text-secondary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">(18 opiniones)</span>
+</div>
+</div>
+<!-- Review Cards List -->
+<div class="flex flex-col gap-space-md">
+<!-- Review 1 -->
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="font-body-md text-body-md font-bold text-on-surface">Elena K.</span>
+<span class="font-micro-badge text-micro-badge bg-surface-container-highest text-secondary px-1.5 py-0.5 rounded">COMPRA VERIFICADA</span>
+</div>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">Hace 2 días</span>
+</div>
+<div class="flex text-secondary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                  “El control de la refracción en las texturas de cristal es extraordinario. Probé más de 40 iteraciones en Flux.1 y no falló una sola renderización. Vale diez veces lo que cuesta.”
+                </p>
+<div class="font-label-mono-sm text-label-mono-sm text-outline">
+                  Preset utilizado: [Android Titan + Prismatic Visor]
+                </div>
+</div>
+<!-- Review 2 -->
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="font-body-md text-body-md font-bold text-on-surface">Marcus Vance</span>
+<span class="font-micro-badge text-micro-badge bg-surface-container-highest text-secondary px-1.5 py-0.5 rounded">COMPRA VERIFICADA</span>
+</div>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">Hace 1 semana</span>
+</div>
+<div class="flex text-secondary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                  “La guía en PDF incluida para el workflow en ComfyUI es oro puro. Super limpio, cero artefactos anatómicos en las manos y la iluminación anamórfica es impecable.”
+                </p>
+<div class="font-label-mono-sm text-label-mono-sm text-outline">
+                  Preset utilizado: [Mecha Deconstructed + Rose Gold]
+                </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Sticky Purchasing Console (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg lg:sticky lg:top-24">
+<!-- Primary Checkout Terminal -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-xl flex flex-col gap-space-lg relative overflow-hidden">
+<!-- Accent Top Lighting Mesh Bar -->
+<div class="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-secondary-container via-secondary to-secondary-fixed"></div>
+<!-- Product Header -->
+<div class="flex flex-col gap-space-xs pt-1">
+<div class="flex items-center justify-between">
+<span class="font-micro-badge text-micro-badge bg-surface-container-high text-secondary px-space-xs py-0.5 rounded uppercase">PROMPT MASTER PACK</span>
+<span class="flex items-center gap-1 font-label-mono-sm text-label-mono-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                  DESCARGA INMEDIATA
+                </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg tracking-tight text-on-surface leading-tight">
+                Cyber Anamorphic 3D Character
+              </h1>
+<span class="font-label-mono-lg text-label-mono-lg text-on-surface-variant">
+                Optimizado para Flux.1 Schnell &amp; Dev
+              </span>
+</div>
+<!-- Pricing Tier Callout -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex items-end justify-between">
+<div class="flex flex-col">
+<span class="font-label-mono-sm text-label-mono-sm text-outline line-through uppercase">$14.99 USD</span>
+<div class="flex items-baseline gap-1">
+<span class="font-display-hero-mobile text-display-hero-mobile font-bold text-on-surface leading-none">$4.99</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">USD / Licencia Full</span>
+</div>
+</div>
+<span class="bg-secondary-fixed text-on-secondary-fixed font-micro-badge text-micro-badge px-space-sm py-1 rounded-full uppercase">
+                67% OFF LAUNCH
+              </span>
+</div>
+<!-- CTAs and Interaction -->
+<div class="flex flex-col gap-space-sm">
+<button class="w-full bg-secondary text-on-secondary py-space-md px-space-lg rounded-xl font-label-mono-lg text-label-mono-lg font-bold flex items-center justify-center gap-space-xs hover:bg-secondary-container hover:text-on-secondary-container shadow-lg transition-all">
+<span class="material-symbols-outlined text-[20px]">shopping_cart_checkout</span>
+<span>Comprar Prompt Ahora</span>
+</button>
+<div class="grid grid-cols-2 gap-space-sm">
+<button class="py-space-xs px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-mono-sm text-label-mono-sm flex items-center justify-center gap-1.5 transition-colors" id="favorite-btn" onclick="toggleFavorite(this)">
+<span class="material-symbols-outlined text-[16px]" id="fav-icon">favorite_border</span>
+<span id="fav-text">Favoritos (142)</span>
+</button>
+<button class="py-space-xs px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-mono-sm text-label-mono-sm flex items-center justify-center gap-1.5 transition-colors" onclick="copyShareLink(this)">
+<span class="material-symbols-outlined text-[16px]">share</span>
+<span>Compartir</span>
+</button>
+</div>
+</div>
+<!-- Money-back Guarantee & Trust Badges -->
+<div class="bg-surface-container rounded-lg p-space-md flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">verified_user</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="font-body-md text-body-md font-bold text-on-surface">Garantía de Devolución 100%</span>
+<p class="font-label-mono-sm text-label-mono-sm text-on-surface-variant leading-relaxed">
+                  Si el prompt no genera resultados fieles a los ejemplos usando la configuración recomendada, te reembolsamos tu dinero sin preguntas en 48 horas.
+                </p>
+</div>
+</div>
+<!-- Included In Delivery Checkmarks -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<span class="font-micro-badge text-micro-badge text-outline uppercase">TU COMPRA INCLUYE:</span>
+<ul class="flex flex-col gap-2 font-label-mono-sm text-label-mono-sm text-on-surface-variant">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
+<span>Fórmula íntegra de texto con tokens negativos</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
+<span>32 variaciones de variables de catálogo</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
+<span>Semillas probadas (Tested Seeds) para Flux.1</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
+<span>Licencia de uso comercial ilimitado para tus creaciones</span>
+</li>
+</ul>
+</div>
+<!-- System Node Security Fingerprint -->
+<div class="pt-space-xs flex items-center justify-between text-outline font-label-mono-sm text-label-mono-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+<span>PAGO CIFRADO SSL 256-BIT</span>
+</div>
+<span>STRIPE &amp; CRYPTO READY</span>
+</div>
+</div>
+<!-- Secondary Auxiliary Card: Direct Creator Q&A -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[16px]">help_outline</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-bold text-on-surface">¿Dudas con este prompt?</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">Soporte directo de NeoVisions</span>
+</div>
+</div>
+<a class="font-label-mono-sm text-label-mono-sm text-secondary hover:underline uppercase" href="#">CONSULTAR →</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Inline Script for Carousel Interactivity and Micro-Actions -->
+<script>
+    function switchPreview(button, promptDesc, labelText) {
+      const previewImg = document.getElementById('main-preview');
+      if (previewImg) {
+        previewImg.setAttribute('data-alt', promptDesc);
+        // Visual trigger for subtle crossfade imitation
+        previewImg.style.opacity = '0.4';
+        setTimeout(() => {
+          previewImg.style.opacity = '1';
+        }, 150);
+      }
+
+      // Update badge label
+      const badge = document.querySelector('#main-preview').parentElement.querySelector('.font-micro-badge');
+      if (badge && labelText) {
+        badge.textContent = labelText;
+      }
+
+      // Reset rings on all thumbnail buttons
+      document.querySelectorAll('.thumb-btn').forEach(btn => {
+        btn.classList.remove('ring-2', 'ring-secondary', 'opacity-100');
+        btn.classList.add('opacity-75');
+      });
+
+      // Highlight clicked
+      button.classList.add('ring-2', 'ring-secondary', 'opacity-100');
+      button.classList.remove('opacity-75');
+    }
+
+    let isFav = false;
+    function toggleFavorite(btn) {
+      isFav = !isFav;
+      const icon = document.getElementById('fav-icon');
+      const text = document.getElementById('fav-text');
+      if (isFav) {
+        icon.textContent = 'favorite';
+        icon.style.fontVariationSettings = "'FILL' 1";
+        icon.classList.add('text-secondary');
+        text.textContent = 'Guardado (143)';
+      } else {
+        icon.textContent = 'favorite_border';
+        icon.style.fontVariationSettings = "'FILL' 0";
+        icon.classList.remove('text-secondary');
+        text.textContent = 'Favoritos (142)';
+      }
+    }
+
+    function copyShareLink(btn) {
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span class="material-symbols-outlined text-[16px] text-secondary">done</span><span>¡Copiado!</span>';
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+      }, 2000);
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-low"><div class="w-full px-margin md:px-margin-desktop py-space-xl flex flex-col gap-space-lg"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><span class="font-headline-md text-headline-md tracking-tighter text-on-surface">PROMPTBASE</span><span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">ETHEREAL HYPERGALLERY // SYS_NODE</span></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">SFX: AMBIENT LIVE</span></div><span class="font-label-mono-sm text-label-mono-sm text-outline">INDEX 0.84 // KŌBŌ</span></div></div><div class="flex flex-wrap items-center justify-between gap-space-md pt-space-md"><div class="flex flex-wrap items-center gap-space-lg"><a class="font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-on-surface uppercase transition-colors" data-path="explorar-prompts" href="#">Explorar</a><a class="font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-on-surface uppercase transition-colors" data-path="generador-ia" href="#">Laboratorio</a><a class="font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-on-surface uppercase transition-colors" data-path="top-creadores" href="#">Curaduría</a><a class="font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-on-surface uppercase transition-colors" href="#">Protocolo API</a><a class="font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-on-surface uppercase transition-colors" href="#">Términos</a></div><span class="font-label-mono-sm text-label-mono-sm text-outline">© 2026 PROMPTBASE INC. TOKYO // SAN FRANCISCO. ALL RIGHTS RESERVED.</span></div></div></footer></body></html>

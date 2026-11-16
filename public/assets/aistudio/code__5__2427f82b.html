@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create Account - Step 2 of 4 | Sparkhub</title>
+<!-- Tailwind CSS CDN with forms and container queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              surface: '#fcf8ff',
+              card: '#ffffff',
+              dark: '#111317',
+              muted: '#68707d',
+              border: '#e8e5ef',
+              accentCyan: '#10b981',
+              accentPink: '#ec4899',
+              accentPurple: '#8b5cf6',
+            }
+          },
+          boxShadow: {
+            'subtle-glow': '0 10px 30px -10px rgba(139, 92, 246, 0.12), 0 4px 6px -2px rgba(0, 0, 0, 0.03)',
+            'btn-glow': '0 8px 24px -4px rgba(236, 72, 153, 0.35), 0 4px 12px -2px rgba(16, 185, 129, 0.25)',
+            'float-bubble': '0 10px 25px -3px rgba(217, 70, 239, 0.3), 0 4px 10px -2px rgba(0, 0, 0, 0.05)',
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Glass & Gradient Styles -->
+<style data-purpose="custom-styling">
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #fcf8ff;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(243, 232, 255, 0.7) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(224, 242, 254, 0.6) 0px, transparent 50%),
+        radial-gradient(at 80% 20%, rgba(252, 231, 243, 0.5) 0px, transparent 40%);
+      background-attachment: fixed;
+    }
+
+    .luminous-button {
+      background: linear-gradient(90deg, #ec4899 0%, #a855f7 50%, #10b981 100%);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .luminous-button:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px -4px rgba(236, 72, 153, 0.45), 0 6px 16px -2px rgba(16, 185, 129, 0.35);
+    }
+
+    .custom-input {
+      transition: all 0.2s ease;
+      background-color: #fdfcff;
+    }
+
+    .custom-input:focus {
+      border-color: #a855f7;
+      box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.12);
+      outline: none;
+    }
+  </style>
+<!-- END: Custom Glass & Gradient Styles -->
+</head>
+<body class="min-h-screen text-slate-800 flex flex-col justify-between antialiased selection:bg-purple-100 selection:text-purple-700">
+<!-- BEGIN: Top Navigation Bar / Brand Header -->
+<header class="w-full max-w-7xl mx-auto px-6 pt-6 pb-2 flex items-center justify-between" data-purpose="page-header">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-pink-500 via-purple-500 to-emerald-400 flex items-center justify-center shadow-sm">
+<span class="text-white font-extrabold text-sm tracking-tighter">S</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-slate-900">Spark<span class="text-purple-600">hub</span></span>
+</div>
+<!-- Right mini status/help indicator -->
+<div class="hidden sm:flex items-center gap-3 text-xs font-medium text-slate-500">
+<span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>Encrypted SSL Secure Connection</span>
+</div>
+</header>
+<!-- END: Top Navigation Bar / Brand Header -->
+<!-- BEGIN: MainContent -->
+<main class="flex-grow flex items-center justify-center px-4 sm:px-6 py-6" data-purpose="registration-screen">
+<div class="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+<!-- BEGIN: Left Column Artwork Container -->
+<section class="lg:col-span-6 flex justify-center order-2 lg:order-1" data-purpose="hero-artwork">
+<div class="w-full max-w-[520px] aspect-[4/3] sm:aspect-[16/11] relative rounded-3xl overflow-hidden border border-purple-100/80 shadow-2xl bg-white p-2.5 bg-gradient-to-b from-white/90 to-purple-50/50 backdrop-blur-xl group">
+<!-- Inner wrapper for decorative light glow behind artwork -->
+<div class="relative w-full h-full rounded-[20px] overflow-hidden bg-slate-950 flex items-center justify-center">
+<!-- Source artwork preserving 3D robot, cube and Sparkhub brand label -->
+<img alt="Sparkhub AI Robot mascot with glowing quantum cube" class="w-full h-full object-cover object-left transform transition-transform duration-700 ease-out group-hover:scale-[1.02]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiRlbl1w82oQhGuN3tBgZPAC2VJndCX8v3h3adJokik8myv7Ioz4Po3C8AMBW4Rns7yGDZKq4tgNyuYxmCZI2DPBHCrywrE4MsAZB3VqL8hGWRVBZHUOOQMX7GQVRUgteThri3ba4H5s4q70K_PzPzvcJVxUpDhilb7sgVqCzVpGZoTdzj47U91CbRwb_UHxfYy_2ny-k0C44QAYucf7SSWeQKbfVf88bM17OB7bwBbf0HbcCFn_c5cw"/>
+<!-- Subtle ethereal inner border -->
+<div class="absolute inset-0 pointer-events-none rounded-[20px] ring-1 ring-inset ring-white/20"></div>
+</div>
+</div>
+</section>
+<!-- END: Left Column Artwork Container -->
+<!-- BEGIN: Right Column Form Container -->
+<section class="lg:col-span-6 flex flex-col justify-center order-1 lg:order-2" data-purpose="registration-form-section">
+<!-- Page Title -->
+<div class="mb-5 text-center lg:text-left">
+<h1 class="text-3xl sm:text-4xl font-extrabold text-[#111317] tracking-tight">Create Account</h1>
+</div>
+<!-- Glassmorphism Form Card -->
+<div class="w-full max-w-[500px] mx-auto lg:mx-0 bg-white/90 backdrop-blur-md rounded-3xl border border-slate-200/80 p-6 sm:p-8 shadow-subtle-glow">
+<!-- Card Sub-header & Progress Badge -->
+<div class="flex items-center justify-between pb-5 mb-5 border-b border-slate-100">
+<h2 class="text-base font-bold text-[#111317]">Account Info</h2>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-purple-50 text-purple-700 border border-purple-200/60">
+              Step 2 of 4
+            </span>
+</div>
+<!-- Form Fields -->
+<form class="space-y-4" data-purpose="signup-credentials-form" onsubmit="event.preventDefault();">
+<!-- Email Input -->
+<div>
+<label class="sr-only" for="email">Email Address</label>
+<div class="relative">
+<input class="custom-input w-full px-4 py-3.5 text-sm rounded-2xl border border-slate-200 text-slate-800 placeholder-slate-400 focus:bg-white" id="email" name="email" placeholder="Email *" required="" type="email"/>
+</div>
+</div>
+<!-- Password Input -->
+<div>
+<label class="sr-only" for="password">Password</label>
+<div class="relative">
+<input class="custom-input w-full px-4 py-3.5 pr-12 text-sm rounded-2xl border border-slate-200 text-slate-800 placeholder-slate-400 focus:bg-white" id="password" name="password" placeholder="Password *" required="" type="password"/>
+<!-- Visibility toggle button -->
+<button aria-label="Toggle password visibility" class="absolute inset-y-0 right-0 flex items-center pr-4 text-slate-400 hover:text-slate-600 focus:outline-none" data-purpose="password-visibility-toggle" onclick="togglePasswordVisibility('password', this)" type="button">
+<svg class="w-4 h-4 eye-icon" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- Confirm Password Input -->
+<div>
+<label class="sr-only" for="confirm-password">Confirm Password</label>
+<div class="relative">
+<input class="custom-input w-full px-4 py-3.5 pr-12 text-sm rounded-2xl border border-slate-200 text-slate-800 placeholder-slate-400 focus:bg-white" id="confirm-password" name="confirm-password" placeholder="Confirm Password *" required="" type="password"/>
+<!-- Visibility toggle button -->
+<button aria-label="Toggle confirm password visibility" class="absolute inset-y-0 right-0 flex items-center pr-4 text-slate-400 hover:text-slate-600 focus:outline-none" data-purpose="password-visibility-toggle" onclick="togglePasswordVisibility('confirm-password', this)" type="button">
+<svg class="w-4 h-4 eye-icon" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- Referral Code Input (Optional) -->
+<div>
+<label class="sr-only" for="referral-code">CODE (Optional)</label>
+<div class="relative">
+<input class="custom-input w-full px-4 py-3.5 text-sm rounded-2xl border border-slate-200 text-slate-800 placeholder-slate-400 focus:bg-white uppercase tracking-wider" id="referral-code" name="referral-code" placeholder="CODE (Optional)" type="text"/>
+</div>
+</div>
+<!-- Action Buttons Stack -->
+<div class="pt-2 space-y-3">
+<!-- Primary Continue CTA -->
+<button class="luminous-button w-full py-3.5 px-6 rounded-full text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-btn-glow" type="submit">
+<span>Continue</span>
+<svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Secondary Back Button -->
+<button class="w-full py-3 px-6 rounded-full text-slate-600 bg-slate-50 hover:bg-slate-100 border border-slate-200/90 font-medium text-sm flex items-center justify-center gap-2 transition duration-200" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Back</span>
+</button>
+</div>
+</form>
+<!-- Footer Switch to Sign In -->
+<div class="mt-6 text-center text-xs text-slate-500 font-medium">
+            Already have an account? 
+            <a class="text-slate-900 font-semibold hover:text-purple-600 underline underline-offset-4 decoration-purple-300 transition-colors" href="#">
+              Sign In
+            </a>
+</div>
+</div>
+</section>
+<!-- END: Right Column Form Container -->
+</div>
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: Regulatory Footer -->
+<footer class="w-full max-w-7xl mx-auto px-6 py-6 border-t border-purple-100/70 text-xs text-slate-500 flex flex-col md:flex-row items-center justify-between gap-4" data-purpose="legal-footer">
+<!-- Copyright -->
+<div>
+<p>© 2026 Genesis FX Markets. All rights reserved.</p>
+</div>
+<!-- Regulatory Policy Links -->
+<nav aria-label="Footer Navigation" class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-medium">
+<a class="hover:text-purple-700 transition-colors" href="#">Terms &amp; Conditions</a>
+<a class="hover:text-purple-700 transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-purple-700 transition-colors" href="#">Risk Disclosure</a>
+<a class="hover:text-purple-700 transition-colors" href="#">Anti-Money Laundering</a>
+<a class="hover:text-purple-700 transition-colors" href="#">Cookie Policy</a>
+</nav>
+</footer>
+<!-- END: Regulatory Footer -->
+<!-- BEGIN: Floating Chat Assistant Bubble -->
+<aside class="fixed bottom-6 right-6 z-50" data-purpose="chat-assistant-widget">
+<button aria-label="Open Sparkhub AI Assistant" class="group relative flex items-center justify-center w-14 h-14 rounded-full p-[2px] bg-gradient-to-tr from-pink-500 via-purple-500 to-emerald-400 shadow-float-bubble hover:scale-105 active:scale-95 transition-all duration-200" type="button">
+<div class="w-full h-full rounded-full bg-white flex items-center justify-center transition-colors group-hover:bg-slate-50">
+<!-- Chat icon matching visual motif -->
+<svg class="w-6 h-6 text-slate-800 transition-transform duration-200 group-hover:rotate-6" fill="currentColor" viewbox="0 0 24 24">
+<path d="M4.998 3.5A2.5 2.5 0 0 0 2.5 6v10a2.5 2.5 0 0 0 2.5 2.5h1.25V21a.75.75 0 0 0 1.28.53l3.28-3.28h7.442A2.5 2.5 0 0 0 20.75 16V6a2.5 2.5 0 0 0-2.5-2.5H4.998ZM8 10.5a1.25 1.25 0 1 1 2.5 0 1.25 1.25 0 0 1-2.5 0Zm4.75 0a1.25 1.25 0 1 1 2.5 0 1.25 1.25 0 0 1-2.5 0Z"></path>
+</svg>
+</div>
+<!-- Tiny notification ring -->
+<span class="absolute top-0 right-0 w-3.5 h-3.5 bg-emerald-400 border-2 border-white rounded-full"></span>
+</button>
+</aside>
+<!-- END: Floating Chat Assistant Bubble -->
+<!-- BEGIN: Interaction Scripts -->
+<script data-purpose="password-toggle-behavior">
+    function togglePasswordVisibility(inputId, btn) {
+      const input = document.getElementById(inputId);
+      if (!input) return;
+      
+      const isPassword = input.type === 'password';
+      input.type = isPassword ? 'text' : 'password';
+
+      // Toggle eye icon stroke opacity/slash style
+      const icon = btn.querySelector('.eye-icon');
+      if (icon) {
+        if (isPassword) {
+          icon.innerHTML = `
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
+          `;
+        } else {
+          icon.innerHTML = `
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+          `;
+        }
+      }
+    }
+  </script>
+<!-- END: Interaction Scripts -->
+</body></html>

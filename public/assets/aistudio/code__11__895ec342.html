@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-tint": "#5d5e63", "surface": "#fcf8ff", "secondary": "#5120e6", "on-tertiary": "#ffffff", "secondary-fixed-dim": "#c9beff", "on-primary": "#ffffff", "on-tertiary-fixed": "#40000f", "inverse-on-surface": "#f2eeff", "secondary-fixed": "#e5deff", "on-secondary-fixed": "#1b0063", "on-tertiary-fixed-variant": "#91002d", "on-secondary-fixed-variant": "#4500d8", "outline": "#76777b", "primary-container": "#1a1c20", "surface-container-lowest": "#ffffff", "primary-fixed-dim": "#c6c6cc", "on-secondary": "#ffffff", "error-container": "#ffdad6", "inverse-primary": "#c6c6cc", "on-primary-fixed": "#1a1c20", "error": "#ba1a1a", "on-secondary-container": "#efe9ff", "on-surface": "#1a1930", "outline-variant": "#c6c6cb", "on-error": "#ffffff", "tertiary": "#000000", "on-surface-variant": "#45474b", "on-primary-container": "#828489", "primary": "#000000", "on-background": "#1a1930", "on-primary-fixed-variant": "#45474b", "background": "#fcf8ff", "surface-container": "#efebff", "secondary-container": "#6a45fe", "on-tertiary-container": "#ef4162", "surface-dim": "#dad7f7", "surface-bright": "#fcf8ff", "tertiary-fixed": "#ffdadb", "tertiary-container": "#40000f", "surface-container-low": "#f6f2ff", "surface-container-highest": "#e3dfff", "inverse-surface": "#2f2e46", "surface-variant": "#e3dfff", "primary-fixed": "#e2e2e8", "tertiary-fixed-dim": "#ffb2b8", "surface-container-high": "#e9e5ff", "on-error-container": "#93000a" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "margin": "1rem", "space-lg": "1.75rem", "gutter-desktop": "2rem", "space-sm": "0.5rem", "space-xl": "3rem", "gutter": "1.25rem", "margin-desktop": "2.5rem", "space-md": "1rem" }, "fontFamily": { "micro-badge": [ "Space Mono" ], "label-mono-lg": [ "Space Mono" ], "headline-md": [ "Space Grotesk" ], "headline-lg-mobile": [ "Space Grotesk" ], "body-md": [ "Space Grotesk" ], "label-mono-sm": [ "Space Mono" ], "display-hero-mobile": [ "Space Grotesk" ], "display-hero": [ "Space Grotesk" ], "headline-lg": [ "Space Grotesk" ], "body-lg": [ "Space Grotesk" ] }, "fontSize": { "micro-badge": [ "9px", { "lineHeight": "11px", "letterSpacing": "0.22em", "fontWeight": "700" } ], "label-mono-lg": [ "13px", { "lineHeight": "18px", "letterSpacing": "0.14em", "fontWeight": "400" } ], "headline-md": [ "24px", { "lineHeight": "32px", "letterSpacing": "0.02em", "fontWeight": "500" } ], "headline-lg-mobile": [ "32px", { "lineHeight": "36px", "letterSpacing": "0.02em", "fontWeight": "400" } ], "body-md": [ "14px", { "lineHeight": "22px", "letterSpacing": "0.01em", "fontWeight": "400" } ], "label-mono-sm": [ "10px", { "lineHeight": "14px", "letterSpacing": "0.18em", "fontWeight": "400" } ], "display-hero-mobile": [ "44px", { "lineHeight": "48px", "letterSpacing": "0.05em", "fontWeight": "400" } ], "display-hero": [ "80px", { "lineHeight": "84px", "letterSpacing": "0.08em", "fontWeight": "400" } ], "headline-lg": [ "48px", { "lineHeight": "54px", "letterSpacing": "0.04em", "fontWeight": "400" } ], "body-lg": [ "16px", { "lineHeight": "26px", "letterSpacing": "0.01em", "fontWeight": "400" } ] } } } }</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed"><header class="fixed top-0 w-full z-50 bg-surface/75 backdrop-blur-2xl shadow-[0_1px_8px_rgba(81,32,230,0.04)]"><div class="h-20 w-full px-margin md:px-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-sm group" data-path="explorar-prompts" href="#"><div class="w-9 h-9 rounded-lg bg-primary flex items-center justify-center shadow-[0_4px_16px_rgba(0,0,0,0.12)]"><span class="font-micro-badge text-micro-badge text-on-primary">PB</span></div><div class="flex flex-col"><span class="font-headline-md text-headline-md tracking-tighter text-on-surface leading-none">PromptBase</span><span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">EXP // 2026</span></div></a><div class="hidden xl:flex items-center bg-surface-container-low px-space-md py-space-xs rounded-full gap-space-sm"><span class="material-symbols-outlined text-outline text-[16px]">search</span><span class="font-label-mono-sm text-label-mono-sm text-outline">INPUT QUERY //</span><kbd class="font-micro-badge text-micro-badge bg-surface-container px-1.5 py-0.5 rounded text-on-surface-variant">⌘K</kbd></div></div><nav class="hidden lg:flex items-center gap-space-xs p-space-xs rounded-full bg-surface-container-lowest/60" data-active-classes="bg-surface-container text-on-surface font-bold"><a class="font-body-md text-body-md px-space-md py-space-xs rounded-full text-on-surface-variant hover:text-on-surface transition-colors" data-path="explorar-prompts" href="#">Explorar Prompts</a><a class="font-body-md text-body-md px-space-md py-space-xs rounded-full text-on-surface-variant hover:text-on-surface transition-colors" data-path="generador-ia" href="#">Generador IA</a><a aria-current="page" class="px-space-md py-space-xs rounded-full transition-colors bg-surface-container text-on-surface font-bold" data-path="vender-prompts" href="#">Vender Prompts</a><a class="font-body-md text-body-md px-space-md py-space-xs rounded-full text-on-surface-variant hover:text-on-surface transition-colors" data-path="top-creadores" href="#">Top Creadores</a><a class="font-body-md text-body-md px-space-md py-space-xs rounded-full text-on-surface-variant hover:text-on-surface transition-colors" data-path="mis-compras-biblioteca" href="#">Mis Compras / Biblioteca</a></nav><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center font-label-mono-lg text-label-mono-lg bg-secondary text-on-secondary px-space-lg py-space-sm rounded-full hover:bg-secondary-container hover:text-on-secondary-container transition-all shadow-[0_0_24px_rgba(81,32,230,0.25)]" data-path="vender-prompts" href="#">Vender Prompt</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-140px)]"><div class="flex flex-col w-full">
+<section class="relative w-full px-margin md:px-margin-desktop py-space-lg overflow-hidden">
+<div class="absolute -top-32 -left-20 w-96 h-96 rounded-full bg-secondary-fixed opacity-40 blur-3xl pointer-events-none"></div>
+<div class="absolute top-48 right-0 w-[30rem] h-[30rem] rounded-full bg-surface-container-highest opacity-50 blur-3xl pointer-events-none"></div>
+<div class="relative max-w-7xl mx-auto flex flex-col gap-space-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-micro-badge text-micro-badge text-secondary uppercase tracking-widest">CREATOR PIPELINE // NODE 04</span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">v2.6_PUBLISH</span>
+</div>
+<p class="font-headline-lg text-headline-lg tracking-tight text-on-surface">Estudio de Creación &amp; Publicación</p>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+            Transfiere tus fórmulas generativas a la red descentralizada PromptBase. Monetiza tu ingeniería inversa con revisión asistida y comisiones del 80%.
+          </p>
+</div>
+<div class="flex items-center gap-space-sm bg-surface-container-low px-space-md py-space-sm rounded-full shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[20px]">verified</span>
+<div class="flex flex-col">
+<span class="font-micro-badge text-micro-badge text-on-surface uppercase">ESTADO DE CUENTA</span>
+<span class="font-label-mono-sm text-label-mono-sm text-secondary font-bold">CREADOR VERIFICADO TIER 1</span>
+</div>
+</div>
+</div>
+<div class="w-full bg-surface-container-lowest p-space-md md:p-space-lg rounded-xl shadow-[0_8px_32px_rgba(81,32,230,0.05)] flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-sm text-label-mono-sm text-outline uppercase">PROGRESO DEL LOTE // EXP.STEP</span>
+<span class="font-label-mono-lg text-label-mono-lg text-secondary font-bold" id="wizardStepLabel">PASO 1 DE 4 — DETALLES DEL PROMPT</span>
+</div>
+<div class="relative w-full h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="absolute left-0 top-0 h-full bg-secondary transition-all duration-500 ease-out w-1/4" id="wizardProgressBar"></div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-sm pt-space-xs">
+<button class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container text-left transition-all" id="stepTab1" onclick="goToStep(1)" type="button">
+<span class="font-micro-badge text-micro-badge w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-bold">01</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface font-semibold truncate">1. Detalles</span>
+<span class="font-micro-badge text-micro-badge text-outline truncate">Modelo y Resumen</span>
+</div>
+</button>
+<button class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-low opacity-60 text-left transition-all" id="stepTab2" onclick="goToStep(2)" type="button">
+<span class="font-micro-badge text-micro-badge w-6 h-6 rounded-full bg-outline-variant text-on-surface-variant flex items-center justify-center font-bold">02</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant font-semibold truncate">2. Variables</span>
+<span class="font-micro-badge text-micro-badge text-outline truncate">Fórmula [Tags]</span>
+</div>
+</button>
+<button class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-low opacity-60 text-left transition-all" id="stepTab3" onclick="goToStep(3)" type="button">
+<span class="font-micro-badge text-micro-badge w-6 h-6 rounded-full bg-outline-variant text-on-surface-variant flex items-center justify-center font-bold">03</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant font-semibold truncate">3. Pruebas</span>
+<span class="font-micro-badge text-micro-badge text-outline truncate">4 a 9 Outputs</span>
+</div>
+</button>
+<button class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-low opacity-60 text-left transition-all" id="stepTab4" onclick="goToStep(4)" type="button">
+<span class="font-micro-badge text-micro-badge w-6 h-6 rounded-full bg-outline-variant text-on-surface-variant flex items-center justify-center font-bold">04</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant font-semibold truncate">4. Precio</span>
+<span class="font-micro-badge text-micro-badge text-outline truncate">80% Comisión &amp; Enviar</span>
+</div>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<div class="wizard-panel flex flex-col gap-space-lg bg-surface-container-lowest p-space-lg rounded-xl shadow-[0_4px_24px_rgba(81,32,230,0.03)]" id="stepPanel1">
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">Metadatos del Artefacto</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Selecciona el motor generativo y define el alcance editorial de tu creación.</span>
+</div>
+<span class="font-micro-badge text-micro-badge px-space-sm py-space-xs rounded bg-surface-container text-outline">SEC_01</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-mono-sm text-label-mono-sm text-on-surface uppercase flex items-center gap-space-xs" for="modelSelect">
+<span>Motor / Modelo de IA</span>
+<span class="text-secondary">*</span>
+</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface-container-low px-space-md py-space-sm rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container cursor-pointer transition-all" id="modelSelect">
+<option value="midjourney-v6">Midjourney v6.1 (Fotografía hiperrealista y Dirección de Arte)</option>
+<option value="dall-e-3">DALL·E 3 (Composiciones complejas y coherencia tipográfica)</option>
+<option value="stable-diffusion-xl">Stable Diffusion XL (ControlNet &amp; LoRA Custom)</option>
+<option value="flux-1-dev">FLUX.1 [dev] (Render volumétrico y cinemática pura)</option>
+<option value="chatgpt-gpt4o">ChatGPT / GPT-4o (Arquitectura de Texto &amp; Lógica)</option>
+<option value="claude-35-sonnet">Claude 3.5 Sonnet (Ingeniería de Contexto Avanzada)</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-space-md text-outline">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-mono-sm text-label-mono-sm text-on-surface uppercase flex items-center justify-between" for="promptTitle">
+<span class="flex items-center gap-space-xs">
+<span>Título Comercial del Prompt</span>
+<span class="text-secondary">*</span>
+</span>
+<span class="font-micro-badge text-micro-badge text-outline">MAX 60 CARACTERES</span>
+</label>
+<input class="w-full bg-surface-container-low px-space-md py-space-sm rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container transition-all" id="promptTitle" placeholder="Ej: Cyberpunk Brutalist Portraiture with Prismatic Dispersion" type="text" value="Hyper-Minimalist Ethereal Glass Architecture 8K"/>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-mono-sm text-label-mono-sm text-on-surface uppercase flex items-center justify-between" for="promptDesc">
+<span class="flex items-center gap-space-xs">
+<span>Descripción y Casos de Uso</span>
+<span class="text-secondary">*</span>
+</span>
+<span class="font-micro-badge text-micro-badge text-outline">ES / EN PERMITIDO</span>
+</label>
+<textarea class="w-full bg-surface-container-low p-space-md rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container transition-all resize-none" id="promptDesc" placeholder="Explica detalladamente qué estética genera, qué parámetros técnicos incluye (aspect ratio, styling, iluminación) y a quién le servirá este recurso..." rows="4">Genera planos arquitectónicos conceptuales y pabellones de cristal flotante inspirados en la estética nórdica minimalista y la escultura de luz volumétrica. Ideal para diseñadores de concepto, directores de arte editorial y marcas de lujo contemporáneo.</textarea>
+</div>
+<div class="flex flex-col md:flex-row items-center justify-between gap-space-md pt-space-sm">
+<span class="font-label-mono-sm text-label-mono-sm text-outline">CAMPOS OBLIGATORIOS REQUERIDOS</span>
+<button class="w-full md:w-auto inline-flex items-center justify-center gap-space-sm font-label-mono-lg text-label-mono-lg bg-secondary text-on-secondary px-space-xl py-space-sm rounded-full shadow-[0_0_24px_rgba(81,32,230,0.25)] hover:bg-secondary-container transition-all" onclick="goToStep(2)" type="button">
+<span>Continuar a Variables</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="wizard-panel hidden flex-col gap-space-lg bg-surface-container-lowest p-space-lg rounded-xl shadow-[0_4px_24px_rgba(81,32,230,0.03)]" id="stepPanel2">
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">Fórmula Paramétrica &amp; Variables</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Usa corchetes como <code class="bg-surface-container px-1 py-0.5 rounded text-secondary">[variable]</code> para crear marcadores personalizables por el comprador.</span>
+</div>
+<span class="font-micro-badge text-micro-badge px-space-sm py-space-xs rounded bg-surface-container text-outline">SEC_02</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-mono-sm text-label-mono-sm text-on-surface uppercase flex items-center justify-between" for="promptFormula">
+<span class="flex items-center gap-space-xs">
+<span>Plantilla Maestra (Prompt Template)</span>
+<span class="text-secondary">*</span>
+</span>
+<button class="font-label-mono-sm text-label-mono-sm text-secondary hover:underline flex items-center gap-1" onclick="insertSampleVar()" type="button">
+<span class="material-symbols-outlined text-[14px]">add_circle</span>
+<span>Insertar [variable]</span>
+</button>
+</label>
+<textarea class="w-full bg-surface-container-low p-space-md rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container transition-all resize-none font-mono" id="promptFormula" oninput="updateVariablesPreview()" rows="5">A speculative hyper-modern [building_type] surrounded by [atmospheric_element], frosted acrylic pillars, chromatic refraction, raytraced ambient light, captured on Hasselblad H6D-100c, [lighting_mood] tone, cinematic depth of field --ar 16:9 --v 6.1 --style raw</textarea>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-sm text-label-mono-sm text-outline uppercase">VARIABLES DETECTADAS EN TIEMPO REAL</span>
+<span class="font-micro-badge text-micro-badge bg-secondary-fixed text-on-secondary-fixed px-space-xs py-0.5 rounded-full" id="varCount">3 DETECTADAS</span>
+</div>
+<div class="flex flex-wrap gap-space-xs" id="tagsContainer">
+</div>
+<p class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">
+                Los compradores podrán personalizar estos campos antes de ejecutar la fórmula o ver ejemplos predefinidos.
+              </p>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-mono-sm text-label-mono-sm text-on-surface uppercase flex items-center justify-between" for="targetInstructions">
+<span>Instrucciones Técnicas para el Comprador</span>
+<span class="font-micro-badge text-micro-badge text-outline">INCLUIDO TRAS LA COMPRA</span>
+</label>
+<textarea class="w-full bg-surface-container-low p-space-md rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container transition-all resize-none" id="targetInstructions" placeholder="Recomienda palabras clave óptimas para las variables, configuraciones de estilizado (--s), relaciones de aspecto recomendadas o trucos de iteración..." rows="3">Para [building_type], los mejores resultados se logran con 'art gallery', 'desert pavilion' o 'botanical conservatory'. Mantén siempre --style raw para evitar saturación plástica.</textarea>
+</div>
+<div class="flex flex-col md:flex-row items-center justify-between gap-space-md pt-space-sm">
+<button class="w-full md:w-auto inline-flex items-center justify-center gap-space-sm font-label-mono-lg text-label-mono-lg bg-surface-container text-on-surface px-space-lg py-space-sm rounded-full hover:bg-surface-container-high transition-all" onclick="goToStep(1)" type="button">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span>Volver</span>
+</button>
+<button class="w-full md:w-auto inline-flex items-center justify-center gap-space-sm font-label-mono-lg text-label-mono-lg bg-secondary text-on-secondary px-space-xl py-space-sm rounded-full shadow-[0_0_24px_rgba(81,32,230,0.25)] hover:bg-secondary-container transition-all" onclick="goToStep(3)" type="button">
+<span>Continuar a Pruebas</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="wizard-panel hidden flex-col gap-space-lg bg-surface-container-lowest p-space-lg rounded-xl shadow-[0_4px_24px_rgba(81,32,230,0.03)]" id="stepPanel3">
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">Carga de Imágenes de Prueba</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Sube entre 4 y 9 renders verificables ejecutados con tu fórmula original. Sin posproducción manual.</span>
+</div>
+<span class="font-micro-badge text-micro-badge px-space-sm py-space-xs rounded bg-surface-container text-outline">SEC_03</span>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col items-center justify-center gap-space-sm text-center cursor-pointer transition-all hover:bg-surface-container group">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[28px]">cloud_upload</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="font-headline-md text-headline-md text-on-surface font-medium">Arrastra tus renders aquí o explora tus archivos</span>
+<span class="font-label-mono-sm text-label-mono-sm text-outline">PNG, WEBP, JPG — MÍNIMO 1024×1024PX — MÁX 15MB POR SALIDA</span>
+</div>
+<button class="mt-space-xs font-label-mono-sm text-label-mono-sm px-space-md py-space-xs rounded-full bg-surface-container text-on-surface hover:bg-secondary hover:text-on-secondary transition-all" type="button">
+                SELECCIONAR ARCHIVOS LOCALES
+              </button>
+</div>
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface uppercase">Muestras Cargadas (4 de 9 listas)</span>
+<span class="font-micro-badge text-micro-badge text-secondary font-bold">REQUISITO MÍNIMO CUMPLIDO</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm">
+<div class="relative group rounded-lg overflow-hidden bg-surface-container shadow-sm aspect-square">
+<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" data-alt="Futuristic glass museum structure floating over lilac misty lake with internal volumetric amber lights, Scandinavian hyper-minimalism render" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANS2UePIDGEzc2zTLV8MM0YtriFbmb6sOdLXnPe2Mf2n_ZlKkgTOEhWaeuKS3mMCI66RHZpnWUH9oc16Y7tMfQk2kUvOz27opHveSRwnWc4g-HgFb2n2ZaiIFXVEZVLdZ3n_I_GTHLgKFPGBLejLjUTkeWHSb_iLUdImCLkCZbna8uMfv94hI2abJ9rI2ipMgvvv5C92apsip7zw8KTLHW4heqelAFft5c6OLKuIE6"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 flex items-center justify-center gap-space-xs transition-opacity">
+<span class="font-micro-badge text-micro-badge bg-surface-container-lowest text-on-surface px-space-xs py-0.5 rounded">#01_TEST</span>
+</div>
+<span class="absolute bottom-1 left-1 font-micro-badge text-micro-badge bg-primary/70 text-on-primary px-1 rounded">PORTRAIT</span>
+</div>
+<div class="relative group rounded-lg overflow-hidden bg-surface-container shadow-sm aspect-square">
+<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" data-alt="Specular reflection interior of an ethereal iridescent translucent pavilion with curved prism walls under soft diffuse studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC57cXdHxXJl50cXFAAFYbmYZhqnCWmmTaGy1gfF0j9vW3pbK74oiwfxeAARD4zwLOGPG8neBirlbH6FB92CVVQKbzwepUiShKcsFjKtdhfbFeN6HHMXR5vrt20vI_pKaJ1dN_ZBck-W-Vhyksla84AG2pcF52QU0y_OhHatyKR9ERI3HRjg2XtiroA6HYyTcGbqR2xZ_7vyCrAMXXghDu17XNymuoJUFZC6i4ToEZ"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 flex items-center justify-center gap-space-xs transition-opacity">
+<span class="font-micro-badge text-micro-badge bg-surface-container-lowest text-on-surface px-space-xs py-0.5 rounded">#02_TEST</span>
+</div>
+<span class="absolute bottom-1 left-1 font-micro-badge text-micro-badge bg-primary/70 text-on-primary px-1 rounded">CLOSEUP</span>
+</div>
+<div class="relative group rounded-lg overflow-hidden bg-surface-container shadow-sm aspect-square">
+<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" data-alt="Brutalist glass monolith embedded in volcanic black sand with pastel dawn sky and cold magenta horizon mist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsmEOkU9Km4TS3Ompr7t3ywS8NSPseS4CNFnia83V3EW-S4BdGz8GvvCKhVMJUqvq6-K01WjjXx3cl3AhrwbonirXpxSyQqXrjQ7t5arrEIhh1vrRL9IjCTr6ZV1jNKS7Bs0ZYccjJY0OCQny2lcsVHduB0JYvHIRpqf3RlgXH9Thk0FBxWfflKX9mO9VqPGs4jQc-hwb13D7xluYN6ReU2PH4eSxJCGQLHl7IaLh8"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 flex items-center justify-center gap-space-xs transition-opacity">
+<span class="font-micro-badge text-micro-badge bg-surface-container-lowest text-on-surface px-space-xs py-0.5 rounded">#03_TEST</span>
+</div>
+<span class="absolute bottom-1 left-1 font-micro-badge text-micro-badge bg-primary/70 text-on-primary px-1 rounded">WIDE_ANGLE</span>
+</div>
+<div class="relative group rounded-lg overflow-hidden bg-surface-container shadow-sm aspect-square">
+<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" data-alt="Hyper-detailed geometric glass greenhouse with diffuse biological flora under cool atmospheric fog and clean studio highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc_q3Oalq8wtD84Y4HFV1ie9sftbmSMhxsPOa15GYfOTaXkN3DGbSPUcO9iOJc5rcBRlAZhjNbn9tpVtmAr8rfTRQbojO9TnmMZc6VHJKSEfsQgs1tNZutsaGMGsAHJXOncysDBc5SEP8mBK1B2Cb0oso-apXL1Tug040XWmdmYEowRa0wjyi4F-Dm3olyMY-jW30yzMD9j1Um9xH4MgA_BX-VaUfrjl9FsJhXMlFs"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 flex items-center justify-center gap-space-xs transition-opacity">
+<span class="font-micro-badge text-micro-badge bg-surface-container-lowest text-on-surface px-space-xs py-0.5 rounded">#04_TEST</span>
+</div>
+<span class="absolute bottom-1 left-1 font-micro-badge text-micro-badge bg-primary/70 text-on-primary px-1 rounded">CINEMATIC</span>
+</div>
+</div>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface font-semibold uppercase">Pautas de Calidad de PromptBase</span>
+<ul class="flex flex-col gap-space-xs pt-space-xs">
+<li class="flex items-center gap-space-xs text-on-surface-variant font-body-md text-body-md">
+<span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
+<span>Las imágenes deben ser el output directo sin marcas de agua ni retoques en Photoshop.</span>
+</li>
+<li class="flex items-center gap-space-xs text-on-surface-variant font-body-md text-body-md">
+<span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
+<span>Debes probar la fórmula con al menos tres valores distintos en las variables [bracketed].</span>
+</li>
+<li class="flex items-center gap-space-xs text-on-surface-variant font-body-md text-body-md">
+<span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
+<span>Sin contenido protegido por copyright explícito ni representaciones de figuras vivientes prohibidas.</span>
+</li>
+</ul>
+</div>
+<div class="flex flex-col md:flex-row items-center justify-between gap-space-md pt-space-sm">
+<button class="w-full md:w-auto inline-flex items-center justify-center gap-space-sm font-label-mono-lg text-label-mono-lg bg-surface-container text-on-surface px-space-lg py-space-sm rounded-full hover:bg-surface-container-high transition-all" onclick="goToStep(2)" type="button">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span>Volver</span>
+</button>
+<button class="w-full md:w-auto inline-flex items-center justify-center gap-space-sm font-label-mono-lg text-label-mono-lg bg-secondary text-on-secondary px-space-xl py-space-sm rounded-full shadow-[0_0_24px_rgba(81,32,230,0.25)] hover:bg-secondary-container transition-all" onclick="goToStep(4)" type="button">
+<span>Continuar a Precio</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="wizard-panel hidden flex-col gap-space-lg bg-surface-container-lowest p-space-lg rounded-xl shadow-[0_4px_24px_rgba(81,32,230,0.03)]" id="stepPanel4">
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">Precio &amp; Envío a Revisión</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Selecciona el nivel de precio sugerido para el catálogo y revisa tu desglose neto.</span>
+</div>
+<span class="font-micro-badge text-micro-badge px-space-sm py-space-xs rounded bg-surface-container text-outline">SEC_04</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface uppercase">Nivel de Precio (USD)</span>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-sm">
+<button class="pricing-card flex flex-col p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all text-left" onclick="selectPricing(2.99, this)" type="button">
+<span class="font-label-mono-sm text-label-mono-sm text-outline">TIER BASAL</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold my-space-xs">$2.99</span>
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">IDEAL ELEMENTAL</span>
+</button>
+<button class="pricing-card flex flex-col p-space-md rounded-xl bg-surface-container-high transition-all text-left shadow-sm" onclick="selectPricing(3.99, this)" type="button">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-sm text-label-mono-sm text-secondary font-bold">RECOMENDADO</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<span class="font-headline-md text-headline-md text-secondary font-bold my-space-xs">$3.99</span>
+<span class="font-micro-badge text-micro-badge text-on-surface">MÁXIMA CONVERSIÓN</span>
+</button>
+<button class="pricing-card flex flex-col p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all text-left" onclick="selectPricing(4.99, this)" type="button">
+<span class="font-label-mono-sm text-label-mono-sm text-outline">AVANZADO</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold my-space-xs">$4.99</span>
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">COMPLEJIDAD ALTA</span>
+</button>
+<button class="pricing-card flex flex-col p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all text-left" onclick="selectPricing('custom', this)" type="button">
+<span class="font-label-mono-sm text-label-mono-sm text-outline">CUSTOM</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold my-space-xs">$6.99+</span>
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">PACKS &amp; BUNDLES</span>
+</button>
+</div>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-container-high flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[24px]">account_balance_wallet</span>
+<span class="font-label-mono-lg text-label-mono-lg text-on-surface font-bold uppercase">Desglose de Ganancias Directas</span>
+</div>
+<span class="font-micro-badge text-micro-badge bg-secondary text-on-secondary px-space-sm py-0.5 rounded-full">DIVISIÓN 80 / 20</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md pt-space-xs">
+<div class="flex flex-col bg-surface-container-lowest p-space-md rounded-lg">
+<span class="font-label-mono-sm text-label-mono-sm text-outline">PRECIO VENTA AL PÚBLICO</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold mt-space-xs" id="retailPriceDisplay">$3.99</span>
+</div>
+<div class="flex flex-col bg-surface-container-lowest p-space-md rounded-lg">
+<span class="font-label-mono-sm text-label-mono-sm text-outline">TASA DE SERVICIO PROMPTBASE (20%)</span>
+<span class="font-headline-md text-headline-md text-on-surface-variant font-bold mt-space-xs" id="platformFeeDisplay">$0.80</span>
+</div>
+<div class="flex flex-col bg-secondary text-on-secondary p-space-md rounded-lg shadow-[0_4px_16px_rgba(81,32,230,0.3)]">
+<span class="font-label-mono-sm text-label-mono-sm text-secondary-fixed">TÚ RECIBES NETO (80%)</span>
+<span class="font-headline-md text-headline-md text-on-secondary font-bold mt-space-xs" id="creatorTakeDisplay">$3.19</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Tú recibes el 80% (<span class="font-bold text-on-surface" id="creatorSummaryHighlight">$3.19</span>) por cada venta directa acreditada de forma instantánea a tu saldo Stripe Connect o transferencia Web3.
+              </p>
+</div>
+<div class="flex flex-col md:flex-row items-center justify-between gap-space-md pt-space-sm">
+<button class="w-full md:w-auto inline-flex items-center justify-center gap-space-sm font-label-mono-lg text-label-mono-lg bg-surface-container text-on-surface px-space-lg py-space-sm rounded-full hover:bg-surface-container-high transition-all" onclick="goToStep(3)" type="button">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span>Volver</span>
+</button>
+<div class="flex items-center gap-space-sm w-full md:w-auto">
+<button class="w-full md:w-auto inline-flex items-center justify-center gap-space-sm font-label-mono-lg text-label-mono-lg bg-surface-container text-on-surface px-space-lg py-space-sm rounded-full hover:bg-surface-container-high transition-all" onclick="saveDraft()" type="button">
+<span class="material-symbols-outlined text-[18px]">save</span>
+<span>Guardar Borrador</span>
+</button>
+<button class="w-full md:w-auto inline-flex items-center justify-center gap-space-sm font-label-mono-lg text-label-mono-lg bg-secondary text-on-secondary px-space-xl py-space-sm rounded-full shadow-[0_0_24px_rgba(81,32,230,0.35)] hover:bg-secondary-container transition-all" onclick="submitForReview()" type="button">
+<span class="material-symbols-outlined text-[18px]">send_and_archive</span>
+<span>Enviar a Revisión de Calidad</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-[0_4px_24px_rgba(81,32,230,0.03)] flex flex-col gap-space-md sticky top-28">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-sm text-label-mono-sm text-outline uppercase">INSPECTOR EN VIVO // CARD PREVIEW</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<div class="rounded-xl overflow-hidden bg-surface-container-low shadow-sm flex flex-col">
+<div class="relative w-full aspect-[4/3] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Sample visual output of minimal Scandinavian glass architecture in lavender atmospheric lighting for marketplace card preview" id="liveCardImage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzWSyhwzfbnGpD_TYtuYePyQRFY-PIznaaTE75cVPP5IljbEH9QPfGQKKgctaArc9_kDiPzjy91NK_WYnLniD-kENK08b5DMpUUUgmiIg8aGaaQag6KdoeCu7HQeMcTwd9iEKEQH-2i54Vn1JXbcExPvNLJIdCRuM0FAqYBL7B-IHoHpuNiJ60QRyrs6hBA-iSCgzWZ4-qi3UoWvCDM2fF2BxjiAJacrsv0JoG1M8C"/>
+<div class="absolute top-2 left-2">
+<span class="font-micro-badge text-micro-badge bg-primary text-on-primary px-space-xs py-0.5 rounded uppercase" id="liveBadgeModel">MJ v6.1</span>
+</div>
+<div class="absolute bottom-2 right-2">
+<span class="font-label-mono-lg text-label-mono-lg bg-surface-container-lowest/90 backdrop-blur-md text-on-surface font-bold px-space-sm py-0.5 rounded shadow-sm" id="liveBadgePrice">$3.99</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col gap-space-xs">
+<span class="font-headline-md text-headline-md text-on-surface font-medium truncate" id="liveCardTitle">Hyper-Minimalist Ethereal Glass Architecture 8K</span>
+<span class="font-body-md text-body-md text-on-surface-variant line-clamp-2" id="liveCardSubtitle">Pabellones flotantes inspirados en escultura de luz volumétrica y diseño nórdico.</span>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-mono-sm text-label-mono-sm">
+<span class="material-symbols-outlined text-[14px] text-secondary">star</span>
+<span>NUEVO LANZAMIENTO</span>
+</div>
+<span class="font-micro-badge text-micro-badge text-outline uppercase">PROMPTBASE EXP</span>
+</div>
+</div>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface font-semibold uppercase">Revisión Automática</span>
+<div class="flex items-center justify-between text-body-md text-body-md text-on-surface-variant">
+<span>Tiempo medio de verificación:</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface font-bold">&lt; 4 horas</span>
+</div>
+<div class="flex items-center justify-between text-body-md text-body-md text-on-surface-variant">
+<span>Tasa de aprobación primera vez:</span>
+<span class="font-label-mono-sm text-label-mono-sm text-secondary font-bold">94.2%</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="font-micro-badge text-micro-badge text-outline uppercase">REGULACIÓN DE PROTOCOLO</span>
+<p class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">
+                Todos los prompts enviados entran a un pipeline automatizado de anti-plagio y consistencia semántica antes de ser catalogados.
+              </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>
+    let currentStep = 1;
+    let selectedPrice = 3.99;
+
+    function goToStep(step) {
+      currentStep = step;
+      for (let i = 1; i <= 4; i++) {
+        const panel = document.getElementById('stepPanel' + i);
+        const tab = document.getElementById('stepTab' + i);
+        if (panel) {
+          if (i === step) {
+            panel.classList.remove('hidden');
+            panel.classList.add('flex');
+          } else {
+            panel.classList.add('hidden');
+            panel.classList.remove('flex');
+          }
+        }
+        if (tab) {
+          const badge = tab.querySelector('span:first-child');
+          if (i === step) {
+            tab.classList.remove('bg-surface-container-low', 'opacity-60');
+            tab.classList.add('bg-surface-container', 'shadow-sm');
+            if (badge) {
+              badge.classList.remove('bg-outline-variant', 'text-on-surface-variant');
+              badge.classList.add('bg-secondary', 'text-on-secondary');
+            }
+          } else if (i < step) {
+            tab.classList.remove('opacity-60');
+            tab.classList.add('bg-surface-container-low');
+            if (badge) {
+              badge.classList.remove('bg-outline-variant', 'text-on-surface-variant');
+              badge.classList.add('bg-secondary-fixed', 'text-on-secondary-fixed');
+            }
+          } else {
+            tab.classList.add('bg-surface-container-low', 'opacity-60');
+            tab.classList.remove('bg-surface-container', 'shadow-sm');
+            if (badge) {
+              badge.classList.add('bg-outline-variant', 'text-on-surface-variant');
+              badge.classList.remove('bg-secondary', 'text-on-secondary', 'bg-secondary-fixed', 'text-on-secondary-fixed');
+            }
+          }
+        }
+      }
+
+      const bar = document.getElementById('wizardProgressBar');
+      const label = document.getElementById('wizardStepLabel');
+      const stepNames = [
+        'DETALLES DEL PROMPT',
+        'VARIABLES Y FÓRMULA',
+        'CARGA DE IMÁGENES DE PRUEBA',
+        'PRECIO Y ENVÍO A REVISIÓN'
+      ];
+
+      if (bar) {
+        bar.style.width = (step * 25) + '%';
+      }
+      if (label) {
+        label.textContent = 'PASO ' + step + ' DE 4 — ' + stepNames[step - 1];
+      }
+
+      window.scrollTo({ top: 120, behavior: 'smooth' });
+    }
+
+    function updateVariablesPreview() {
+      const textarea = document.getElementById('promptFormula');
+      const tagsContainer = document.getElementById('tagsContainer');
+      const countEl = document.getElementById('varCount');
+      if (!textarea || !tagsContainer) return;
+
+      const text = textarea.value;
+      const matches = text.match(/\[(.*?)\]/g) || [];
+      const cleanVars = Array.from(new Set(matches.map(m => m.replace(/[\[\]]/g, '').trim()))).filter(Boolean);
+
+      tagsContainer.innerHTML = '';
+      if (cleanVars.length === 0) {
+        tagsContainer.innerHTML = '<span class="font-label-mono-sm text-label-mono-sm text-outline italic">No se detectaron corchetes [variable_name] todavía.</span>';
+      } else {
+        cleanVars.forEach(v => {
+          const pill = document.createElement('div');
+          pill.className = 'inline-flex items-center gap-1 font-label-mono-sm text-label-mono-sm bg-surface-container px-space-sm py-0.5 rounded-full text-secondary font-mono';
+          pill.innerHTML = '<span class="material-symbols-outlined text-[14px]">tune</span><span>[' + v + ']</span>';
+          tagsContainer.appendChild(pill);
+        });
+      }
+
+      if (countEl) {
+        countEl.textContent = cleanVars.length + ' DETECTADAS';
+      }
+    }
+
+    function insertSampleVar() {
+      const textarea = document.getElementById('promptFormula');
+      if (!textarea) return;
+      textarea.value += ' [accent_color]';
+      updateVariablesPreview();
+      textarea.focus();
+    }
+
+    function selectPricing(val, btn) {
+      if (val === 'custom') {
+        const customVal = prompt('Introduce el precio deseado en USD ($):', '6.99');
+        if (customVal && !isNaN(parseFloat(customVal))) {
+          selectedPrice = parseFloat(customVal);
+        } else {
+          return;
+        }
+      } else {
+        selectedPrice = parseFloat(val);
+      }
+
+      document.querySelectorAll('.pricing-card').forEach(c => {
+        c.classList.remove('bg-surface-container-high', 'shadow-sm');
+        c.classList.add('bg-surface-container-low');
+      });
+      if (btn) {
+        btn.classList.add('bg-surface-container-high', 'shadow-sm');
+        btn.classList.remove('bg-surface-container-low');
+      }
+
+      const fee = (selectedPrice * 0.20).toFixed(2);
+      const take = (selectedPrice * 0.80).toFixed(2);
+
+      const retailEl = document.getElementById('retailPriceDisplay');
+      const feeEl = document.getElementById('platformFeeDisplay');
+      const takeEl = document.getElementById('creatorTakeDisplay');
+      const summaryEl = document.getElementById('creatorSummaryHighlight');
+      const liveBadge = document.getElementById('liveBadgePrice');
+
+      if (retailEl) retailEl.textContent = '$' + selectedPrice.toFixed(2);
+      if (feeEl) feeEl.textContent = '$' + fee;
+      if (takeEl) takeEl.textContent = '$' + take;
+      if (summaryEl) summaryEl.textContent = '$' + take;
+      if (liveBadge) liveBadge.textContent = '$' + selectedPrice.toFixed(2);
+    }
+
+    function saveDraft() {
+      const title = document.getElementById('promptTitle').value || 'Sin Título';
+      alert('Borrador "' + title + '" guardado exitosamente en tu almacenamiento local.');
+    }
+
+    function submitForReview() {
+      alert('¡Envío exitoso! Tu fórmula ha sido enviada al pipeline de verificación de PromptBase. Recibirás una notificación por email en menos de 4 horas.');
+    }
+
+    const titleInput = document.getElementById('promptTitle');
+    const descInput = document.getElementById('promptDesc');
+    const modelSelect = document.getElementById('modelSelect');
+
+    if (titleInput) {
+      titleInput.addEventListener('input', (e) => {
+        const liveTitle = document.getElementById('liveCardTitle');
+        if (liveTitle) liveTitle.textContent = e.target.value || 'Hyper-Minimalist Ethereal Glass Architecture';
+      });
+    }
+
+    if (descInput) {
+      descInput.addEventListener('input', (e) => {
+        const liveDesc = document.getElementById('liveCardSubtitle');
+        if (liveDesc) liveDesc.textContent = e.target.value || 'Descripción del prompt para catálogo...';
+      });
+    }
+
+    if (modelSelect) {
+      modelSelect.addEventListener('change', (e) => {
+        const liveModel = document.getElementById('liveBadgeModel');
+        if (!liveModel) return;
+        const text = e.target.options[e.target.selectedIndex].text;
+        if (text.includes('Midjourney')) liveModel.textContent = 'MJ v6.1';
+        else if (text.includes('DALL·E')) liveModel.textContent = 'DALL·E 3';
+        else if (text.includes('FLUX')) liveModel.textContent = 'FLUX.1';
+        else if (text.includes('Stable Diffusion')) liveModel.textContent = 'SDXL';
+        else if (text.includes('ChatGPT')) liveModel.textContent = 'GPT-4o';
+        else if (text.includes('Claude')) liveModel.textContent = 'CLAUDE 3.5';
+        else liveModel.textContent = 'AI EXP';
+      });
+    }
+
+    updateVariablesPreview();
+  </script>
+</div></main><footer class="w-full bg-surface-container-low"><div class="w-full px-margin md:px-margin-desktop py-space-xl flex flex-col gap-space-lg"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><span class="font-headline-md text-headline-md tracking-tighter text-on-surface">PROMPTBASE</span><span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">ETHEREAL HYPERGALLERY // SYS_NODE</span></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">SFX: AMBIENT LIVE</span></div><span class="font-label-mono-sm text-label-mono-sm text-outline">INDEX 0.84 // KŌBŌ</span></div></div><div class="flex flex-wrap items-center justify-between gap-space-md pt-space-md"><div class="flex flex-wrap items-center gap-space-lg"><a class="font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-on-surface uppercase transition-colors" data-path="explorar-prompts" href="#">Explorar</a><a class="font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-on-surface uppercase transition-colors" data-path="generador-ia" href="#">Laboratorio</a><a class="font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-on-surface uppercase transition-colors" data-path="top-creadores" href="#">Curaduría</a><a class="font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-on-surface uppercase transition-colors" href="#">Protocolo API</a><a class="font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-on-surface uppercase transition-colors" href="#">Términos</a></div><span class="font-label-mono-sm text-label-mono-sm text-outline">© 2026 PROMPTBASE INC. TOKYO // SAN FRANCISCO. ALL RIGHTS RESERVED.</span></div></div></footer></body></html>

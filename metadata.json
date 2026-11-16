@@ -1,0 +1,6 @@
+{
+  "name": "Sparkhub",
+  "description": "Ecosistema integral de fórmulas de IA, marketplace generativo, estudio de creación y contratación de prompt engineers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

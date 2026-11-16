@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-tint": "#5d5e63", "surface": "#fcf8ff", "secondary": "#5120e6", "on-tertiary": "#ffffff", "secondary-fixed-dim": "#c9beff", "on-primary": "#ffffff", "on-tertiary-fixed": "#40000f", "inverse-on-surface": "#f2eeff", "secondary-fixed": "#e5deff", "on-secondary-fixed": "#1b0063", "on-tertiary-fixed-variant": "#91002d", "on-secondary-fixed-variant": "#4500d8", "outline": "#76777b", "primary-container": "#1a1c20", "surface-container-lowest": "#ffffff", "primary-fixed-dim": "#c6c6cc", "on-secondary": "#ffffff", "error-container": "#ffdad6", "inverse-primary": "#c6c6cc", "on-primary-fixed": "#1a1c20", "error": "#ba1a1a", "on-secondary-container": "#efe9ff", "on-surface": "#1a1930", "outline-variant": "#c6c6cb", "on-error": "#ffffff", "tertiary": "#000000", "on-surface-variant": "#45474b", "on-primary-container": "#828489", "primary": "#000000", "on-background": "#1a1930", "on-primary-fixed-variant": "#45474b", "background": "#fcf8ff", "surface-container": "#efebff", "secondary-container": "#6a45fe", "on-tertiary-container": "#ef4162", "surface-dim": "#dad7f7", "surface-bright": "#fcf8ff", "tertiary-fixed": "#ffdadb", "tertiary-container": "#40000f", "surface-container-low": "#f6f2ff", "surface-container-highest": "#e3dfff", "inverse-surface": "#2f2e46", "surface-variant": "#e3dfff", "primary-fixed": "#e2e2e8", "tertiary-fixed-dim": "#ffb2b8", "surface-container-high": "#e9e5ff", "on-error-container": "#93000a" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "margin": "1rem", "space-lg": "1.75rem", "gutter-desktop": "2rem", "space-sm": "0.5rem", "space-xl": "3rem", "gutter": "1.25rem", "margin-desktop": "2.5rem", "space-md": "1rem" }, "fontFamily": { "micro-badge": [ "Space Mono" ], "label-mono-lg": [ "Space Mono" ], "headline-md": [ "Space Grotesk" ], "headline-lg-mobile": [ "Space Grotesk" ], "body-md": [ "Space Grotesk" ], "label-mono-sm": [ "Space Mono" ], "display-hero-mobile": [ "Space Grotesk" ], "display-hero": [ "Space Grotesk" ], "headline-lg": [ "Space Grotesk" ], "body-lg": [ "Space Grotesk" ] }, "fontSize": { "micro-badge": [ "9px", { "lineHeight": "11px", "letterSpacing": "0.22em", "fontWeight": "700" } ], "label-mono-lg": [ "13px", { "lineHeight": "18px", "letterSpacing": "0.14em", "fontWeight": "400" } ], "headline-md": [ "24px", { "lineHeight": "32px", "letterSpacing": "0.02em", "fontWeight": "500" } ], "headline-lg-mobile": [ "32px", { "lineHeight": "36px", "letterSpacing": "0.02em", "fontWeight": "400" } ], "body-md": [ "14px", { "lineHeight": "22px", "letterSpacing": "0.01em", "fontWeight": "400" } ], "label-mono-sm": [ "10px", { "lineHeight": "14px", "letterSpacing": "0.18em", "fontWeight": "400" } ], "display-hero-mobile": [ "44px", { "lineHeight": "48px", "letterSpacing": "0.05em", "fontWeight": "400" } ], "display-hero": [ "80px", { "lineHeight": "84px", "letterSpacing": "0.08em", "fontWeight": "400" } ], "headline-lg": [ "48px", { "lineHeight": "54px", "letterSpacing": "0.04em", "fontWeight": "400" } ], "body-lg": [ "16px", { "lineHeight": "26px", "letterSpacing": "0.01em", "fontWeight": "400" } ] } } } }</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed"><header class="fixed top-0 w-full z-50 bg-surface/75 backdrop-blur-2xl shadow-[0_1px_8px_rgba(81,32,230,0.04)]"><div class="h-20 w-full px-margin md:px-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-sm group" data-path="explorar-prompts" href="#"><div class="w-9 h-9 rounded-lg bg-primary flex items-center justify-center shadow-[0_4px_16px_rgba(0,0,0,0.12)]"><span class="font-micro-badge text-micro-badge text-on-primary">PB</span></div><div class="flex flex-col"><span class="font-headline-md text-headline-md tracking-tighter text-on-surface leading-none">PromptBase</span><span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">EXP // 2026</span></div></a><div class="hidden xl:flex items-center bg-surface-container-low px-space-md py-space-xs rounded-full gap-space-sm"><span class="material-symbols-outlined text-outline text-[16px]">search</span><span class="font-label-mono-sm text-label-mono-sm text-outline">INPUT QUERY //</span><kbd class="font-micro-badge text-micro-badge bg-surface-container px-1.5 py-0.5 rounded text-on-surface-variant">⌘K</kbd></div></div><nav class="hidden lg:flex items-center gap-space-xs p-space-xs rounded-full bg-surface-container-lowest/60" data-active-classes="bg-surface-container text-on-surface font-bold"><a class="font-body-md text-body-md px-space-md py-space-xs rounded-full text-on-surface-variant hover:text-on-surface transition-colors" data-path="explorar-prompts" href="#">Explorar Prompts</a><a aria-current="page" class="px-space-md py-space-xs rounded-full transition-colors bg-surface-container text-on-surface font-bold" data-path="generador-ia" href="#">Generador IA</a><a class="font-body-md text-body-md px-space-md py-space-xs rounded-full text-on-surface-variant hover:text-on-surface transition-colors" data-path="vender-prompts" href="#">Vender Prompts</a><a class="font-body-md text-body-md px-space-md py-space-xs rounded-full text-on-surface-variant hover:text-on-surface transition-colors" data-path="top-creadores" href="#">Top Creadores</a><a class="font-body-md text-body-md px-space-md py-space-xs rounded-full text-on-surface-variant hover:text-on-surface transition-colors" data-path="mis-compras-biblioteca" href="#">Mis Compras / Biblioteca</a></nav><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center font-label-mono-lg text-label-mono-lg bg-secondary text-on-secondary px-space-lg py-space-sm rounded-full hover:bg-secondary-container hover:text-on-secondary-container transition-all shadow-[0_0_24px_rgba(81,32,230,0.25)]" data-path="vender-prompts" href="#">Vender Prompt</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-140px)]"><div class="flex flex-col w-full">
+<div class="relative w-full overflow-hidden px-margin md:px-margin-desktop py-space-md">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md pb-space-lg">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="inline-flex items-center px-space-sm py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-micro-badge text-micro-badge">
+            SYS_ENV // LAB_04
+          </span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase tracking-wider">
+            QUANTUM SYNAPSE RUNNER v4.2
+          </span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight leading-none">
+          Live Generative Sandbox
+        </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+          Entorno de ejecución y calibración paramétrica en tiempo real. Modula variables latentes sobre motores neuronales de última generación.
+        </p>
+</div>
+<div class="flex items-center gap-space-md self-start md:self-auto bg-surface-container-low px-space-md py-space-sm rounded-xl shadow-sm">
+<div class="flex flex-col">
+<span class="font-label-mono-sm text-label-mono-sm text-outline uppercase">CUPO DISPONIBLE</span>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[18px]">bolt</span>
+<span class="font-headline-md text-headline-md leading-none text-on-surface font-semibold" id="creditCount">148</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">CRÉDITOS</span>
+</div>
+</div>
+<button class="bg-secondary-fixed text-on-secondary-fixed hover:bg-secondary hover:text-on-secondary transition-colors font-micro-badge text-micro-badge px-space-md py-space-xs rounded-full">
+          RECARGAR +
+        </button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-start">
+<div class="lg:col-span-5 xl:col-span-4 flex flex-col gap-space-md bg-surface-container-lowest/80 backdrop-blur-xl p-space-lg rounded-xl shadow-xl">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">tune</span>
+<span class="font-label-mono-lg text-label-mono-lg text-on-surface font-semibold uppercase">Parámetros de Entrada</span>
+</div>
+<button class="font-label-mono-sm text-label-mono-sm text-outline hover:text-secondary transition-colors uppercase" id="resetParamsBtn">
+            [REINICIAR]
+          </button>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase flex justify-between">
+<span>MOTOR NEURONAL</span>
+<span class="text-secondary font-mono">LATENCY: ~1.2s</span>
+</label>
+<div class="grid grid-cols-2 gap-space-xs" id="modelSelector">
+<button class="model-pill active text-left px-space-sm py-space-xs rounded-lg bg-primary text-on-primary transition-all flex items-center justify-between shadow-sm" data-model="mj">
+<span class="font-body-md text-body-md font-medium">Midjourney v6.1</span>
+<span class="font-micro-badge text-micro-badge opacity-75">HQ</span>
+</button>
+<button class="model-pill text-left px-space-sm py-space-xs rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-all flex items-center justify-between" data-model="flux">
+<span class="font-body-md text-body-md font-medium">Flux.1 Schnell</span>
+<span class="font-micro-badge text-micro-badge text-secondary font-bold">PRO</span>
+</button>
+<button class="model-pill text-left px-space-sm py-space-xs rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-all flex items-center justify-between" data-model="dalle">
+<span class="font-body-md text-body-md font-medium">DALL-E 3</span>
+<span class="font-micro-badge text-micro-badge text-outline">RAW</span>
+</button>
+<button class="model-pill text-left px-space-sm py-space-xs rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-all flex items-center justify-between" data-model="sdxl">
+<span class="font-body-md text-body-md font-medium">SDXL Turbo</span>
+<span class="font-micro-badge text-micro-badge text-outline">LORA</span>
+</button>
+<button class="model-pill col-span-2 text-left px-space-sm py-space-xs rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-all flex items-center justify-between" data-model="claude">
+<span class="font-body-md text-body-md font-medium">Claude 3.5 Sonnet (Vision Prompting)</span>
+<span class="font-micro-badge text-micro-badge bg-secondary-fixed text-on-secondary-fixed px-1.5 rounded">HYPER</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">
+              PROMPT PRINCIPAL // SINTAXIS DINÁMICA
+            </label>
+<span class="font-micro-badge text-micro-badge text-outline" id="charCounter">178 CHARS</span>
+</div>
+<div class="flex flex-wrap gap-1.5 py-1">
+<button class="var-tag font-micro-badge text-micro-badge px-space-xs py-0.5 rounded bg-surface-container text-on-surface-variant hover:bg-secondary-fixed hover:text-on-secondary-fixed transition-colors" data-token="{iluminación}">
+              +{iluminación}
+            </button>
+<button class="var-tag font-micro-badge text-micro-badge px-space-xs py-0.5 rounded bg-surface-container text-on-surface-variant hover:bg-secondary-fixed hover:text-on-secondary-fixed transition-colors" data-token="{lente}">
+              +{lente}
+            </button>
+<button class="var-tag font-micro-badge text-micro-badge px-space-xs py-0.5 rounded bg-surface-container text-on-surface-variant hover:bg-secondary-fixed hover:text-on-secondary-fixed transition-colors" data-token="{atmósfera}">
+              +{atmósfera}
+            </button>
+<button class="var-tag font-micro-badge text-micro-badge px-space-xs py-0.5 rounded bg-surface-container text-on-surface-variant hover:bg-secondary-fixed hover:text-on-secondary-fixed transition-colors" data-token="{paleta_color}">
+              +{paleta_color}
+            </button>
+</div>
+<div class="relative bg-surface-container-low rounded-xl p-space-sm focus-within:bg-surface-container-lowest focus-within:shadow-md transition-all">
+<textarea class="w-full bg-transparent text-on-surface font-body-md text-body-md focus:outline-none resize-none leading-relaxed" id="promptInput" placeholder="Describe la estructura visual... Usa {variables} para iteración paramétrica." rows="4">Biomorphic iridescent sculpture floating in liquid helium, crystalline refraction, high-energy particle traces, ethereal titanium hues --ar 16:9 --stylize 750</textarea>
+<div class="flex justify-between items-center pt-space-xs">
+<span class="font-micro-badge text-micro-badge text-secondary font-mono">TOKENS ESTIMADOS: 34</span>
+<button class="flex items-center gap-1 text-secondary hover:text-secondary-container transition-colors font-micro-badge text-micro-badge uppercase" id="enhancePromptBtn">
+<span class="material-symbols-outlined text-[14px]">auto_fix_high</span>
+                Optimizar
+              </button>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">
+            NEGATIVE PROMPT // EXCLUSIONES
+          </label>
+<div class="bg-surface-container-low rounded-xl p-space-sm">
+<input class="w-full bg-transparent text-on-surface font-body-md text-body-md focus:outline-none" id="negativeInput" placeholder="Elementos a omitir..." type="text" value="blurry, distorted anatomy, oversaturated low-res artifacts, plastic texture"/>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">
+            RELACIÓN DE ASPECTO (ASPECT RATIO)
+          </label>
+<div class="grid grid-cols-4 gap-space-xs" id="ratioSelector">
+<button class="ratio-btn py-space-xs px-1 rounded-lg bg-surface-container text-on-surface font-label-mono-sm text-label-mono-sm flex flex-col items-center gap-1 hover:bg-surface-container-high transition-all" data-ratio="1:1">
+<div class="w-3.5 h-3.5 bg-outline-variant rounded-xs"></div>
+<span>1:1</span>
+</button>
+<button class="ratio-btn py-space-xs px-1 rounded-lg bg-primary text-on-primary font-label-mono-sm text-label-mono-sm flex flex-col items-center gap-1 shadow-sm" data-ratio="16:9">
+<div class="w-5 h-3 bg-on-primary rounded-xs"></div>
+<span>16:9</span>
+</button>
+<button class="ratio-btn py-space-xs px-1 rounded-lg bg-surface-container text-on-surface font-label-mono-sm text-label-mono-sm flex flex-col items-center gap-1 hover:bg-surface-container-high transition-all" data-ratio="9:16">
+<div class="w-2.5 h-5 bg-outline-variant rounded-xs"></div>
+<span>9:16</span>
+</button>
+<button class="ratio-btn py-space-xs px-1 rounded-lg bg-surface-container text-on-surface font-label-mono-sm text-label-mono-sm flex flex-col items-center gap-1 hover:bg-surface-container-high transition-all" data-ratio="4:3">
+<div class="w-4 h-3.5 bg-outline-variant rounded-xs"></div>
+<span>4:3</span>
+</button>
+</div>
+</div>
+<div class="space-y-space-md pt-space-xs">
+<div class="space-y-1">
+<div class="flex justify-between items-center">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">STYLIZE</span>
+<span class="font-label-mono-sm text-label-mono-sm font-semibold text-secondary" id="stylizeVal">750</span>
+</div>
+<input class="w-full accent-secondary cursor-pointer bg-surface-container h-1.5 rounded-lg appearance-none" id="stylizeSlider" max="1000" min="0" type="range" value="750"/>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between items-center">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">CHAOS / DIVERGENCIA</span>
+<span class="font-label-mono-sm text-label-mono-sm font-semibold text-secondary" id="chaosVal">18</span>
+</div>
+<input class="w-full accent-secondary cursor-pointer bg-surface-container h-1.5 rounded-lg appearance-none" id="chaosSlider" max="100" min="0" type="range" value="18"/>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="space-y-1">
+<label class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">SEMILLA (SEED)</label>
+<div class="flex items-center bg-surface-container-low rounded-lg px-2 py-1.5">
+<input class="w-full bg-transparent font-label-mono-sm text-label-mono-sm text-on-surface focus:outline-none" id="seedInput" type="text" value="84920481"/>
+<button class="text-outline hover:text-secondary" id="randomSeedBtn" title="Aleatorio">
+<span class="material-symbols-outlined text-[16px]">shuffle</span>
+</button>
+</div>
+</div>
+<div class="space-y-1">
+<label class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">PASOS (STEPS)</label>
+<div class="flex items-center bg-surface-container-low rounded-lg px-2 py-1.5">
+<input class="w-full bg-transparent font-label-mono-sm text-label-mono-sm text-on-surface focus:outline-none" id="stepsInput" max="100" min="10" type="number" value="45"/>
+<span class="font-micro-badge text-micro-badge text-outline">ITER</span>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full mt-space-xs py-space-md px-space-lg rounded-xl bg-gradient-to-r from-secondary via-secondary-container to-secondary text-on-secondary font-label-mono-lg text-label-mono-lg flex items-center justify-center gap-space-sm shadow-xl hover:shadow-2xl hover:scale-[1.01] active:scale-[0.99] transition-all group" id="generateBtn">
+<span class="material-symbols-outlined text-[20px] group-hover:rotate-180 transition-transform">bolt</span>
+<span>GENERAR RENDER (2 CRÉDITOS)</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<div class="lg:col-span-7 xl:col-span-8 flex flex-col gap-space-lg">
+<div class="relative w-full rounded-2xl bg-surface-container-lowest overflow-hidden shadow-2xl flex flex-col">
+<div class="px-space-lg py-space-sm flex items-center justify-between bg-surface-container-low/60 backdrop-blur-md">
+<div class="flex items-center gap-space-md">
+<span class="inline-flex items-center gap-1.5 font-label-mono-sm text-label-mono-sm text-on-surface font-medium uppercase">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+                OUTPUT_VIEWPORT // LIVE_CANVAS
+              </span>
+<span class="hidden sm:inline font-micro-badge text-micro-badge text-outline bg-surface-container px-2 py-0.5 rounded">
+                RESOLUTION 2048 x 1152 PX
+              </span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="p-2 rounded-lg bg-surface-container-lowest text-on-surface hover:text-secondary hover:shadow transition-all" id="copyPromptBtn" title="Copiar Prompt">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+<button class="p-2 rounded-lg bg-surface-container-lowest text-on-surface hover:text-secondary hover:shadow transition-all" id="copySeedBtn" title="Copiar Seed">
+<span class="material-symbols-outlined text-[18px]">tag</span>
+</button>
+<button class="p-2 rounded-lg bg-surface-container-lowest text-on-surface hover:text-secondary hover:shadow transition-all" id="zoomBtn" title="Ampliar Canvas">
+<span class="material-symbols-outlined text-[18px]">zoom_in</span>
+</button>
+<button class="p-2 rounded-lg bg-secondary text-on-secondary hover:bg-secondary-container hover:text-on-secondary-container shadow transition-all" id="downloadBtn" title="Descargar Imagen">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+</div>
+</div>
+<div class="relative w-full aspect-[16/9] min-h-[360px] md:min-h-[460px] bg-surface-container overflow-hidden group flex items-center justify-center">
+<div class="absolute inset-0 bg-surface/80 backdrop-blur-md z-30 flex flex-col items-center justify-center gap-space-md transition-opacity duration-300 opacity-0 pointer-events-none" id="loadingOverlay">
+<div class="w-16 h-16 rounded-full border-2 border-secondary/30 border-t-secondary animate-spin"></div>
+<div class="flex flex-col items-center gap-1">
+<span class="font-headline-md text-headline-md text-on-surface">Calculando tensores latentes...</span>
+<span class="font-label-mono-sm text-label-mono-sm text-secondary font-mono" id="renderProgress">ITERACIÓN: 24 / 45</span>
+</div>
+</div>
+<div class="w-full h-full bg-cover bg-center transition-all duration-700 group-hover:scale-[1.02]" data-alt="A sublime hyper-detailed biomorphic translucent glass sculpture with iridescent highlights floating gracefully in cryogenic liquid helium, volumetric crystal refraction, microscopic particles of light shimmering in deep violet and frosted cyan ambiance, fine architectural precision, 8k cinematic studio photography." id="mainCanvasImg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCM_0Dqrs_NMFjQAVLvNgAeYXhbQKT1YAq047oK3nvH1U3Pu9QAKJHsqpPFnhGi_87yb7ZaOcV6hq8uUthf1uvvy-3_hDfifr81jSEUUY95a7gJF8NpAvBOpyiAq-ZCV-9vD_huA0EI9AbCUH0WC4iCQz-kDtnRZDirKxZuc4qNEJKnyqqCMmGAMWnr93mNrijdwM-Jvvbuet6HGfjy3piFLPT1SYP2rDPrqnvoE5OU')">
+</div>
+<div class="absolute bottom-4 left-4 right-4 z-20 flex flex-wrap items-center justify-between gap-space-sm p-space-md rounded-xl bg-surface-container-lowest/80 backdrop-blur-xl shadow-lg">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Biomorphic iridescent sculpture #084</span>
+<span class="font-micro-badge text-micro-badge text-on-surface-variant uppercase">SEED: 84920481 • CFG: 7.5 • 45 STEPS</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-mono-sm text-label-mono-sm text-outline">TIEMPO COMPUTO: 1.48s</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+</div>
+</div>
+<div class="p-space-lg bg-surface-container-low flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">REGISTRO DE INFERENCIA METADATOS</span>
+<button class="font-micro-badge text-micro-badge text-secondary hover:underline uppercase">EXPORTAR JSON</button>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container font-micro-badge text-micro-badge text-on-surface-variant flex flex-wrap gap-x-space-lg gap-y-1">
+<span>MODEL: MIDJOURNEY_V6.1_PRO</span>
+<span>SAMPLER: EULER_ANCESTRAL</span>
+<span>DENOISE: 1.0</span>
+<span>SCHEDULER: KARRAS</span>
+<span>CLIP_SKIP: 2</span>
+<span>HASH: 8f9b23a</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px]">history</span>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Historial de Pruebas Recientes</h2>
+<span class="font-micro-badge text-micro-badge bg-surface-container px-2 py-0.5 rounded-full text-on-surface-variant">4 SESIONES</span>
+</div>
+<button class="font-label-mono-sm text-label-mono-sm text-outline hover:text-error transition-colors uppercase" id="clearHistoryBtn">
+              BORRAR SESIÓN
+            </button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md" id="historyRibbon">
+<div class="history-item flex flex-col rounded-xl bg-surface-container-lowest overflow-hidden shadow-sm hover:shadow-md transition-all cursor-pointer group">
+<div class="w-full aspect-[4/3] bg-cover bg-center" data-alt="Futuristic kinetic prism emitting rainbow refraction caustics in clean architectural interior, soft ambient purple and ice-blue fog, minimalist Japanese design museum, photorealistic 8k render." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCtdjfcJM0Jl9RN0LBQ5sjxB9EQzCrJu_fIs_Af0xUeEYqy7SWAIlNN34ui0v0CBO3HM5LH0aQ_fOXvAX69BXbEkoVR43Dx3ztNnX3h5IpDRw4vGAwgvj2NieHqWa3tJc99GAPN3-eCcHHDTFyKXknNsFWl2p2de0PR-PA-5UvQISHXD7m5wNbWf6jv-EQpwZZQB4VIjIoFwgr55Cqsrxe-O4nHpj-c5quIdwgssJU-')"></div>
+<div class="p-space-sm flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-micro-badge text-micro-badge text-secondary font-bold">16:9 • MJ 6.1</span>
+<span class="font-micro-badge text-micro-badge text-outline">HACE 2M</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface truncate group-hover:text-secondary transition-colors">
+                  Kinetic prism optical wave refraction...
+                </p>
+<div class="flex items-center justify-between pt-1">
+<span class="font-micro-badge text-micro-badge text-outline">SEED: 394819</span>
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">2 CR</span>
+</div>
+</div>
+</div>
+<div class="history-item flex flex-col rounded-xl bg-surface-container-lowest overflow-hidden shadow-sm hover:shadow-md transition-all cursor-pointer group">
+<div class="w-full aspect-[4/3] bg-cover bg-center" data-alt="Surreal chrome biomechanical blossom emerging from liquid obsidian mirror, ethereal studio lighting, macro depth of field, pastel tones with intense violet accents, editorial cover aesthetics." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBPMLf01uu8hcZZCnjVqSlAucDQpR9_iRzrIQL-H1t-v87Z5R5NBSlwhHqHBRXhHKjNZKvoQyN9YPa4dm0Usv3QxDmyEFHb1HFuEjmw2pdm5RExHBRauh3c3WSysmdOCHhEEA2czGqEZZifcJROE2QX9BzaGv3pcB2wsw8HoUhsgiWJ1DL8oSZXO4_bUXl9QYEW76GU8ZobvGVZImLZNZYhZQxmeR2UeJlFrMGUpLO-')"></div>
+<div class="p-space-sm flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-micro-badge text-micro-badge text-secondary font-bold">1:1 • FLUX.1</span>
+<span class="font-micro-badge text-micro-badge text-outline">HACE 14M</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface truncate group-hover:text-secondary transition-colors">
+                  Chrome biomechanical blossom obsidian...
+                </p>
+<div class="flex items-center justify-between pt-1">
+<span class="font-micro-badge text-micro-badge text-outline">SEED: 991204</span>
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">2 CR</span>
+</div>
+</div>
+</div>
+<div class="history-item flex flex-col rounded-xl bg-surface-container-lowest overflow-hidden shadow-sm hover:shadow-md transition-all cursor-pointer group">
+<div class="w-full aspect-[4/3] bg-cover bg-center" data-alt="Monolithic frosted acrylic tower inside a hyper-clean mist chamber, gentle pastel god-rays filtering through particulate matter, architectural minimalism, award-winning CGI." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCo9pudLbtDtn05OJZ7fpp7rloql0Wp9MSXmdIl40hZvDBhbV8HBGN-4cE30x0mg8HkMOKfNZZQhDN7_02ozgbXuFtS51LJBg2aGAeoRBiu1zTFvrHokVJbbsCsz44z8AO9TTnEOKJ-HWyqsdd1lFp5_Rkql5m3YRVVxPJNLbW8L5PdiSr2ti5COTUeBsDSnGgJZ7CBoWegLI7wvL_lGbLhtaLKwwjawTdopIwF2wtf')"></div>
+<div class="p-space-sm flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-micro-badge text-micro-badge text-secondary font-bold">9:16 • DALL-E 3</span>
+<span class="font-micro-badge text-micro-badge text-outline">HACE 45M</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface truncate group-hover:text-secondary transition-colors">
+                  Monolithic frosted acrylic tower mist...
+                </p>
+<div class="flex items-center justify-between pt-1">
+<span class="font-micro-badge text-micro-badge text-outline">SEED: 120485</span>
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">2 CR</span>
+</div>
+</div>
+</div>
+<div class="history-item flex flex-col rounded-xl bg-surface-container-lowest overflow-hidden shadow-sm hover:shadow-md transition-all cursor-pointer group">
+<div class="w-full aspect-[4/3] bg-cover bg-center" data-alt="Abstract cybernetic fluidity, iridescent latex folds and floating mercury drops in pure white studio environment, diffuse ambient lavender glow, ultra high dynamic range visual art." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAaVfjiTdnBFJVa4kR1mviRf9e__v1L3C7-lsMICGviPGjMndU3jvUtyyKtyvPZeVlWWJl_RdxzqINOWSpMrm5Pg00zEAwxl0DrwAHipdgAM3HKgOlwq53NnI68CgotjN07EsPGrrH1hku0OgrQHx8Ne4CrcUfSW0-QbPCMX0S_Qu_QBjQwlCpsTpp8IkQOcH4Qw-iYE2mo-RBUXfA0wzhj0sk6aEpPznD6wVgYy0B2')"></div>
+<div class="p-space-sm flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-micro-badge text-micro-badge text-secondary font-bold">4:3 • SDXL</span>
+<span class="font-micro-badge text-micro-badge text-outline">HACE 2H</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface truncate group-hover:text-secondary transition-colors">
+                  Cybernetic fluidity iridescent latex...
+                </p>
+<div class="flex items-center justify-between pt-1">
+<span class="font-micro-badge text-micro-badge text-outline">SEED: 772819</span>
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">2 CR</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-space-sm bg-inverse-surface text-inverse-on-surface px-space-md py-space-sm rounded-xl shadow-xl" id="toastNotification">
+<span class="material-symbols-outlined text-secondary-fixed text-[20px]">check_circle</span>
+<span class="font-body-md text-body-md" id="toastMsg">Operación completada con éxito</span>
+</div>
+<script>
+    (function initSandbox() {
+      const promptInput = document.getElementById('promptInput');
+      const charCounter = document.getElementById('charCounter');
+      const stylizeSlider = document.getElementById('stylizeSlider');
+      const stylizeVal = document.getElementById('stylizeVal');
+      const chaosSlider = document.getElementById('chaosSlider');
+      const chaosVal = document.getElementById('chaosVal');
+      const seedInput = document.getElementById('seedInput');
+      const randomSeedBtn = document.getElementById('randomSeedBtn');
+      const generateBtn = document.getElementById('generateBtn');
+      const loadingOverlay = document.getElementById('loadingOverlay');
+      const creditCount = document.getElementById('creditCount');
+      const toastNotification = document.getElementById('toastNotification');
+      const toastMsg = document.getElementById('toastMsg');
+      const copyPromptBtn = document.getElementById('copyPromptBtn');
+      const copySeedBtn = document.getElementById('copySeedBtn');
+      const enhancePromptBtn = document.getElementById('enhancePromptBtn');
+      const resetParamsBtn = document.getElementById('resetParamsBtn');
+
+      function showToast(msg) {
+        if (!toastNotification || !toastMsg) return;
+        toastMsg.textContent = msg;
+        toastNotification.classList.remove('translate-y-20', 'opacity-0');
+        setTimeout(() => {
+          toastNotification.classList.add('translate-y-20', 'opacity-0');
+        }, 2500);
+      }
+
+      if (promptInput && charCounter) {
+        promptInput.addEventListener('input', () => {
+          charCounter.textContent = promptInput.value.length + ' CHARS';
+        });
+      }
+
+      if (stylizeSlider && stylizeVal) {
+        stylizeSlider.addEventListener('input', (e) => {
+          stylizeVal.textContent = e.target.value;
+        });
+      }
+
+      if (chaosSlider && chaosVal) {
+        chaosSlider.addEventListener('input', (e) => {
+          chaosVal.textContent = e.target.value;
+        });
+      }
+
+      if (randomSeedBtn && seedInput) {
+        randomSeedBtn.addEventListener('click', () => {
+          const rand = Math.floor(10000000 + Math.random() * 90000000);
+          seedInput.value = rand;
+          showToast('Nueva semilla generada: ' + rand);
+        });
+      }
+
+      document.querySelectorAll('.var-tag').forEach(tag => {
+        tag.addEventListener('click', () => {
+          const token = tag.getAttribute('data-token');
+          if (promptInput) {
+            promptInput.value = promptInput.value.trim() + ' ' + token;
+            charCounter.textContent = promptInput.value.length + ' CHARS';
+            promptInput.focus();
+          }
+        });
+      });
+
+      document.querySelectorAll('.model-pill').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.model-pill').forEach(b => {
+            b.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+            b.classList.add('bg-surface-container', 'text-on-surface');
+          });
+          btn.classList.remove('bg-surface-container', 'text-on-surface');
+          btn.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+          showToast('Motor seleccionado: ' + btn.querySelector('span').innerText);
+        });
+      });
+
+      document.querySelectorAll('.ratio-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.ratio-btn').forEach(b => {
+            b.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+            b.classList.add('bg-surface-container', 'text-on-surface');
+            const iconBox = b.querySelector('div');
+            if (iconBox) iconBox.classList.replace('bg-on-primary', 'bg-outline-variant');
+          });
+          btn.classList.remove('bg-surface-container', 'text-on-surface');
+          btn.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+          const activeBox = btn.querySelector('div');
+          if (activeBox) activeBox.classList.replace('bg-outline-variant', 'bg-on-primary');
+        });
+      });
+
+      if (enhancePromptBtn && promptInput) {
+        enhancePromptBtn.addEventListener('click', () => {
+          const additions = ', cinematic volumetric god rays, octane render 8k, crystalline refraction index 1.54, masterpiece';
+          if (!promptInput.value.includes('cinematic')) {
+            promptInput.value += additions;
+            charCounter.textContent = promptInput.value.length + ' CHARS';
+            showToast('Prompt optimizado con directivas de render hiperrealista.');
+          } else {
+            showToast('El prompt ya contiene sufijos optimizados.');
+          }
+        });
+      }
+
+      if (resetParamsBtn) {
+        resetParamsBtn.addEventListener('click', () => {
+          if (stylizeSlider) { stylizeSlider.value = 500; stylizeVal.textContent = '500'; }
+          if (chaosSlider) { chaosSlider.value = 0; chaosVal.textContent = '0'; }
+          if (seedInput) seedInput.value = '12345678';
+          showToast('Parámetros restablecidos a valores por defecto.');
+        });
+      }
+
+      if (copyPromptBtn && promptInput) {
+        copyPromptBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText(promptInput.value).then(() => {
+            showToast('Prompt copiado al portapapeles.');
+          }).catch(() => {
+            showToast('Prompt copiado.');
+          });
+        });
+      }
+
+      if (copySeedBtn && seedInput) {
+        copySeedBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText(seedInput.value).then(() => {
+            showToast('Semilla ' + seedInput.value + ' copiada.');
+          }).catch(() => {
+            showToast('Semilla copiada.');
+          });
+        });
+      }
+
+      if (generateBtn && loadingOverlay && creditCount) {
+        generateBtn.addEventListener('click', () => {
+          let curCredits = parseInt(creditCount.textContent, 10);
+          if (curCredits < 2) {
+            showToast('Créditos insuficientes. Por favor recarga saldo.');
+            return;
+          }
+
+          creditCount.textContent = (curCredits - 2).toString();
+          loadingOverlay.classList.remove('opacity-0', 'pointer-events-none');
+          loadingOverlay.classList.add('opacity-100');
+
+          let step = 0;
+          const progressLabel = document.getElementById('renderProgress');
+          const interval = setInterval(() => {
+            step += 9;
+            if (progressLabel) progressLabel.textContent = 'ITERACIÓN: ' + Math.min(step, 45) + ' / 45';
+            if (step >= 45) {
+              clearInterval(interval);
+              setTimeout(() => {
+                loadingOverlay.classList.remove('opacity-100');
+                loadingOverlay.classList.add('opacity-0', 'pointer-events-none');
+                showToast('Render finalizado con éxito (-2 créditos).');
+              }, 400);
+            }
+          }, 250);
+        });
+      }
+
+      document.querySelectorAll('.history-item').forEach(card => {
+        card.addEventListener('click', () => {
+          const title = card.querySelector('p')?.innerText || '';
+          showToast('Cargando snapshot anterior: ' + title);
+        });
+      });
+
+      const clearHistoryBtn = document.getElementById('clearHistoryBtn');
+      if (clearHistoryBtn) {
+        clearHistoryBtn.addEventListener('click', () => {
+          const ribbon = document.getElementById('historyRibbon');
+          if (ribbon) {
+            ribbon.innerHTML = '<div class="col-span-full py-8 text-center font-label-mono-sm text-outline uppercase">Historial temporal limpiado para esta sesión.</div>';
+            showToast('Historial temporal vaciado.');
+          }
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-low"><div class="w-full px-margin md:px-margin-desktop py-space-xl flex flex-col gap-space-lg"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><span class="font-headline-md text-headline-md tracking-tighter text-on-surface">PROMPTBASE</span><span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">ETHEREAL HYPERGALLERY // SYS_NODE</span></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">SFX: AMBIENT LIVE</span></div><span class="font-label-mono-sm text-label-mono-sm text-outline">INDEX 0.84 // KŌBŌ</span></div></div><div class="flex flex-wrap items-center justify-between gap-space-md pt-space-md"><div class="flex flex-wrap items-center gap-space-lg"><a class="font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-on-surface uppercase transition-colors" data-path="explorar-prompts" href="#">Explorar</a><a class="font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-on-surface uppercase transition-colors" data-path="generador-ia" href="#">Laboratorio</a><a class="font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-on-surface uppercase transition-colors" data-path="top-creadores" href="#">Curaduría</a><a class="font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-on-surface uppercase transition-colors" href="#">Protocolo API</a><a class="font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-on-surface uppercase transition-colors" href="#">Términos</a></div><span class="font-label-mono-sm text-label-mono-sm text-outline">© 2026 PROMPTBASE INC. TOKYO // SAN FRANCISCO. ALL RIGHTS RESERVED.</span></div></div></footer></body></html>

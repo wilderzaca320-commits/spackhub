@@ -1,0 +1,499 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-error-container":"#93000a","on-primary-fixed-variant":"#45474b","on-secondary":"#ffffff","primary-fixed-dim":"#c6c6cc","background":"#fcf8ff","primary":"#000000","tertiary-container":"#40000f","inverse-surface":"#2f2e46","surface-bright":"#fcf8ff","surface":"#fcf8ff","surface-variant":"#e3dfff","on-secondary-fixed":"#1b0063","on-surface-variant":"#45474b","inverse-on-surface":"#f2eeff","secondary-fixed":"#e5deff","surface-container-low":"#f6f2ff","secondary-container":"#6a45fe","on-tertiary-container":"#ef4162","on-surface":"#1a1930","primary-container":"#1a1c20","outline":"#76777b","on-secondary-container":"#efe9ff","on-tertiary-fixed-variant":"#91002d","tertiary-fixed-dim":"#ffb2b8","error-container":"#ffdad6","surface-tint":"#5d5e63","surface-container-high":"#e9e5ff","on-error":"#ffffff","on-background":"#1a1930","secondary":"#5120e6","surface-container-highest":"#e3dfff","surface-container-lowest":"#ffffff","on-primary":"#ffffff","on-tertiary-fixed":"#40000f","error":"#ba1a1a","surface-container":"#efebff","on-primary-container":"#828489","outline-variant":"#c6c6cb","primary-fixed":"#e2e2e8","tertiary-fixed":"#ffdadb","on-primary-fixed":"#1a1c20","inverse-primary":"#c6c6cc","tertiary":"#000000","secondary-fixed-dim":"#c9beff","on-secondary-fixed-variant":"#4500d8","on-tertiary":"#ffffff","surface-dim":"#dad7f7"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xl":"3rem","gutter":"1.25rem","space-lg":"1.75rem","margin-desktop":"2.5rem","space-md":"1rem","margin":"1rem","space-xs":"0.25rem","gutter-desktop":"2rem","space-sm":"0.5rem"},"fontFamily":{"display-hero":["Space Grotesk"],"display-hero-mobile":["Space Grotesk"],"body-md":["Space Grotesk"],"micro-badge":["Space Mono"],"label-mono-lg":["Space Mono"],"headline-lg-mobile":["Space Grotesk"],"body-lg":["Space Grotesk"],"label-mono-sm":["Space Mono"],"headline-md":["Space Grotesk"],"headline-lg":["Space Grotesk"]},"fontSize":{"display-hero":["80px",{"lineHeight":"84px","letterSpacing":"0.08em","fontWeight":"400"}],"display-hero-mobile":["44px",{"lineHeight":"48px","letterSpacing":"0.05em","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"22px","letterSpacing":"0.01em","fontWeight":"400"}],"micro-badge":["9px",{"lineHeight":"11px","letterSpacing":"0.22em","fontWeight":"700"}],"label-mono-lg":["13px",{"lineHeight":"18px","letterSpacing":"0.14em","fontWeight":"400"}],"headline-lg-mobile":["32px",{"lineHeight":"36px","letterSpacing":"0.02em","fontWeight":"400"}],"body-lg":["16px",{"lineHeight":"26px","letterSpacing":"0.01em","fontWeight":"400"}],"label-mono-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.18em","fontWeight":"400"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-lg":["48px",{"lineHeight":"54px","letterSpacing":"0.04em","fontWeight":"400"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/75 backdrop-blur-2xl shadow-[0_1px_8px_rgba(107,70,255,0.06)]"><div class="h-20 w-full px-margin-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md shrink-0"><a class="flex items-center gap-space-sm group" data-path="explorar-prompts" href="#"><div class="w-9 h-9 rounded bg-primary text-on-primary flex items-center justify-center font-display-hero font-bold text-headline-md tracking-tighter">PB</div><div class="flex flex-col"><span class="font-headline-md text-headline-md leading-none tracking-tight text-on-surface">PROMPTBASE</span><span class="font-micro-badge text-micro-badge text-on-surface-variant uppercase tracking-widest">ETHEREAL LAB</span></div></a><div class="flex items-center gap-space-xs"><span class="px-space-xs py-0.5 rounded-full bg-surface-container-high text-on-surface font-micro-badge text-micro-badge uppercase">FD.EXP</span><span class="px-space-xs py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-micro-badge text-micro-badge uppercase">KŌBŌ v2.6</span></div></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-surface-container-high text-on-surface font-headline-md"><a class="px-space-sm py-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-body-md text-body-md" data-path="explorar-prompts" href="#">Explorar Prompts</a><a class="px-space-sm py-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-body-md text-body-md" data-path="generador-ia" href="#">Generador IA</a><a class="px-space-sm py-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-body-md text-body-md" data-path="encargos" href="#">Encargos</a><a class="px-space-sm py-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-body-md text-body-md" data-path="vender-prompts" href="#">Vender Prompts</a><a class="px-space-sm py-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-body-md text-body-md" data-path="mis-compras-libreria" href="#">Mis Compras/Librería</a><a aria-current="page" class="px-space-sm py-1.5 rounded transition-all bg-surface-container-high text-on-surface font-headline-md" data-path="panel-creador" href="#">Panel Creador</a><a class="px-space-sm py-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-body-md text-body-md" data-path="panel-empresa" href="#">Panel Empresa</a></nav><div class="flex items-center gap-space-sm shrink-0"><div class="hidden sm:flex items-center gap-space-xs px-space-sm py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container transition-colors cursor-pointer"><span class="material-symbols-outlined text-[16px]">search</span><span class="font-label-mono-sm text-label-mono-sm">SEARCH PROMPTS</span><span class="px-1.5 py-0.5 rounded bg-surface-container-high font-micro-badge text-micro-badge text-on-surface">⌘K</span></div><div class="flex items-center gap-1.5 px-space-sm py-1.5 rounded-full bg-surface-container text-on-surface"><span class="w-1.5 h-1.5 rounded-full bg-secondary-container animate-pulse"></span><span class="font-label-mono-sm text-label-mono-sm tracking-wider font-bold">148 CRÉDITOS</span></div><a class="hidden md:flex items-center justify-center px-space-md py-2 rounded-full bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container transition-all font-label-mono-lg text-label-mono-lg font-bold tracking-wider uppercase" data-path="vender-prompts" href="#">Vender Prompts</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-200px)]"><div class="flex flex-col w-full">
+<!-- Subtle Ambient Glow Orbs -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-32 left-1/4 w-96 h-96 bg-secondary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute top-48 right-10 w-80 h-80 bg-surface-variant/40 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Sub-Header / HUD Controller -->
+<section class="w-full px-margin-desktop pt-space-md pb-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-micro-badge text-micro-badge uppercase">TERMINAL // KŌBŌ-CR</span>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container-high text-on-surface font-micro-badge text-micro-badge uppercase">REV 4.9.2</span>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-mono-sm text-label-mono-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container animate-pulse"></span>
+            SYS: SYNCED
+          </div>
+</div>
+<div class="flex items-baseline gap-space-sm">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">STUDIO CONTROL // VENDEDOR</h1>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant tracking-widest hidden lg:inline">NODE://CREATOR_ORL6</span>
+</div>
+</div>
+<!-- Quick Switcher Bar -->
+<div class="flex flex-wrap items-center gap-space-sm bg-surface-container-low/80 backdrop-blur-xl p-1.5 rounded-full shadow-sm">
+<div class="flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-surface-container-highest text-on-surface font-label-mono-sm text-label-mono-sm shadow-sm">
+<span class="material-symbols-outlined text-[15px] text-secondary">verified</span>
+<span class="font-bold">ROL: CREADOR / VENDEDOR</span>
+</div>
+<button class="flex items-center gap-space-xs px-space-md py-1.5 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-label-mono-sm text-label-mono-sm" id="toggleBuyerBtn">
+<span class="material-symbols-outlined text-[15px]">swap_horiz</span>
+<span class="">CAMBIAR A MODO COMPRADOR</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container transition-all font-label-mono-sm text-label-mono-sm uppercase font-bold">
+<span class="material-symbols-outlined text-[14px]">add</span>
+<span class="">PUBLICAR PROMPT</span>
+</button>
+</div>
+</section>
+<!-- Main Dynamic Content Grid -->
+<div class="w-full px-margin-desktop pb-space-xl flex flex-col gap-space-lg">
+<!-- Financial Metrics Quartet -->
+<section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-gutter-desktop">
+<!-- Metric 1: Total Revenue -->
+<div class="flex flex-col justify-between p-space-lg rounded-xl bg-surface-container-lowest/80 backdrop-blur-xl shadow-md transition-all hover:shadow-xl hover:-translate-y-0.5 group">
+<div class="flex items-center justify-between pb-space-sm">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase tracking-wider">INGRESOS TOTALES</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container font-micro-badge text-micro-badge text-on-surface">ACUMULADO</span>
+</div>
+<div class="flex flex-col gap-0.5 my-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-medium">$18,420.50</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">USD BRUTOS GLOBALES</span>
+</div>
+<div class="pt-space-sm flex items-center justify-between">
+<span class="flex items-center gap-1 font-label-mono-sm text-label-mono-sm text-secondary font-bold">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +31.4% vs año ant.
+            </span>
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">LIFETIME</span>
+</div>
+</div>
+<!-- Metric 2: Available Withdrawal -->
+<div class="flex flex-col justify-between p-space-lg rounded-xl bg-surface-container-high/60 backdrop-blur-xl shadow-md transition-all hover:shadow-xl hover:-translate-y-0.5">
+<div class="flex items-center justify-between pb-space-sm">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase tracking-wider">SALDO DISPONIBLE</span>
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-ping"></span>
+</div>
+<div class="flex flex-col gap-0.5 my-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-medium text-secondary">$3,280.00</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">DISPONIBLE PARA RETIRO</span>
+</div>
+<div class="pt-space-sm flex items-center gap-space-xs">
+<button class="w-full flex items-center justify-center gap-space-xs px-space-sm py-2 rounded-full bg-primary text-on-primary font-label-mono-sm text-label-mono-sm font-bold uppercase transition-all hover:bg-secondary" id="withdrawBtn">
+<span class="material-symbols-outlined text-[14px]">account_balance_wallet</span>
+<span class="">RETIRAR (STRIPE/CRYPTO)</span>
+</button>
+</div>
+</div>
+<!-- Metric 3: Monthly Sales -->
+<div class="flex flex-col justify-between p-space-lg rounded-xl bg-surface-container-lowest/80 backdrop-blur-xl shadow-md transition-all hover:shadow-xl hover:-translate-y-0.5">
+<div class="flex items-center justify-between pb-space-sm">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase tracking-wider">VENTAS DEL MES</span>
+<span class="px-space-xs py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-micro-badge text-micro-badge">MARZO</span>
+</div>
+<div class="flex flex-col gap-0.5 my-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-medium">412</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">LICENCIAS TRANSFERIDAS</span>
+</div>
+<div class="pt-space-sm flex items-center justify-between">
+<span class="flex items-center gap-1 font-label-mono-sm text-label-mono-sm text-secondary font-bold">
+<span class="material-symbols-outlined text-[14px]">north_east</span> +24.0% mes
+            </span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">AVG: 13.7/DÍA</span>
+</div>
+</div>
+<!-- Metric 4: Approval Rate -->
+<div class="flex flex-col justify-between p-space-lg rounded-xl bg-surface-container-lowest/80 backdrop-blur-xl shadow-md transition-all hover:shadow-xl hover:-translate-y-0.5">
+<div class="flex items-center justify-between pb-space-sm">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase tracking-wider">TASA DE APROBACIÓN</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high font-micro-badge text-micro-badge text-on-surface">QA VERIFIED</span>
+</div>
+<div class="flex flex-col gap-0.5 my-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-medium">98.5%</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">CONTROL CALIDAD &amp; ZERO-PLAGIO</span>
+</div>
+<div class="pt-space-sm flex items-center justify-between">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant font-bold">66 / 67 ACTIVOS</span>
+<span class="font-micro-badge text-micro-badge text-secondary font-bold">TIER 1 REPUTACIÓN</span>
+</div>
+</div>
+</section>
+<!-- Creator Level Progress Banner -->
+<section class="w-full p-space-lg rounded-xl bg-gradient-to-r from-surface-container-high via-surface-container to-surface-container-low backdrop-blur-2xl shadow-md flex flex-col lg:flex-row items-center justify-between gap-space-lg">
+<div class="flex items-center gap-space-md w-full lg:w-auto">
+<div class="w-14 h-14 rounded-xl bg-primary text-on-primary flex items-center justify-center shadow-lg shrink-0">
+<span class="material-symbols-outlined text-[28px] text-secondary-fixed">diamond</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">NIVEL DIAMANTE (ELITE CREATOR)</span>
+<span class="px-space-xs py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-micro-badge text-micro-badge">85% COMPLETADO</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Próxima ventaja: Comisión reducida a 15% (ahorro de 5% sobre ventas netas), liquidación T+0 y soporte VIP 24/7 en Discord Kōbō.</p>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs w-full lg:w-80 shrink-0">
+<div class="flex items-center justify-between font-label-mono-sm text-label-mono-sm text-on-surface">
+<span class="">PROGRESO A NIVEL DIAMANTE</span>
+<span class="font-bold">4,250 / 5,000 XP</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-gradient-to-r from-secondary-container to-secondary rounded-full transition-all duration-1000" style="width: 85%;"></div>
+</div>
+<span class="font-micro-badge text-micro-badge text-on-surface-variant text-right">FALTAN 88 VENTAS PARA DIAMANTE</span>
+</div>
+</section>
+<!-- Analytical Bento: Model Performance + Visual Specimen -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-stretch">
+<!-- AI Model Analytics (8 Cols) -->
+<div class="lg:col-span-8 flex flex-col p-space-lg rounded-xl bg-surface-container-lowest/90 backdrop-blur-xl shadow-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs pb-space-md">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">RENDIMIENTO POR MODELO DE IA</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">VENTAS Y VOLUMEN POR MOTOR GENERATIVO ACTIVO</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-xs py-1 rounded bg-surface-container font-label-mono-sm text-label-mono-sm text-on-surface">ÚLTIMOS 30 DÍAS</button>
+<button class="px-space-xs py-1 rounded text-on-surface-variant hover:text-on-surface font-label-mono-sm text-label-mono-sm">TODO</button>
+</div>
+</div>
+<!-- Custom Vector Data Chart -->
+<div class="w-full py-space-sm">
+<div class="grid grid-cols-1 sm:grid-cols-4 gap-space-sm mb-space-md">
+<div class="p-space-sm rounded bg-surface-container-low flex flex-col">
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">FLUX.1 SCHNELL</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">$7,420.00</span>
+<span class="font-label-mono-sm text-label-mono-sm text-secondary">40.3% del total</span>
+</div>
+<div class="p-space-sm rounded bg-surface-container-low flex flex-col">
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">MIDJOURNEY V6</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">$5,680.50</span>
+<span class="font-label-mono-sm text-label-mono-sm text-secondary">30.8% del total</span>
+</div>
+<div class="p-space-sm rounded bg-surface-container-low flex flex-col">
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">CLAUDE 3.5 SONNET</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">$3,180.00</span>
+<span class="font-label-mono-sm text-label-mono-sm text-secondary">17.3% del total</span>
+</div>
+<div class="p-space-sm rounded bg-surface-container-low flex flex-col">
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">STABLE DIFFUSION XL</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">$2,140.00</span>
+<span class="font-label-mono-sm text-label-mono-sm text-secondary">11.6% del total</span>
+</div>
+</div>
+<!-- Inline SVG Histogram & Area Flow -->
+<div class="w-full h-44 flex items-end">
+<svg class="w-full h-full text-secondary" fill="none" preserveAspectRatio="none" viewBox="0 0 700 160" xmlns="http://www.w3.org/2000/svg">
+<!-- Grid hairlines -->
+<line stroke="currentColor" stroke-dasharray="4 4" stroke-opacity="0.08" x1="0" x2="700" y1="40" y2="40"></line>
+<line stroke="currentColor" stroke-dasharray="4 4" stroke-opacity="0.08" x1="0" x2="700" y1="80" y2="80"></line>
+<line stroke="currentColor" stroke-dasharray="4 4" stroke-opacity="0.08" x1="0" x2="700" y1="120" y2="120"></line>
+<!-- Shaded Area -->
+<path d="M0,130 C70,120 140,80 210,65 C280,50 350,90 420,40 C490,-10 560,35 630,20 L700,10 L700,160 L0,160 Z" fill="currentColor" fill-opacity="0.07"></path>
+<!-- Main Trend Line -->
+<path d="M0,130 C70,120 140,80 210,65 C280,50 350,90 420,40 C490,-10 560,35 630,20 L700,10" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Dots -->
+<circle cx="210" cy="65" fill="currentColor" r="4"></circle>
+<circle cx="420" cy="40" fill="currentColor" r="4"></circle>
+<circle cx="630" cy="20" fill="currentColor" r="4"></circle>
+<circle cx="700" cy="10" fill="currentColor" r="4"></circle>
+</svg>
+</div>
+<div class="flex items-center justify-between pt-space-xs font-label-mono-sm text-label-mono-sm text-on-surface-variant">
+<span class="">S1 (DÍA 1-7)</span>
+<span class="">S2 (DÍA 8-14)</span>
+<span class="">S3 (DÍA 15-21)</span>
+<span class="">S4 (ACTUALIDAD)</span>
+</div>
+</div>
+</div>
+<!-- Featured High-Ticket Visual Artifact (4 Cols) -->
+<div class="lg:col-span-4 flex flex-col justify-between p-space-lg rounded-xl bg-surface-container-high/40 backdrop-blur-xl shadow-md relative overflow-hidden group">
+<div class="flex items-center justify-between pb-space-sm z-10">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface uppercase">PROMPT BEST-SELLER #1</span>
+<span class="px-space-xs py-0.5 rounded bg-primary text-on-primary font-micro-badge text-micro-badge">184 VTAS</span>
+</div>
+<div class="my-space-md rounded-lg overflow-hidden shadow-md relative">
+<img class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Futuristic speculative iridescent architecture render in pale violet, misty atmospheric light, ultra polished refractive glass, hyperminimalist high fashion catalog aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArdyY14pUT394DvuMKTy9r4q34IW9qNWupVAuqph1mNfI5pmtXjQlq9QvattwXuzA-r4pBm9v5BfPkq33bYg5HvEu7D-raTz-r1g52YVJEPFHAhQJ_uofOsj-j4jBPrkHT3yQlmisKyLbSmPB2DZEVY8h5EgusIBeab-zIIflAP2g8tbvczDk6LcZq1LvN5G5iekSLd1SsYZyxMDlxeRhyS_4aRBUZBTRKHtMi-6bW">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-2 left-2 right-2 text-on-primary flex items-center justify-between">
+<span class="font-headline-md text-headline-md font-bold leading-tight">CYBER-MINERAL V2</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-lowest/30 backdrop-blur-md font-label-mono-sm text-label-mono-sm">$6.99 USD</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs z-10">
+<div class="flex items-center justify-between font-label-mono-sm text-label-mono-sm text-on-surface-variant">
+<span class="">MOTOR: FLUX.1 D SCHNELL</span>
+<span class="">INGRESOS: $1,286.16</span>
+</div>
+<button class="w-full py-1.5 rounded-full bg-surface-container-highest hover:bg-primary hover:text-on-primary text-on-surface transition-all font-label-mono-sm text-label-mono-sm font-bold uppercase flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]">tune</span>
+<span class="">INSPECCIONAR PROMPT &amp; PARAM</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Commission Requests Section (Direct Hires / Encargos) -->
+<section class="flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary-container"></div>
+<h2 class="font-headline-md text-headline-md text-on-surface">BANDEJA DE ENCARGOS DIRECTOS (COMMISSIONS)</h2>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container font-micro-badge text-micro-badge text-on-surface">2 PENDIENTES</span>
+</div>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">POLÍTICA KŌBŌ: RESPUESTA EN &lt; 24H PARA MANTENER TIER</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter-desktop">
+<!-- Request 1 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest/90 backdrop-blur-xl shadow-md flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center font-bold text-on-surface font-label-mono-sm text-label-mono-sm">AX</div>
+<span class="font-headline-md text-headline-md text-on-surface">Axiom Media Labs</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-micro-badge text-micro-badge uppercase">QUEDAN 08H 12M</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">"Necesitamos un sistema de 15 prompts optimizados para Midjourney v6 y Flux para generación de packaging de cosmética etérea en vidrio irisado transparente con tipografía minimalista suiza."</p>
+</div>
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<div class="flex items-center justify-between bg-surface-container-low p-space-sm rounded">
+<div class="flex flex-col">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">PRESUPUESTO OFRECIDO</span>
+<span class="font-headline-md text-headline-md font-bold text-on-surface">$280.00 USD</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">ENTREGA ESTIMADA</span>
+<span class="font-label-mono-sm text-label-mono-sm font-bold text-on-surface">3 DÍAS HÁBILES</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="flex-1 py-2 rounded-full bg-primary text-on-primary hover:bg-secondary transition-all font-label-mono-sm text-label-mono-sm font-bold uppercase">
+                  ACEPTAR ENCARGO
+                </button>
+<button class="flex-1 py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface transition-all font-label-mono-sm text-label-mono-sm font-bold uppercase">
+                  NEGOCIAR / BRIEF
+                </button>
+</div>
+</div>
+</div>
+<!-- Request 2 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest/90 backdrop-blur-xl shadow-md flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold font-label-mono-sm text-label-mono-sm">VK</div>
+<span class="font-headline-md text-headline-md text-on-surface">Vektor Tokyo Studio</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-micro-badge text-micro-badge uppercase">QUEDAN 19H 40M</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">"Pipeline completo de prompts en Claude 3.5 Sonnet para estructurar guiones técnicos de VFX cinematográficos y especificaciones para renderers hiperrealistas en Unreal Engine 5."</p>
+</div>
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<div class="flex items-center justify-between bg-surface-container-low p-space-sm rounded">
+<div class="flex flex-col">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">PRESUPUESTO OFRECIDO</span>
+<span class="font-headline-md text-headline-md font-bold text-on-surface">$190.00 USD</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">ENTREGA ESTIMADA</span>
+<span class="font-label-mono-sm text-label-mono-sm font-bold text-on-surface">2 DÍAS HÁBILES</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="flex-1 py-2 rounded-full bg-primary text-on-primary hover:bg-secondary transition-all font-label-mono-sm text-label-mono-sm font-bold uppercase">
+                  ACEPTAR ENCARGO
+                </button>
+<button class="flex-1 py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface transition-all font-label-mono-sm text-label-mono-sm font-bold uppercase">
+                  NEGOCIAR / BRIEF
+                </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Prompts Catalog Inventory Table -->
+<section class="flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary">inventory_2</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">GESTIÓN DE CATÁLOGO &amp; LICENCIAS</h2>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">(6 ACTIVOS MOSTRADOS)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<div class="flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container-low font-label-mono-sm text-label-mono-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px]">filter_list</span>
+<span class="">FILTRAR: TODOS</span>
+</div>
+<button class="px-space-sm py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-mono-sm text-label-mono-sm">EXPORTAR CSV</button>
+</div>
+</div>
+<!-- Table Container -->
+<div class="w-full overflow-x-auto rounded-xl bg-surface-container-lowest/90 backdrop-blur-xl shadow-md">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/70 font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">
+<th class="py-space-sm px-space-md">PROMPT / ESPECIMEN</th>
+<th class="py-space-sm px-space-md">MODELO IA</th>
+<th class="py-space-sm px-space-md">ESTADO SISTEMA</th>
+<th class="py-space-sm px-space-md text-right">PRECIO UNITARIO</th>
+<th class="py-space-sm px-space-md text-right">VENTAS</th>
+<th class="py-space-sm px-space-md text-right">INGRESOS</th>
+<th class="py-space-sm px-space-md text-center">ACCIONES</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Item 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<img class="w-11 h-11 rounded-lg object-cover shadow-sm" data-alt="A macro studio shot of translucent acrylic prism refracts iridescent lavender sunlight, luxury product photography, hyper-detailed minimalist lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZEBRmNjZ5PkEikkZYNnVKcDPCYUTvk5QBjDXXu-rpRKwo1_8Lk18HYd2WtuOujJ5gN-lFPqHPSzedu9gSdlTyPivhUWWyt6N94UypoS1BKT0a5SSfX2a_3e5-oYa-8oqKmtzn01aHz5CnFEuawoabWStMsQ7ebXNUCulxDo8Ztt8Y3sg9N74iyUmwYHUThQFJGYiFYn0CoPff7HHMQuJ_ORWX6EAIX3g8icfw9A9G">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-bold text-on-surface">Atmospheric Glass &amp; Prism Core</span>
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">ID: PRM-9021 // v3.2</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md font-label-mono-sm text-label-mono-sm text-on-surface">Flux.1 Schnell</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-micro-badge text-micro-badge">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+                    APROBADO Y ACTIVO
+                  </span>
+</td>
+<td class="py-space-md px-space-md text-right font-label-mono-sm text-label-mono-sm font-bold text-on-surface">$5.99</td>
+<td class="py-space-md px-space-md text-right font-label-mono-sm text-label-mono-sm text-on-surface">142</td>
+<td class="py-space-md px-space-md text-right font-label-mono-sm text-label-mono-sm font-bold text-secondary">$850.58</td>
+<td class="py-space-md px-space-md text-center">
+<div class="flex items-center justify-center gap-space-xs">
+<button class="w-8 h-8 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors" title="Editar Prompt">
+<span class="material-symbols-outlined text-[15px]">edit</span>
+</button>
+<button class="px-space-xs py-1 rounded bg-primary text-on-primary hover:bg-secondary font-micro-badge text-micro-badge uppercase transition-colors" title="Promocionar">
+                      PROMOCIONAR
+                    </button>
+</div>
+</td>
+</tr>
+<!-- Item 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<img class="w-11 h-11 rounded-lg object-cover shadow-sm" data-alt="Futuristic cybernetic avatar portrait with organic porcelain skin and iridescent neon circuit fibers, digital art editorial high fashion" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxs0rjYzO3G6SQ3VzHM7EGUu1Ob30sDgJ8O5rrZ57g4ShkDbBenoKSUAH4sws3yboSChwyu88XtPv0rO48klx4woRPXgaFjeeLnheolIGuIo22HGlIX-C6bWa3oGcZk_PslcLoX-I1HhIA8xM1nbWp169hNpvWfE6m7XugfaO4-tChaqat_DmNalBx-BclOIz_hTV4FEEEVAmzkx2IbTrUhC1GTyNDcCeCIfHqB6-N">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-bold text-on-surface">Porcelain Android High Fashion</span>
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">ID: PRM-8114 // v2.0</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md font-label-mono-sm text-label-mono-sm text-on-surface">Midjourney v6</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-micro-badge text-micro-badge">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+                    APROBADO Y ACTIVO
+                  </span>
+</td>
+<td class="py-space-md px-space-md text-right font-label-mono-sm text-label-mono-sm font-bold text-on-surface">$4.49</td>
+<td class="py-space-md px-space-md text-right font-label-mono-sm text-label-mono-sm text-on-surface">118</td>
+<td class="py-space-md px-space-md text-right font-label-mono-sm text-label-mono-sm font-bold text-secondary">$529.82</td>
+<td class="py-space-md px-space-md text-center">
+<div class="flex items-center justify-center gap-space-xs">
+<button class="w-8 h-8 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors" title="Editar Prompt">
+<span class="material-symbols-outlined text-[15px]">edit</span>
+</button>
+<button class="px-space-xs py-1 rounded bg-surface-container-high hover:bg-surface-variant font-micro-badge text-micro-badge text-on-surface uppercase transition-colors" title="Pausar">
+                      PAUSAR
+                    </button>
+</div>
+</td>
+</tr>
+<!-- Item 3: Under review anti-plagiarism -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-11 h-11 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface-variant font-micro-badge text-micro-badge">TXT</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-bold text-on-surface">Autonomous Marketing Strategist Engine</span>
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">ID: PRM-7703 // v1.0</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md font-label-mono-sm text-label-mono-sm text-on-surface">Claude 3.5 Sonnet</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-micro-badge text-micro-badge">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-ping"></span>
+                    EN REVISIÓN ANTI-PLAGIO
+                  </span>
+</td>
+<td class="py-space-md px-space-md text-right font-label-mono-sm text-label-mono-sm font-bold text-on-surface">$7.49</td>
+<td class="py-space-md px-space-md text-right font-label-mono-sm text-label-mono-sm text-on-surface-variant">--</td>
+<td class="py-space-md px-space-md text-right font-label-mono-sm text-label-mono-sm font-bold text-on-surface-variant">$0.00</td>
+<td class="py-space-md px-space-md text-center">
+<div class="flex items-center justify-center gap-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">QA HASH 78%</span>
+</div>
+</td>
+</tr>
+<!-- Item 4: Draft -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-11 h-11 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">draft</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-bold text-on-surface">Brutalist Editorial Grid Generator</span>
+<span class="font-micro-badge text-micro-badge text-on-surface-variant">ID: PRM-6599 // BORRADOR</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md font-label-mono-sm text-label-mono-sm text-on-surface">SDXL Lightning</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-full bg-surface-container-high text-on-surface font-micro-badge text-micro-badge">
+                    BORRADOR INCOMPLETO
+                  </span>
+</td>
+<td class="py-space-md px-space-md text-right font-label-mono-sm text-label-mono-sm font-bold text-on-surface">$3.99</td>
+<td class="py-space-md px-space-md text-right font-label-mono-sm text-label-mono-sm text-on-surface-variant">--</td>
+<td class="py-space-md px-space-md text-right font-label-mono-sm text-label-mono-sm font-bold text-on-surface-variant">$0.00</td>
+<td class="py-space-md px-space-md text-center">
+<button class="px-space-sm py-1 rounded bg-primary text-on-primary font-label-mono-sm text-label-mono-sm uppercase font-bold">
+                    COMPLETAR
+                  </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Payout Terminal Banner Modal-Trigger Style -->
+<section class="p-space-lg rounded-xl bg-surface-container-lowest/80 backdrop-blur-xl shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">payments</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface">CANALES DE DISPERSIÓN CONFIGURADOS</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">STRIPE DIRECT CONNECT (PREDETERMINADO) // PAYPAL // ETHEREUM / USDC (ERC-20)</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">RETENCIÓN TRIBUTARIA W-8BEN: APROBADA (0%)</span>
+<button class="px-space-md py-1.5 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-mono-sm text-label-mono-sm font-bold uppercase transition-colors">
+            CONFIGURAR CUENTAS
+          </button>
+</div>
+</section>
+</div>
+</div>
+</div>
+<script>
+  // Simple Micro-Interactions for Studio Mode Switching & Withdrawal Trigger
+  const toggleBuyerBtn = document.getElementById('toggleBuyerBtn');
+  if (toggleBuyerBtn) {
+    toggleBuyerBtn.addEventListener('click', () => {
+      const isConfirmed = confirm('¿Deseas cambiar temporalmente a la interfaz de COMPRADOR (Explorador & Colecciones)?');
+      if (isConfirmed) {
+        window.location.hash = '#explorar-prompts';
+      }
+    });
+  }
+
+  const withdrawBtn = document.getElementById('withdrawBtn');
+  if (withdrawBtn) {
+    withdrawBtn.addEventListener('click', () => {
+      alert('Iniciando proceso de dispersión: $3,280.00 USD serán transferidos a tu cuenta principal Stripe en un plazo estimado de 2-4 horas hábiles.');
+    });
+  }
+</script></main><footer class="w-full bg-surface-container-low mt-space-xl shadow-[0_-1px_12px_rgba(107,70,255,0.03)]"><div class="w-full px-margin-desktop py-space-lg"><div class="grid grid-cols-1 md:grid-cols-4 gap-gutter-desktop items-start pb-space-lg"><div class="flex flex-col gap-space-xs"><div class="flex items-center gap-space-xs"><span class="font-headline-md text-headline-md tracking-tight text-on-surface font-bold">PROMPTBASE</span><span class="px-1.5 py-0.5 rounded bg-surface-container-high font-micro-badge text-micro-badge text-on-surface">KŌBŌ EDITION</span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Hypergallery and curated algorithmic prompt laboratory. Speculative visual architecture, prompt engineering systems, and autonomous creative artifacts.</p></div><div class="flex flex-col gap-space-xs"><span class="font-label-mono-sm text-label-mono-sm text-on-surface uppercase tracking-wider font-bold">ÍNDICE DE SISTEMA</span><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="explorar-prompts" href="#">Explorar Prompts</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="generador-ia" href="#">Generador IA</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="encargos" href="#">Encargos de Diseño</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="vender-prompts" href="#">Vender en Hypergallery</a></div><div class="flex flex-col gap-space-xs"><span class="font-label-mono-sm text-label-mono-sm text-on-surface uppercase tracking-wider font-bold">TERMINALES &amp; ACCESOS</span><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="mis-compras-libreria" href="#">Mis Compras &amp; Librería</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="panel-creador" href="#">Panel de Creador</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="panel-empresa" href="#">Panel Enterprise</a><a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="documentacion-api" href="#">Documentación API // KŌBŌ</a></div><div class="flex flex-col gap-space-xs"><span class="font-label-mono-sm text-label-mono-sm text-on-surface uppercase tracking-wider font-bold">INFRAESTRUCTURA</span><div class="flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container w-fit"><span class="w-2 h-2 rounded-full bg-secondary-container animate-ping"></span><span class="font-label-mono-sm text-label-mono-sm text-on-surface">SYSTEM OPERATIONAL 99.98%</span></div><div class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">LATENCY: 14MS // CLOUD REGION: EU-WEST-KŌBŌ</div><div class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">NODE IDENT: ORL 6QX // PROTOCOL: FD.EXP</div></div></div><div class="pt-space-md flex flex-col sm:flex-row items-center justify-between gap-space-sm bg-surface-container-high/40 rounded px-space-md py-space-sm"><div class="flex items-center gap-space-md"><span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">© 2026 PROMPTBASE LABS INC. ALL RIGHTS RESERVED.</span><span class="font-micro-badge text-micro-badge text-on-surface-variant">SPECULATIVE DESIGN SYSTEM</span></div><div class="flex items-center gap-space-md"><a class="font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="terminos-servicio" href="#">TÉRMINOS</a><a class="font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="privacidad" href="#">PRIVACIDAD</a><a class="font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="seguridad" href="#">SEGURIDAD</a></div></div></div></footer>
+
+</body></html>
