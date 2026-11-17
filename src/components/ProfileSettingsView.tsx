@@ -11,6 +11,7 @@ import {
   Crown,
   ExternalLink,
   KeyRound,
+  Layers,
   Loader2,
   LogOut,
   Mail,
@@ -27,9 +28,9 @@ import {
   Users,
   Wand2,
 } from 'lucide-react';
-import type { NotificationPreferences, ProfileResponse } from '../types';
+import type { ApiPrompt, NotificationPreferences, ProfileResponse, PromptStatus } from '../types';
 import { api } from '../lib/api';
-import { avatarFor, formatDate } from '../lib/adapters';
+import { assetFor, avatarFor, formatDate } from '../lib/adapters';
 import { fileToAvatarDataUrl } from '../lib/imageUpload';
 
 interface ProfileSettingsViewProps {
@@ -105,12 +106,20 @@ const NOTIFICATION_GROUPS: { title: string; detail: string; items: NotificationI
 
 const SECTIONS = [
   { id: 'perfil', label: 'Perfil público', icon: User },
+  { id: 'publicaciones', label: 'Mis publicaciones', icon: Layers },
   { id: 'suscripciones', label: 'Suscripciones', icon: Crown },
   { id: 'creditos', label: 'Créditos', icon: CreditCard },
   { id: 'notificaciones', label: 'Notificaciones', icon: BellRing },
   { id: 'agentes', label: 'Agentes conectados', icon: Plug },
   { id: 'seguridad', label: 'Seguridad', icon: ShieldCheck },
 ];
+
+const PUBLICATION_STATUS: Record<PromptStatus, { label: string; className: string }> = {
+  approved: { label: 'Publicada', className: 'bg-emerald-100 text-emerald-700' },
+  pending: { label: 'En revisión', className: 'bg-amber-100 text-amber-700' },
+  changes: { label: 'Con cambios', className: 'bg-sky-100 text-sky-700' },
+  rejected: { label: 'Rechazada', className: 'bg-rose-100 text-rose-700' },
+};
 
 const AGENTS = [
   { id: 'claude', name: 'Claude', letter: 'C', detail: 'Usá tus fórmulas dentro de Claude con la app de escritorio.' },
@@ -151,6 +160,8 @@ export const ProfileSettingsView: React.FC<ProfileSettingsViewProps> = ({
   const [deleteConfirm, setDeleteConfirm] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const [creatingGroup, setCreatingGroup] = useState(false);
+  const [publications, setPublications] = useState<ApiPrompt[]>([]);
+  const [publicationsLoading, setPublicationsLoading] = useState(true);
 
   const applyProfile = (data: ProfileResponse) => {
     setProfile(data);
@@ -182,6 +193,25 @@ export const ProfileSettingsView: React.FC<ProfileSettingsViewProps> = ({
         if (alive) setLoading(false);
       });
 
+    return () => {
+      alive = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    let alive = true;
+    setPublicationsLoading(true);
+    api.prompts
+      .mine()
+      .then((response) => {
+        if (alive) setPublications(response.items);
+      })
+      .catch(() => {
+        if (alive) setPublications([]);
+      })
+      .finally(() => {
+        if (alive) setPublicationsLoading(false);
+      });
     return () => {
       alive = false;
     };
@@ -385,6 +415,14 @@ export const ProfileSettingsView: React.FC<ProfileSettingsViewProps> = ({
   const { user, subscriptions, balances, avatarKeys } = profile;
   const displayName = user.name || user.email;
   const initial = displayName.charAt(0).toUpperCase();
+  const approvedPublications = publications.filter((item) => item.status === 'approved').length;
+  const pendingPublications = publications.filter(
+    (item) => item.status === 'pending' || item.status === 'changes'
+  ).length;
+  const totalPublicationSales = publications.reduce(
+    (total, item) => total + (item.salesCount || 0),
+    0
+  );
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -661,6 +699,126 @@ export const ProfileSettingsView: React.FC<ProfileSettingsViewProps> = ({
                 </button>
               </div>
             </form>
+          </section>
+
+          {/* Mis publicaciones */}
+          <section id="publicaciones" className="rounded-2xl border border-purple-100 bg-white shadow-xs overflow-hidden scroll-mt-24">
+            <div className="px-5 py-4 border-b border-purple-50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <h2 className="font-space text-lg font-bold text-slate-900">Mis publicaciones</h2>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  Todas las fórmulas que publicaste al vender tus prompts, con su estado y ventas.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => onNavigate('/vender')}
+                className="shrink-0 inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-slate-900 hover:bg-purple-700 text-white text-xs font-semibold transition"
+              >
+                <Wand2 className="w-3.5 h-3.5" /> Vender una fórmula
+              </button>
+            </div>
+
+            <div className="p-5">
+              <div className="grid grid-cols-3 gap-2 mb-4">
+                <div className="rounded-xl border border-purple-100 bg-purple-50/40 px-3 py-2">
+                  <div className="text-[10px] font-mono-code font-bold uppercase tracking-wider text-slate-500">
+                    Publicadas
+                  </div>
+                  <div className="font-space text-xl font-bold text-slate-900">{approvedPublications}</div>
+                </div>
+                <div className="rounded-xl border border-purple-100 bg-amber-50/40 px-3 py-2">
+                  <div className="text-[10px] font-mono-code font-bold uppercase tracking-wider text-slate-500">
+                    En revisión
+                  </div>
+                  <div className="font-space text-xl font-bold text-slate-900">{pendingPublications}</div>
+                </div>
+                <div className="rounded-xl border border-purple-100 bg-emerald-50/40 px-3 py-2">
+                  <div className="text-[10px] font-mono-code font-bold uppercase tracking-wider text-slate-500">
+                    Ventas
+                  </div>
+                  <div className="font-space text-xl font-bold text-slate-900">{totalPublicationSales}</div>
+                </div>
+              </div>
+
+              {publicationsLoading ? (
+                <div className="py-10 flex flex-col items-center gap-2 text-slate-500">
+                  <Loader2 className="w-5 h-5 animate-spin text-purple-600" />
+                  <p className="text-xs">Cargando tus publicaciones…</p>
+                </div>
+              ) : publications.length ? (
+                <div className="space-y-2">
+                  {publications.map((item) => {
+                    const status = PUBLICATION_STATUS[item.status] || PUBLICATION_STATUS.pending;
+                    return (
+                      <div
+                        key={item.id}
+                        className="flex flex-col sm:flex-row sm:items-center gap-3 p-3 rounded-xl border border-purple-100 bg-white hover:border-purple-200 transition"
+                      >
+                        <img
+                          src={assetFor(item.previewImages[0])}
+                          alt={item.title}
+                          className="w-14 h-14 rounded-xl object-cover shrink-0"
+                        />
+                        <div className="min-w-0 flex-1">
+                          <div className="flex flex-wrap items-center gap-2">
+                            <div className="text-sm font-semibold text-slate-900 truncate">
+                              {item.title}
+                            </div>
+                            <span
+                              className={`px-2 py-0.5 rounded text-[9px] font-mono-code font-bold uppercase ${status.className}`}
+                            >
+                              {status.label}
+                            </span>
+                          </div>
+                          <div className="text-[11px] text-slate-500 mt-0.5 truncate">
+                            {item.category} · {item.price} créditos · {item.salesCount} ventas ·{' '}
+                            {formatDate(item.createdAt)}
+                          </div>
+                          {item.status === 'rejected' && item.reviewNote && (
+                            <div className="text-[11px] text-rose-600 mt-1 truncate">
+                              Motivo: {item.reviewNote}
+                            </div>
+                          )}
+                          {item.status === 'changes' && item.reviewNote && (
+                            <div className="text-[11px] text-sky-700 mt-1 truncate">
+                              Cambios pedidos: {item.reviewNote}
+                            </div>
+                          )}
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            onNavigate(item.status === 'approved' ? `/prompt/${item.id}` : '/panel')
+                          }
+                          className="shrink-0 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg border border-purple-200 text-slate-700 hover:bg-purple-50 text-[11px] font-semibold transition"
+                        >
+                          {item.status === 'approved' ? 'Ver fórmula' : 'Ver estado'}
+                          <ExternalLink className="w-3 h-3" />
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="py-10 text-center">
+                  <Layers className="w-8 h-8 text-slate-300 mx-auto mb-2" />
+                  <p className="text-sm font-semibold text-slate-700">
+                    Todavía no publicaste ninguna fórmula
+                  </p>
+                  <p className="text-xs text-slate-500 mt-1">
+                    Vendé tu primer prompt y quedará guardado acá con su estado y ventas.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => onNavigate('/vender')}
+                    className="mt-3 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-900 hover:bg-purple-700 text-white text-xs font-semibold transition"
+                  >
+                    <Wand2 className="w-3.5 h-3.5" /> Vender mi primera fórmula
+                  </button>
+                </div>
+              )}
+            </div>
           </section>
 
           {/* Suscripciones */}
