@@ -271,7 +271,7 @@ export const ProfileSettingsView: React.FC<ProfileSettingsViewProps> = ({
   const copyAgentConfig = async (agent: string) => {
     const config = {
       agente: agent,
-      api: 'http://127.0.0.1:3200/api',
+      api: `${window.location.origin}/api`,
       autenticacion: 'Clave de API personal (Bearer)',
       instrucciones: 'Creá una clave en Empresa → Claves de API y pegala en la configuración del agente.',
     };
