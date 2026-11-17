@@ -28,7 +28,7 @@ npm test                         # tests de integración (base SQLite temporal)
 
 ## Reglas para modificar código
 
-1. **Antes de empezar**: `git pull origin main`. Trabaja en rama `feat/...` o `fix/...` y abre Pull Request (`main` está protegida).
+1. **Antes de empezar**: `git pull origin main`. Con colaboradores, trabaja en rama `feat/...` o `fix/...` y abre Pull Request (`main` está protegida). El propietario puede hacer commit y push directo a `main` (GitHub le permite el bypass).
 2. **Conserva el estilo existente**: TypeScript en frontend, JavaScript en backend. Textos de UI y mensajes de error en **español**.
 3. **Backend**: rutas en `server/routes/` bajo `/api/...`. Valida entradas y devuelve errores en español con el status HTTP adecuado. No expongas secretos al cliente.
 4. **Base de datos**: cualquier cambio de esquema debe ser una migración idempotente en `server/db.js` (no borres datos existentes). No subas `server/data/*.db*`.
