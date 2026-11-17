@@ -8,11 +8,11 @@ Léelo completo antes de tocar código. Este archivo permite que cualquier IA o 
 
 ## Stack y arquitectura
 
-- **Frontend**: React 19 + TypeScript, Vite 8, Tailwind CSS 4, lucide-react, motion. Entrada `src/main.tsx` / `src/App.tsx`.
-- **Backend**: Express 4 en `server/index.js` (CommonJS/Node). Rutas en `server/routes/`, apps por rol en `server/apps/`.
+- **Frontend**: React 19 + TypeScript, Vite 8, Tailwind CSS 4, lucide-react. Entrada `src/main.tsx` / `src/App.tsx`.
+- **Backend**: Express 4 en `server/index.js` (ESM, `"type": "module"`). Rutas en `server/routes/`, apps por rol en `server/apps/`.
 - **Base de datos**: SQLite con `better-sqlite3` (`server/db.js`, `server/seed.js`). Archivo `server/data/sparkhub.db` (local, **no versionar**). Seeds idempotentes al arrancar.
 - **Auth**: JWT en cookie `httpOnly` (`server/auth.js`). Roles: comprador, vendedor, empresario, administrador.
-- **IA**: `@google/genai` (Gemini) opcional. Sin `GEMINI_API_KEY` funciona en modo simulado.
+- **IA**: Gemini por API REST con `fetch` (sin SDK). Sin `GEMINI_API_KEY` funciona en modo simulado; el modelo se configura con `GEMINI_MODEL` (por defecto `gemini-2.0-flash`).
 - **Puerto**: `3000` por defecto (API + app). En desarrollo Vite corre en `5173` con proxy `/api` → `3000`.
 
 ## Comandos
@@ -56,4 +56,5 @@ git push
 
 - `--legacy-peer-deps` es necesario al instalar por conflicto Vite 8 / plugin esbuild.
 - El puerto 3000 es el de este proyecto; 3100 está reservado para CodeExplain.
+- `HOST` (por defecto `127.0.0.1`) permite escuchar en `0.0.0.0` para acceder desde otros equipos de la red local.
 - Seeds y tests son idempotentes; los tests usan DB temporal y no tocan `server/data/`.

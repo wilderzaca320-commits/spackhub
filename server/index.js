@@ -17,6 +17,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const DIST = path.join(ROOT, 'dist');
 const PORT = Number(process.env.PORT) || 3000;
+const HOST = process.env.HOST || '127.0.0.1';
 const PORTADA_URL = process.env.PORTADA_URL || 'http://127.0.0.1:4321/';
 
 const app = express();
@@ -87,7 +88,7 @@ seedDemoData();
 seedCategories();
 seedPromptCategories();
 
-app.listen(PORT, '127.0.0.1', () => {
+app.listen(PORT, HOST, () => {
   console.log('');
   console.log('  Sparkhub');
   console.log(`  App:     http://localhost:${PORT}/`);
