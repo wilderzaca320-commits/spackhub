@@ -15,6 +15,7 @@ import type {
   CreatorProfile,
   Generation,
   HireRequest,
+  NotificationPreferences,
   PaymentRecord,
   ProfileResponse,
   PromptDetailResponse,
@@ -111,8 +112,11 @@ function put<T>(path: string, body?: JsonBody): Promise<T> {
   });
 }
 
-function del<T>(path: string): Promise<T> {
-  return request<T>(path, { method: 'DELETE' });
+function del<T>(path: string, body?: JsonBody): Promise<T> {
+  return request<T>(path, {
+    method: 'DELETE',
+    body: body ? JSON.stringify(body) : undefined,
+  });
 }
 
 export interface AuthResponse {
@@ -301,11 +305,20 @@ export const api = {
     get: () => get<ProfileResponse>('/profile'),
     update: (payload: {
       name?: string;
+      username?: string;
       bio?: string;
       avatarKey?: string;
       company?: string;
       accountType?: 'individual' | 'corporate';
-    }) => patch<{ message: string; user: AuthUser }>('/profile', payload),
+      notificationPrefs?: Partial<NotificationPreferences>;
+    }) =>
+      patch<{
+        message: string;
+        user: AuthUser;
+        notifications: NotificationPreferences;
+      }>('/profile', payload),
+    deleteAccount: (payload: { password: string }) =>
+      del<{ ok: boolean; message: string }>('/profile', payload),
     dashboard: () => get<CreatorDashboard>('/profile/dashboard'),
     withdraw: (payload: { amount: number; method: 'stripe' | 'crypto' }) =>
       post<{ message: string; withdrawal: unknown; stats: CreatorDashboard['stats'] }>(

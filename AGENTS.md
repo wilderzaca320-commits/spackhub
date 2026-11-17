@@ -4,7 +4,7 @@ Léelo completo antes de tocar código. Este archivo permite que cualquier IA o 
 
 ## Qué es este proyecto
 
-**Spackhub** (app: Sparkhub): biblioteca/marketplace de prompts de IA. Frontend React + backend Express con SQLite. Incluye catálogo, compras con créditos, publicación con cola QA, panel admin, perfiles de empresa, generador IA y mensajería.
+**Spackhub** (app: Sparkhub): biblioteca/marketplace de prompts de IA. Frontend React + backend Express con SQLite. Incluye catálogo, compras con créditos, publicación con cola QA, panel admin, perfiles de empresa, perfil/ajustes de usuario (username, notificaciones, eliminación de cuenta), generador IA y mensajería.
 
 ## Stack y arquitectura
 

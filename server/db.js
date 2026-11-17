@@ -280,7 +280,104 @@ ensureColumn('users', 'avatar_key', "TEXT NOT NULL DEFAULT ''");
 ensureColumn('users', 'active_role', "TEXT NOT NULL DEFAULT 'comprador'");
 ensureColumn('users', 'select_since', 'TEXT');
 ensureColumn('users', 'is_select', 'INTEGER NOT NULL DEFAULT 0');
+ensureColumn('users', 'username', "TEXT NOT NULL DEFAULT ''");
+ensureColumn('users', 'notification_prefs', "TEXT NOT NULL DEFAULT '{}'");
 ensureColumn('prompts', 'video_url', "TEXT NOT NULL DEFAULT ''");
+
+/**
+ * El username es único, pero se permite vacío mientras la cuenta no lo define.
+ * Un índice parcial deja convivir varias cuentas sin username.
+ */
+db.exec(
+  "CREATE UNIQUE INDEX IF NOT EXISTS idx_users_username ON users(username) WHERE username <> ''"
+);
+
+/** Preferencias de notificación disponibles y sus valores por defecto. */
+export const NOTIFICATION_DEFAULTS = {
+  new_sales: true,
+  new_favorites: true,
+  new_followers: true,
+  new_messages: true,
+  new_reviews: true,
+  new_replies: true,
+  new_items_following: false,
+  purchase_confirmations: true,
+  review_reminders: true,
+  new_credits: true,
+  abandoned_cart: true,
+  community_digests: false,
+  product_updates: false,
+  select_tips: false,
+  plan_offers: false,
+  item_views: false,
+  item_favorites: true,
+  item_sales: true,
+  item_uses: false,
+  item_downloads: false,
+  account_milestones: true,
+  new_subscribers: true,
+  upload_streak: false,
+  jobs: true,
+  invites: true,
+};
+
+/** Normaliza el JSON guardado: solo claves conocidas y valores booleanos. */
+export function notificationPrefsFrom(value) {
+  let stored = {};
+  if (value) {
+    try {
+      stored = typeof value === 'string' ? JSON.parse(value) : value;
+    } catch {
+      stored = {};
+    }
+  }
+
+  const prefs = { ...NOTIFICATION_DEFAULTS };
+  for (const key of Object.keys(NOTIFICATION_DEFAULTS)) {
+    if (stored && typeof stored[key] === 'boolean') prefs[key] = stored[key];
+  }
+  return prefs;
+}
+
+/** Genera un username válido y libre a partir del correo (migración/registro). */
+export function usernameFromEmail(email, isTaken) {
+  const base =
+    String(email || '')
+      .split('@')[0]
+      .toLowerCase()
+      .replace(/[^a-z0-9._-]/g, '')
+      .replace(/^[._-]+|[._-]+$/g, '')
+      .slice(0, 24) || 'usuario';
+
+  let candidate = base;
+  let suffix = 1;
+  while (isTaken(candidate)) {
+    candidate = `${base.slice(0, 24)}${suffix}`;
+    suffix += 1;
+  }
+  return candidate;
+}
+
+/** Completa el username de cuentas viejas sin tocar las que ya lo tienen. */
+function backfillUsernames() {
+  const pending = db.prepare("SELECT id, email FROM users WHERE username = ''").all();
+  if (!pending.length) return;
+
+  const exists = db.prepare('SELECT 1 FROM users WHERE username = ? COLLATE NOCASE');
+  const update = db.prepare('UPDATE users SET username = ? WHERE id = ?');
+
+  const fill = db.transaction(() => {
+    for (const row of pending) {
+      const username = usernameFromEmail(row.email, (candidate) => Boolean(exists.get(candidate)));
+      update.run(username, row.id);
+    }
+  });
+
+  fill();
+  console.log(`[db] Username generado para ${pending.length} cuenta(s).`);
+}
+
+backfillUsernames();
 
 /** Convierte una fila de `users` en el objeto público que consume el front. */
 /** Roles disponibles para una cuenta, derivados de su tipo y permisos. */
@@ -313,6 +410,7 @@ export function publicUser(row) {
     id: row.id,
     email: row.email,
     name: row.name,
+    username: row.username || '',
     role: row.role,
     accountType: row.account_type,
     company: row.company,
@@ -320,6 +418,7 @@ export function publicUser(row) {
     bio: row.bio,
     plan: row.plan || 'free',
     avatarKey: row.avatar_key || '',
+    notificationPrefs: notificationPrefsFrom(row.notification_prefs),
     activeRole,
     roles,
     homePath: homePathFor({ ...row, active_role: activeRole }),

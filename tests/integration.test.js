@@ -464,6 +464,92 @@ test('empresa: perfil, miembro, API key y retiro mínimo', async () => {
   assert.match(withdraw.data.error, /m[ií]nimo/i);
 });
 
+test('perfil: username único, preferencias y eliminación de cuenta', async () => {
+  const created = await register('perfil.integracion@sparkhub.local', 'Perfil Integración');
+  const cookie = created.cookie;
+  assert.equal(created.data.user.username, 'perfil.integracion');
+
+  const profile = await api('/api/profile', { cookie });
+  assert.equal(profile.status, 200);
+  assert.equal(profile.data.user.username, 'perfil.integracion');
+  assert.equal(typeof profile.data.notifications.new_sales, 'boolean');
+  assert.equal(profile.data.notifications.new_sales, true);
+  assert.equal(profile.data.subscriptions.plan, 'free');
+  assert.equal(profile.data.balances.generationCredits, 100);
+  assert.ok(profile.data.avatarKeys.length > 0);
+  assert.ok(profile.data.notificationKeys.includes('new_sales'));
+
+  const updated = await api('/api/profile', {
+    method: 'PATCH',
+    cookie,
+    body: {
+      username: 'perfil_qa',
+      name: 'Perfil QA',
+      bio: 'Bio de prueba del perfil.',
+      notificationPrefs: { new_sales: false, product_updates: true },
+    },
+  });
+  assert.equal(updated.status, 200, JSON.stringify(updated.data));
+  assert.equal(updated.data.user.username, 'perfil_qa');
+  assert.equal(updated.data.user.name, 'Perfil QA');
+  assert.equal(updated.data.notifications.new_sales, false);
+  assert.equal(updated.data.notifications.product_updates, true);
+
+  const duplicate = await api('/api/profile', {
+    method: 'PATCH',
+    cookie,
+    body: { username: 'integracion' },
+  });
+  assert.equal(duplicate.status, 409);
+  assert.match(duplicate.data.error, /uso/i);
+
+  const invalid = await api('/api/profile', {
+    method: 'PATCH',
+    cookie,
+    body: { username: 'a b' },
+  });
+  assert.equal(invalid.status, 400);
+
+  const invalidPref = await api('/api/profile', {
+    method: 'PATCH',
+    cookie,
+    body: { notificationPrefs: { no_existe: true } },
+  });
+  assert.equal(invalidPref.status, 400);
+
+  // Compra una fórmula para comprobar que la eliminación limpia pedidos y biblioteca.
+  const list = await api('/api/prompts?sort=price_asc&limit=2');
+  const second = list.data.items[1] || list.data.items[0];
+  const purchase = await api(`/api/prompts/${second.id}/purchase`, {
+    method: 'POST',
+    cookie,
+  });
+  assert.equal(purchase.status, 201, JSON.stringify(purchase.data));
+
+  const wrong = await api('/api/profile', {
+    method: 'DELETE',
+    cookie,
+    body: { password: 'incorrecta' },
+  });
+  assert.equal(wrong.status, 401);
+
+  const removed = await api('/api/profile', {
+    method: 'DELETE',
+    cookie,
+    body: { password: PASSWORD },
+  });
+  assert.equal(removed.status, 200, JSON.stringify(removed.data));
+
+  const after = await api('/api/auth/me', { cookie });
+  assert.equal(after.status, 401);
+
+  const reLogin = await api('/api/auth/login', {
+    method: 'POST',
+    body: { email: 'perfil.integracion@sparkhub.local', password: PASSWORD },
+  });
+  assert.equal(reLogin.status, 401);
+});
+
 test('errores de la API siempre en español', async () => {
   const missing = await api('/api/ruta-inexistente');
   assert.equal(missing.status, 404);

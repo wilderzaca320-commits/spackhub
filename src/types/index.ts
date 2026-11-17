@@ -20,10 +20,39 @@ export type PromptCategory =
   | 'Ilustración'
   | 'Moda & Arquitectura';
 
+export interface NotificationPreferences {
+  new_sales: boolean;
+  new_favorites: boolean;
+  new_followers: boolean;
+  new_messages: boolean;
+  new_reviews: boolean;
+  new_replies: boolean;
+  new_items_following: boolean;
+  purchase_confirmations: boolean;
+  review_reminders: boolean;
+  new_credits: boolean;
+  abandoned_cart: boolean;
+  community_digests: boolean;
+  product_updates: boolean;
+  select_tips: boolean;
+  plan_offers: boolean;
+  item_views: boolean;
+  item_favorites: boolean;
+  item_sales: boolean;
+  item_uses: boolean;
+  item_downloads: boolean;
+  account_milestones: boolean;
+  new_subscribers: boolean;
+  upload_streak: boolean;
+  jobs: boolean;
+  invites: boolean;
+}
+
 export interface AuthUser {
   id: number;
   email: string;
   name: string;
+  username?: string;
   role: UserRole;
   accountType: 'individual' | 'corporate';
   company: string;
@@ -31,6 +60,7 @@ export interface AuthUser {
   bio: string;
   plan: string;
   avatarKey: string;
+  notificationPrefs?: NotificationPreferences;
   activeRole?: 'comprador' | 'vendedor' | 'empresario' | 'administrador';
   roles?: string[];
   homePath?: string;
@@ -185,6 +215,7 @@ export interface PromptDetailResponse {
 export interface CreatorProfile {
   id: number;
   name: string;
+  username?: string;
   company: string;
   bio: string;
   plan: string;
@@ -444,6 +475,19 @@ export interface ProfileResponse {
     seats: number;
   } | null;
   avatarKeys: string[];
+  notifications: NotificationPreferences;
+  notificationKeys: string[];
+  subscriptions: {
+    plan: string;
+    planName: string;
+    planCredits: number;
+    isSelect: boolean;
+    selectSince: string | null;
+  };
+  balances: {
+    generationCredits: number;
+    selectDownloads: number;
+  };
 }
 
 export interface CompanyResponse {

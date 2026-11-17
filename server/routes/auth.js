@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import bcrypt from 'bcryptjs';
 import rateLimit from 'express-rate-limit';
-import { db, publicUser, homePathFor, rolesFor } from '../db.js';
+import { db, publicUser, homePathFor, rolesFor, usernameFromEmail } from '../db.js';
 import { requireAuth, issueSession, clearSession } from '../auth.js';
 
 const router = Router();
@@ -60,17 +60,22 @@ router.post('/register', authLimiter, async (req, res, next) => {
 
     const hash = await bcrypt.hash(password, 10);
 
+    // Username único derivado del correo; el usuario puede cambiarlo en su perfil.
+    const usernameTaken = db.prepare('SELECT 1 FROM users WHERE username = ? COLLATE NOCASE');
+    const username = usernameFromEmail(email, (candidate) => Boolean(usernameTaken.get(candidate)));
+
     // 100 créditos de bienvenida + su transacción, todo en una sola operación.
     const createUser = db.transaction(() => {
       const info = db
         .prepare(
-          `INSERT INTO users (email, password_hash, name, role, account_type, company, credits, active_role)
-           VALUES (?, ?, ?, 'user', ?, ?, 100, ?)`
+          `INSERT INTO users (email, password_hash, name, username, role, account_type, company, credits, active_role)
+           VALUES (?, ?, ?, ?, 'user', ?, ?, 100, ?)`
         )
         .run(
           email,
           hash,
           name || email.split('@')[0],
+          username,
           accountType,
           company,
           accountType === 'corporate' ? 'empresario' : 'comprador'

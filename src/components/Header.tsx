@@ -12,6 +12,7 @@ import {
   MessageSquare,
   Plus,
   Search,
+  Settings,
   ShoppingCart,
   Sparkles,
   Store,
@@ -386,7 +387,9 @@ export const Header: React.FC<HeaderProps> = ({
                   <div className="absolute right-0 top-12 w-64 rounded-2xl border border-white/10 bg-[#151022] shadow-2xl shadow-black/50 overflow-hidden">
                     <div className="px-4 py-3 border-b border-white/10">
                       <div className="text-sm font-semibold truncate">{user.name || user.email}</div>
-                      <div className="text-[11px] text-slate-400 truncate">{user.email}</div>
+                      <div className="text-[11px] text-slate-400 truncate">
+                        {user.username ? `@${user.username}` : user.email}
+                      </div>
                       <div className="mt-2 flex items-center justify-between text-xs">
                         <span className="text-slate-400 capitalize">Rol: {role}</span>
                         <button
@@ -401,6 +404,9 @@ export const Header: React.FC<HeaderProps> = ({
                         </button>
                       </div>
                     </div>
+                    <MenuLink to="/ajustes" icon={<Settings className="w-4 h-4" />} onClick={() => setUserMenuOpen(false)}>
+                      Mi perfil y ajustes
+                    </MenuLink>
                     <MenuLink to="/biblioteca" icon={<Library className="w-4 h-4" />} onClick={() => setUserMenuOpen(false)}>
                       Mi biblioteca
                     </MenuLink>

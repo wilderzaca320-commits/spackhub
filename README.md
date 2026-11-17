@@ -131,6 +131,17 @@ interfaz: el admin solo nace desde `.env`.
 - Encargos a creadores (`/api/hires`).
 - Generador de IA con Gemini o mock local; cada generación cuesta 2 créditos.
 
+### Perfil y ajustes del usuario
+
+- Apartado privado en `/ajustes` (también accesible desde `/perfil`) enlazado en el
+  menú del avatar.
+- Perfil público editable: nombre, `@usuario` único, biografía y avatar.
+- Suscripciones (plan actual y Sparkhub Select), saldos de créditos y accesos rápidos.
+- 25 preferencias de notificación agrupadas, guardadas al instante.
+- Agentes conectados (Claude, ChatGPT, Cursor) con configuración copiable y acceso a
+  las claves de API.
+- Cerrar sesión y eliminación definitiva de la cuenta con confirmación por contraseña.
+
 ### Robustez
 
 - Validación de todas las entradas y errores de API **siempre en español**.
@@ -158,7 +169,8 @@ con una base SQLite temporal (`DB_PATH`), y recorre los flujos completos:
 8. Paquete de créditos con tarjeta simulada y tarjeta inválida.
 9. Generador mock (2 créditos) e historial.
 10. Empresa: perfil, miembro, API key y retiro mínimo.
-11. Formato y idioma de los errores de la API.
+11. Perfil: `@usuario` único, preferencias de notificación y eliminación de cuenta.
+12. Formato y idioma de los errores de la API.
 
 No toca la base real: usa un archivo temporal que se borra al terminar.
 
@@ -203,7 +215,8 @@ No toca la base real: usa un archivo temporal que se borra al terminar.
 | POST | `/api/billing/credits` · `/plan` | Comprar créditos o activar plan |
 | POST | `/api/ai/generate` | Generar con Gemini o mock (2 créditos) |
 | GET | `/api/ai/history` | Historial de generaciones |
-| GET/PATCH | `/api/profile` · `/dashboard` | Perfil y métricas del creador |
+| GET/PATCH/DELETE | `/api/profile` | Perfil, preferencias y eliminación de cuenta |
+| GET | `/api/profile/dashboard` | Métricas del creador |
 | POST | `/api/profile/withdraw` | Solicitar retiro |
 | GET/PUT | `/api/company` | Perfil de empresa |
 | GET/POST | `/api/company/members` · `/keys` | Equipo y API keys |

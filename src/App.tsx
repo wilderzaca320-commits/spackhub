@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, useLocation, useNavigate, useParams, Link } from 'react-router-dom';
+import { Routes, Route, useLocation, useNavigate, useParams, Link, Navigate } from 'react-router-dom';
 import { Header } from './components/Header';
 import { ExploreView } from './components/ExploreView';
 import { CategoryView } from './components/CategoryView';
@@ -14,6 +14,7 @@ import { LibraryView } from './components/LibraryView';
 import { EnterpriseView } from './components/EnterpriseView';
 import { AdminQAView } from './components/AdminQAView';
 import { PricingView } from './components/PricingView';
+import { ProfileSettingsView } from './components/ProfileSettingsView';
 import { CreatorProfileView } from './components/CreatorProfileView';
 import { AuthModal } from './components/AuthModal';
 import { CreditsModal } from './components/CreditsModal';
@@ -202,6 +203,13 @@ export default function App() {
     }
   };
 
+  const handleAccountDeleted = async () => {
+    await refresh();
+    navigate('/');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    showToast('Cuenta eliminada', 'Tus datos se borraron definitivamente.', 'info');
+  };
+
   // Atajo Ctrl/Cmd + K para buscar.
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -380,6 +388,29 @@ export default function App() {
                 />
               </RutaPrivada>
             }
+          />
+          <Route
+            path="/ajustes"
+            element={
+              <RutaPrivada
+                onOpenAuth={() => setIsAuthModalOpen(true)}
+                titulo="Mi perfil y ajustes"
+                detalle="Iniciá sesión para editar tu perfil, suscripciones y notificaciones."
+              >
+                <ProfileSettingsView
+                  onShowToast={showToast}
+                  onUserChanged={handleUserChanged}
+                  onLogout={handleLogout}
+                  onOpenCreditsModal={abrirCreditos}
+                  onNavigate={(path) => navigate(path)}
+                  onAccountDeleted={handleAccountDeleted}
+                />
+              </RutaPrivada>
+            }
+          />
+          <Route
+            path="/perfil"
+            element={<Navigate to="/ajustes" replace />}
           />
           <Route
             path="/empresa"
