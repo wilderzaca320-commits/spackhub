@@ -24,6 +24,7 @@ import {
   TriangleAlert,
   Upload,
   User,
+  Users,
   Wand2,
 } from 'lucide-react';
 import type { NotificationPreferences, ProfileResponse } from '../types';
@@ -149,6 +150,7 @@ export const ProfileSettingsView: React.FC<ProfileSettingsViewProps> = ({
   const [deletePassword, setDeletePassword] = useState('');
   const [deleteConfirm, setDeleteConfirm] = useState(false);
   const [deleting, setDeleting] = useState(false);
+  const [creatingGroup, setCreatingGroup] = useState(false);
 
   const applyProfile = (data: ProfileResponse) => {
     setProfile(data);
@@ -222,6 +224,34 @@ export const ProfileSettingsView: React.FC<ProfileSettingsViewProps> = ({
       );
     } finally {
       setSaving(false);
+    }
+  };
+
+  const createGroup = async () => {
+    if (!profile || creatingGroup) return;
+
+    const groupName = (company || name || profile.user.name || '').trim();
+    setCreatingGroup(true);
+    try {
+      const response = await api.company.update({
+        name: groupName.length >= 2 ? groupName : 'Mi grupo',
+        taxId: '',
+        billingEmail: profile.user.email,
+        seats: 5,
+      });
+      const refreshed = await api.profile.get();
+      applyProfile(refreshed);
+      await onUserChanged();
+      onShowToast('Grupo creado', response.message, 'success');
+      onNavigate('/empresa');
+    } catch (error) {
+      onShowToast(
+        'No se pudo crear el grupo',
+        error instanceof Error ? error.message : undefined,
+        'error'
+      );
+    } finally {
+      setCreatingGroup(false);
     }
   };
 
@@ -558,21 +588,64 @@ export const ProfileSettingsView: React.FC<ProfileSettingsViewProps> = ({
                 </div>
               </div>
 
-              {user.accountType === 'corporate' && (
-                <div>
-                  <label htmlFor="profile-company" className={labelClass}>
-                    Empresa
-                  </label>
-                  <input
-                    id="profile-company"
-                    value={company}
-                    onChange={(event) => setCompany(event.target.value)}
-                    maxLength={80}
-                    placeholder="Nombre de tu empresa o estudio"
-                    className={fieldClass}
-                  />
+              <div className="rounded-xl border border-purple-100 bg-purple-50/40 p-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div className="flex items-start gap-3">
+                    <span className="w-10 h-10 shrink-0 rounded-xl bg-white text-purple-700 border border-purple-100 grid place-items-center">
+                      <Users className="w-5 h-5" />
+                    </span>
+                    <div>
+                      <div className="text-sm font-bold text-slate-900">
+                        {user.accountType === 'corporate'
+                          ? 'Mi grupo / empresa'
+                          : 'Creá tu grupo de trabajo'}
+                      </div>
+                      <p className="text-[11px] text-slate-500 mt-0.5 max-w-md">
+                        {user.accountType === 'corporate'
+                          ? 'Gestioná tu equipo, los roles y las claves de API desde Mi Empresa.'
+                          : 'Pasá tu cuenta a empresario para invitar a tu equipo, compartir fórmulas y generar claves de API.'}
+                      </p>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={
+                      user.accountType === 'corporate'
+                        ? () => onNavigate('/empresa')
+                        : createGroup
+                    }
+                    disabled={creatingGroup}
+                    className="shrink-0 inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-purple-700 disabled:opacity-60 text-white text-xs font-semibold transition"
+                  >
+                    {creatingGroup ? (
+                      <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                    ) : (
+                      <Users className="w-3.5 h-3.5" />
+                    )}
+                    {creatingGroup
+                      ? 'Creando grupo…'
+                      : user.accountType === 'corporate'
+                        ? 'Ir a Mi Empresa'
+                        : 'Crear grupo'}
+                  </button>
                 </div>
-              )}
+
+                {user.accountType === 'corporate' && (
+                  <div className="mt-4">
+                    <label htmlFor="profile-company" className={labelClass}>
+                      Empresa
+                    </label>
+                    <input
+                      id="profile-company"
+                      value={company}
+                      onChange={(event) => setCompany(event.target.value)}
+                      maxLength={80}
+                      placeholder="Nombre de tu empresa o estudio"
+                      className={fieldClass}
+                    />
+                  </div>
+                )}
+              </div>
 
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
                 <p className="text-[11px] text-slate-400">
