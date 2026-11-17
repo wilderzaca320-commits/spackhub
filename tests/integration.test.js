@@ -365,6 +365,47 @@ test('publicación, cola QA y aprobación/rechazo del admin', async () => {
   assert.match(rejected.data.prompt.reviewNote, /Falta detalle/);
 });
 
+test('las imágenes propias se aceptan como data URL y se validan', async () => {
+  const png =
+    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=';
+  const base = {
+    title: 'Fórmula con imagen propia',
+    description: 'Descripción de prueba con longitud suficiente para validar imágenes.',
+    fullDescription: 'Fórmula usada para validar la subida de imágenes propias.',
+    model: 'Flux.1 Schnell',
+    category: 'Desarrollo',
+    price: 2,
+    masterPrompt: 'Actuá como experto y resolvé el problema paso a paso con ejemplos claros.',
+    negativePrompt: '',
+    variables: [],
+    tags: ['imagenes'],
+  };
+
+  const created = await api('/api/prompts', {
+    method: 'POST',
+    cookie: userCookie,
+    body: { ...base, previewImages: [png, 'codeTerminal'] },
+  });
+  assert.equal(created.status, 201, JSON.stringify(created.data));
+  assert.deepEqual(created.data.prompt.previewImages, [png, 'codeTerminal']);
+
+  const invalid = await api('/api/prompts', {
+    method: 'POST',
+    cookie: userCookie,
+    body: { ...base, previewImages: ['data:text/html;base64,PHNjcmlwdD4='] },
+  });
+  assert.equal(invalid.status, 400);
+  assert.match(invalid.data.error, /no es válida|tamaño/i);
+
+  const tooMany = await api('/api/prompts', {
+    method: 'POST',
+    cookie: userCookie,
+    body: { ...base, previewImages: Array(7).fill('codeTerminal') },
+  });
+  assert.equal(tooMany.status, 400);
+  assert.match(tooMany.data.error, /6 imágenes/);
+});
+
 test('paquete de créditos con pasarela simulada', async () => {
   const before = await credits(userCookie);
   const purchase = await api('/api/billing/credits', {

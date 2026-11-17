@@ -23,7 +23,7 @@ const PORTADA_URL = process.env.PORTADA_URL || 'http://127.0.0.1:4321/';
 const app = express();
 
 app.disable('x-powered-by');
-app.use(express.json({ limit: '1mb' }));
+app.use(express.json({ limit: '12mb' }));
 app.use(cookieParser());
 
 // Las respuestas de la API nunca se cachean.

@@ -1,9 +1,14 @@
 import { ASSETS } from '../data/assets';
 import type { AIModel, ApiPrompt, CreatorProfile, PromptItem } from '../types';
 
-/** Convierte una clave de imagen del backend en la URL local empaquetada por Vite. */
+/**
+ * Convierte una clave de imagen del backend en la URL local empaquetada por Vite.
+ * Las imágenes subidas por el usuario ya llegan como URL o data URL y se
+ * devuelven tal cual.
+ */
 export function assetFor(key?: string | null, fallback = 'biomorphicSculpture'): string {
   const table = ASSETS as Record<string, string>;
+  if (key && /^(data:image\/|https?:\/\/|\/)/i.test(key)) return key;
   if (key && table[key]) return table[key];
   return table[fallback] || table.biomorphicSculpture;
 }

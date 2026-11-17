@@ -70,6 +70,15 @@ export function serializePrompt(row, user) {
   };
 }
 
+/** Acepta claves locales del catálogo o imágenes subidas como data URL. */
+function isValidPreviewImage(value) {
+  if (PREVIEW_KEYS.includes(value)) return true;
+  if (!value.startsWith('data:image/')) return false;
+  if (!/^data:image\/(png|jpe?g|webp|avif);base64,[a-z0-9+/=]+$/i.test(value)) return false;
+  // Cada imagen subida puede pesar hasta ~1 MB en base64.
+  return value.length <= 1_000_000;
+}
+
 function parseVariables(input) {
   if (input === undefined) return { value: [] };
   if (!Array.isArray(input)) return { error: 'Las variables deben enviarse como una lista.' };
@@ -201,8 +210,13 @@ function validatePromptBody(body) {
   if (previewImages.length < 1) {
     return { error: 'Elegí al menos una imagen de vista previa.' };
   }
-  if (previewImages.some((key) => !PREVIEW_KEYS.includes(key))) {
-    return { error: 'Alguna de las imágenes elegidas no es válida.' };
+  if (previewImages.length > 6) {
+    return { error: 'Podés elegir hasta 6 imágenes de vista previa.' };
+  }
+  if (previewImages.some((key) => !isValidPreviewImage(key))) {
+    return {
+      error: 'Alguna de las imágenes no es válida o supera el tamaño permitido (máx. 1 MB).',
+    };
   }
 
   const tags = Array.isArray(body?.tags)
