@@ -139,7 +139,8 @@ export const SellWizardView: React.FC<SellWizardViewProps> = ({
   const [saving, setSaving] = useState<boolean>(false);
 
   const [model, setModel] = useState<string>('Flux.1 Schnell');
-  const [category, setCategory] = useState<string>('Ilustración');
+  const [categoryId, setCategoryId] = useState<number | null>(null);
+  const [subcategoryId, setSubcategoryId] = useState<number | null>(null);
   const [title, setTitle] = useState<string>('');
   const [description, setDescription] = useState<string>('');
   const [fullDescription, setFullDescription] = useState<string>('');
@@ -159,15 +160,39 @@ export const SellWizardView: React.FC<SellWizardViewProps> = ({
       .catalog()
       .then((response) => {
         setCatalog(response);
-        const categories: string[] = response.categories;
+        const roots = response.tree || [];
         const models: string[] = response.models;
-        setCategory((current) =>
-          categories.includes(current) ? current : categories[0] || current
+        setCategoryId((current) =>
+          roots.some((node) => node.id === current) ? current : roots[0]?.id ?? null
         );
+        setSubcategoryId((current) => {
+          const belongs = roots.some((node) =>
+            node.children.some((child) => child.id === current)
+          );
+          if (belongs) return current;
+          const firstRoot = roots.find((node) => node.id === categoryId) || roots[0];
+          return firstRoot?.children[0]?.id ?? null;
+        });
         setModel((current) => (models.includes(current) ? current : models[0] || current));
       })
       .catch(() => setCatalog(null));
   }, []);
+
+  const selectedCategory = catalog?.tree?.find((node) => node.id === categoryId) || null;
+  const selectedSubcategory =
+    selectedCategory?.children.find((child) => child.id === subcategoryId) || null;
+  const categoryLabel = selectedCategory
+    ? selectedSubcategory
+      ? `${selectedCategory.nombre} · ${selectedSubcategory.nombre}`
+      : selectedCategory.nombre
+    : 'Sin categoría';
+
+  const handleCategoryChange = (value: string) => {
+    const id = Number(value);
+    setCategoryId(id);
+    const root = catalog?.tree?.find((node) => node.id === id);
+    setSubcategoryId(root?.children[0]?.id ?? null);
+  };
 
   const previewKeys = Object.keys(ASSETS);
   const totalPreviewCount = previewImages.length + uploadedImages.length;
@@ -252,6 +277,8 @@ export const SellWizardView: React.FC<SellWizardViewProps> = ({
 
   const validateStep = (target: number): string | null => {
     if (target > 1) {
+      if (!categoryId) return 'Elegí una categoría principal.';
+      if (!subcategoryId) return 'Elegí una subcategoría.';
       if (title.trim().length < 5 || title.trim().length > 100) {
         return 'El título debe tener entre 5 y 100 caracteres.';
       }
@@ -305,7 +332,9 @@ export const SellWizardView: React.FC<SellWizardViewProps> = ({
         description: description.trim(),
         fullDescription: fullDescription.trim() || description.trim(),
         model,
-        category,
+        category: selectedCategory?.nombre || 'Arte',
+        categoryId: categoryId ?? undefined,
+        subcategoryIds: subcategoryId ? [subcategoryId] : [],
         price: Number(price),
         masterPrompt: masterPrompt.trim(),
         negativePrompt: negativePrompt.trim(),
@@ -412,17 +441,36 @@ export const SellWizardView: React.FC<SellWizardViewProps> = ({
               />
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-[11px] font-semibold text-slate-600 mb-1">Categoría</label>
+                <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                  Categoría
+                </label>
                 <select
-                  value={category}
-                  onChange={(event) => setCategory(event.target.value)}
+                  value={categoryId ?? ''}
+                  onChange={(event) => handleCategoryChange(event.target.value)}
                   className="w-full px-3 py-2.5 rounded-xl border border-purple-100 bg-slate-50 text-sm focus:outline-none focus:ring-2 focus:ring-purple-400"
                 >
-                  {(catalog?.categories || [category]).map((item) => (
-                    <option key={item} value={item}>
-                      {item}
+                  {(catalog?.tree || []).map((node) => (
+                    <option key={node.id} value={node.id}>
+                      {node.nombre}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                  Subcategoría
+                </label>
+                <select
+                  value={subcategoryId ?? ''}
+                  onChange={(event) => setSubcategoryId(Number(event.target.value))}
+                  disabled={!selectedCategory?.children.length}
+                  className="w-full px-3 py-2.5 rounded-xl border border-purple-100 bg-slate-50 text-sm focus:outline-none focus:ring-2 focus:ring-purple-400 disabled:opacity-60"
+                >
+                  {(selectedCategory?.children || []).map((child) => (
+                    <option key={child.id} value={child.id}>
+                      {child.nombre}
                     </option>
                   ))}
                 </select>
@@ -693,7 +741,7 @@ export const SellWizardView: React.FC<SellWizardViewProps> = ({
                 <p className="text-[11px] text-slate-500 mt-1">{description}</p>
                 <div className="flex flex-wrap gap-1.5 mt-2">
                   <span className="px-2 py-0.5 rounded bg-purple-50 text-purple-700 text-[10px] font-mono-code">
-                    {category}
+                    {categoryLabel}
                   </span>
                   <span className="px-2 py-0.5 rounded bg-slate-100 text-slate-600 text-[10px] font-mono-code">
                     {model}

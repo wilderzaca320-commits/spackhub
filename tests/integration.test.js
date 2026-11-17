@@ -365,6 +365,64 @@ test('publicación, cola QA y aprobación/rechazo del admin', async () => {
   assert.match(rejected.data.prompt.reviewNote, /Falta detalle/);
 });
 
+test('publicación con categoría del árbol: aparece en Apps y Juegos', async () => {
+  const tree = await api('/api/categories');
+  assert.equal(tree.status, 200);
+  const apps = tree.data.items.find((item) => item.slug === 'apps-juegos');
+  const ui = apps.children.find((child) => child.slug === 'ui-videojuegos');
+  const fotos = tree.data.items.find((item) => item.slug === 'fotos');
+  assert.ok(apps && ui && fotos);
+
+  const base = {
+    title: 'Fórmula de Videojuegos Integración',
+    description: 'Descripción de prueba con longitud suficiente para validar categorías.',
+    fullDescription: 'Fórmula usada para validar la categoría del árbol.',
+    model: 'Flux.1 Schnell',
+    price: 2,
+    masterPrompt: 'Actuá como experto y resolvé el problema paso a paso con ejemplos claros.',
+    negativePrompt: '',
+    variables: [],
+    previewImages: ['codeTerminal'],
+    tags: ['juegos'],
+  };
+
+  const invalid = await api('/api/prompts', {
+    method: 'POST',
+    cookie: userCookie,
+    body: { ...base, categoryId: apps.id, subcategoryIds: [fotos.children[0].id] },
+  });
+  assert.equal(invalid.status, 400);
+  assert.match(invalid.data.error, /subcategoría/i);
+
+  const created = await api('/api/prompts', {
+    method: 'POST',
+    cookie: userCookie,
+    body: { ...base, categoryId: apps.id, subcategoryIds: [ui.id] },
+  });
+  assert.equal(created.status, 201, JSON.stringify(created.data));
+  assert.equal(created.data.prompt.category, 'Apps y Juegos');
+  const promptId = created.data.prompt.id;
+
+  const adminLogin = await api('/api/auth/login', { method: 'POST', body: ADMIN });
+  const approved = await api(`/api/admin/qa/${promptId}/review`, {
+    method: 'POST',
+    cookie: adminLogin.cookie,
+    body: { action: 'approve' },
+  });
+  assert.equal(approved.status, 200);
+
+  const listed = await api('/api/prompts?category=apps-juegos');
+  assert.equal(listed.status, 200);
+  assert.ok(listed.data.items.some((item) => item.id === promptId));
+
+  const subListed = await api('/api/prompts?category=ui-videojuegos');
+  assert.equal(subListed.status, 200);
+  assert.ok(subListed.data.items.some((item) => item.id === promptId));
+
+  const otherCategory = await api('/api/prompts?category=fotos');
+  assert.ok(!otherCategory.data.items.some((item) => item.id === promptId));
+});
+
 test('las imágenes propias se aceptan como data URL y se validan', async () => {
   const png =
     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=';

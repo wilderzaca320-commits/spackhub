@@ -192,8 +192,21 @@ export interface ApiReview {
   authorName: string;
 }
 
+export interface CategoryNode {
+  id: number;
+  slug: string;
+  nombre: string;
+  icono: string;
+  parentId: number | null;
+  orden: number;
+  activa: boolean;
+  count: number;
+  children: CategoryNode[];
+}
+
 export interface CatalogResponse {
   categories: PromptCategory[];
+  tree: CategoryNode[];
   models: AIModel[];
   previewKeys: string[];
 }

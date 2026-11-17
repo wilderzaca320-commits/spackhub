@@ -130,6 +130,8 @@ export interface PromptPayload {
   fullDescription: string;
   model: string;
   category: string;
+  categoryId?: number;
+  subcategoryIds?: number[];
   price: number;
   masterPrompt: string;
   negativePrompt: string;
