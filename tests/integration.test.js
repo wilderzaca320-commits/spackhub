@@ -558,6 +558,32 @@ test('perfil: username único, preferencias y eliminación de cuenta', async () 
   });
   assert.equal(invalidPref.status, 400);
 
+  const avatarPng =
+    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=';
+  const withAvatar = await api('/api/profile', {
+    method: 'PATCH',
+    cookie,
+    body: { avatarKey: avatarPng },
+  });
+  assert.equal(withAvatar.status, 200, JSON.stringify(withAvatar.data));
+  assert.equal(withAvatar.data.user.avatarKey, avatarPng);
+
+  const badAvatar = await api('/api/profile', {
+    method: 'PATCH',
+    cookie,
+    body: { avatarKey: 'data:text/html;base64,PHNjcmlwdD4=' },
+  });
+  assert.equal(badAvatar.status, 400);
+  assert.match(badAvatar.data.error, /avatar/i);
+
+  const clearedAvatar = await api('/api/profile', {
+    method: 'PATCH',
+    cookie,
+    body: { avatarKey: '' },
+  });
+  assert.equal(clearedAvatar.status, 200);
+  assert.equal(clearedAvatar.data.user.avatarKey, '');
+
   // Compra una fórmula para comprobar que la eliminación limpia pedidos y biblioteca.
   const list = await api('/api/prompts?sort=price_asc&limit=2');
   const second = list.data.items[1] || list.data.items[0];

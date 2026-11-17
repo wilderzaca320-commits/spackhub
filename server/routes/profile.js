@@ -7,6 +7,15 @@ import { PREVIEW_KEYS, PROMPT_SELECT, publicPrompt, findPlan } from '../catalog.
 const router = Router();
 
 const USERNAME_RE = /^[a-z0-9][a-z0-9._-]{1,28}[a-z0-9]$/;
+const AVATAR_DATA_URL_RE = /^data:image\/(png|jpe?g|webp|avif);base64,[a-z0-9+/=]+$/i;
+const MAX_AVATAR_DATA_URL_LENGTH = 400_000;
+
+/** Acepta una clave del catálogo o una foto subida como data URL. */
+function isValidAvatar(value) {
+  if (!value) return true;
+  if (PREVIEW_KEYS.includes(value)) return true;
+  return AVATAR_DATA_URL_RE.test(value) && value.length <= MAX_AVATAR_DATA_URL_LENGTH;
+}
 const RESERVED_USERNAMES = new Set([
   'admin',
   'administrador',
@@ -112,8 +121,10 @@ router.patch('/', requireAuth, (req, res) => {
   if (bio !== undefined && bio.length > 400) {
     return res.status(400).json({ error: 'La bio no puede superar 400 caracteres.' });
   }
-  if (avatarKey !== undefined && avatarKey !== '' && !PREVIEW_KEYS.includes(avatarKey)) {
-    return res.status(400).json({ error: 'Ese avatar no es válido.' });
+  if (avatarKey !== undefined && !isValidAvatar(avatarKey)) {
+    return res
+      .status(400)
+      .json({ error: 'Ese avatar no es válido o supera el tamaño permitido.' });
   }
   if (company !== undefined && company.length > 80) {
     return res.status(400).json({ error: 'El nombre de la empresa no puede superar 80 caracteres.' });

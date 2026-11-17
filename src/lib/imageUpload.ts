@@ -11,6 +11,8 @@ export const MAX_PREVIEW_IMAGES = 6;
 export const MAX_UPLOAD_BYTES = 8 * 1024 * 1024;
 /** Tope del data URL final; el backend acepta hasta 1 MB por imagen. */
 const MAX_DATA_URL_LENGTH = 900_000;
+/** Los avatares se guardan más chicos: se muestran en círculos de 80 px. */
+const MAX_AVATAR_DATA_URL_LENGTH = 250_000;
 
 const ACCEPTED_MIME = ['image/jpeg', 'image/png', 'image/webp', 'image/avif'];
 const ACCEPTED_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.webp', '.avif'];
@@ -62,7 +64,10 @@ function render(
  * Convierte un archivo en un data URL optimizado y listo para guardar.
  * Lanza un Error con un mensaje en español si no se puede procesar.
  */
-export async function fileToPreviewDataUrl(file: File): Promise<string> {
+async function convertFile(
+  file: File,
+  { maxSide, maxLength }: { maxSide: number; maxLength: number }
+): Promise<string> {
   if (!isSupportedFile(file)) {
     throw new Error('Formato no compatible. Usá JPG, PNG, WebP o AVIF.');
   }
@@ -72,21 +77,31 @@ export async function fileToPreviewDataUrl(file: File): Promise<string> {
 
   const image = await loadImage(file);
   const attempts = [
-    { maxSide: 1400, quality: 0.82 },
-    { maxSide: 1100, quality: 0.74 },
-    { maxSide: 860, quality: 0.66 },
+    { maxSide, quality: 0.82 },
+    { maxSide: Math.round(maxSide * 0.8), quality: 0.74 },
+    { maxSide: Math.round(maxSide * 0.6), quality: 0.66 },
   ];
 
   for (const attempt of attempts) {
     const dataUrl = render(image, attempt.maxSide, attempt.quality, 'image/webp');
     if (dataUrl.startsWith('data:image/webp')) {
-      if (dataUrl.length <= MAX_DATA_URL_LENGTH) return dataUrl;
+      if (dataUrl.length <= maxLength) return dataUrl;
       continue;
     }
     // Navegadores sin soporte de WebP: probamos JPEG antes de rendirnos.
     const jpeg = render(image, attempt.maxSide, attempt.quality, 'image/jpeg');
-    if (jpeg.length <= MAX_DATA_URL_LENGTH) return jpeg;
+    if (jpeg.length <= maxLength) return jpeg;
   }
 
   throw new Error('La imagen sigue siendo muy pesada. Probá con una más liviana.');
+}
+
+/** Imagen de galería para una fórmula (máx. ~1400 px). */
+export function fileToPreviewDataUrl(file: File): Promise<string> {
+  return convertFile(file, { maxSide: 1400, maxLength: MAX_DATA_URL_LENGTH });
+}
+
+/** Foto de perfil (máx. 320 px, suficiente para el avatar circular). */
+export function fileToAvatarDataUrl(file: File): Promise<string> {
+  return convertFile(file, { maxSide: 320, maxLength: MAX_AVATAR_DATA_URL_LENGTH });
 }

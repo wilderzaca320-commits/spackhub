@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   AtSign,
   BadgeCheck,
@@ -22,12 +22,14 @@ import {
   Sparkles,
   Trash2,
   TriangleAlert,
+  Upload,
   User,
   Wand2,
 } from 'lucide-react';
 import type { NotificationPreferences, ProfileResponse } from '../types';
 import { api } from '../lib/api';
 import { avatarFor, formatDate } from '../lib/adapters';
+import { fileToAvatarDataUrl } from '../lib/imageUpload';
 
 interface ProfileSettingsViewProps {
   onShowToast: (title: string, message?: string, type?: 'success' | 'error' | 'info') => void;
@@ -139,6 +141,8 @@ export const ProfileSettingsView: React.FC<ProfileSettingsViewProps> = ({
   const [bio, setBio] = useState('');
   const [company, setCompany] = useState('');
   const [avatarKey, setAvatarKey] = useState('');
+  const [uploadingAvatar, setUploadingAvatar] = useState(false);
+  const avatarInputRef = useRef<HTMLInputElement | null>(null);
   const [prefs, setPrefs] = useState<NotificationPreferences | null>(null);
 
   const [deleteOpen, setDeleteOpen] = useState(false);
@@ -218,6 +222,27 @@ export const ProfileSettingsView: React.FC<ProfileSettingsViewProps> = ({
       );
     } finally {
       setSaving(false);
+    }
+  };
+
+  const handleAvatarFile = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    event.target.value = '';
+    if (!file || uploadingAvatar) return;
+
+    setUploadingAvatar(true);
+    try {
+      const dataUrl = await fileToAvatarDataUrl(file);
+      setAvatarKey(dataUrl);
+      onShowToast('Avatar listo', 'Guardá los cambios para aplicarlo en tu perfil.', 'success');
+    } catch (error) {
+      onShowToast(
+        'No se pudo usar esa imagen',
+        error instanceof Error ? error.message : undefined,
+        'error'
+      );
+    } finally {
+      setUploadingAvatar(false);
     }
   };
 
@@ -416,7 +441,18 @@ export const ProfileSettingsView: React.FC<ProfileSettingsViewProps> = ({
 
               <div>
                 <span className={labelClass}>Elegí tu avatar</span>
-                <div className="flex gap-2 overflow-x-auto pb-1">
+                <div className="flex items-center gap-2 overflow-x-auto pb-1">
+                  {avatarKey.startsWith('data:image/') && (
+                    <div
+                      className="relative shrink-0 rounded-xl overflow-hidden border-2 border-purple-600 ring-2 ring-purple-100"
+                      title="Tu imagen subida"
+                    >
+                      <img src={avatarKey} alt="Avatar subido" className="w-14 h-14 object-cover" />
+                      <span className="absolute inset-0 bg-purple-700/25 grid place-items-center">
+                        <Check className="w-5 h-5 text-white drop-shadow" />
+                      </span>
+                    </div>
+                  )}
                   {avatarKeys.map((key) => (
                     <button
                       key={key}
@@ -437,7 +473,33 @@ export const ProfileSettingsView: React.FC<ProfileSettingsViewProps> = ({
                       )}
                     </button>
                   ))}
+                  <button
+                    type="button"
+                    onClick={() => avatarInputRef.current?.click()}
+                    disabled={uploadingAvatar}
+                    className="shrink-0 w-14 h-14 rounded-xl border-2 border-dashed border-purple-200 bg-purple-50/60 text-purple-700 hover:bg-purple-100 disabled:opacity-60 transition flex flex-col items-center justify-center gap-0.5"
+                    title="Subir una foto desde tu equipo"
+                  >
+                    {uploadingAvatar ? (
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                    ) : (
+                      <Upload className="w-4 h-4" />
+                    )}
+                    <span className="text-[9px] font-semibold">
+                      {uploadingAvatar ? '...' : 'Subir'}
+                    </span>
+                  </button>
+                  <input
+                    ref={avatarInputRef}
+                    type="file"
+                    accept="image/png,image/jpeg,image/webp,image/avif"
+                    className="hidden"
+                    onChange={handleAvatarFile}
+                  />
                 </div>
+                <p className="text-[11px] text-slate-400 mt-1.5">
+                  Subí una foto propia (JPG, PNG, WebP o AVIF, hasta 8 MB) o elegí una del catálogo.
+                </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
